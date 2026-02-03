@@ -4,18 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, MessageCircle, Send } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, Send, Clock, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     setTimeout(() => {
       toast({
         title: "Message envoyé !",
@@ -29,18 +30,28 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="py-24 bg-muted/30">
-        <div className="container">
+      <section className="relative py-32 bg-hero-premium overflow-hidden">
+        <div className="absolute inset-0 bg-pattern" />
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[100px]" />
+          <div className="absolute bottom-20 right-10 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[80px]" />
+        </div>
+        
+        <div className="container relative z-10">
           <div className="max-w-3xl">
-            <span className="text-accent font-semibold text-sm uppercase tracking-wider">Contact</span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-3 mb-6">
-              Contactez-nous
+            <span className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">
+              {t('contact.label')}
+            </span>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
+              {t('contact.title')}
             </h1>
-            <p className="text-muted-foreground text-xl leading-relaxed">
-              Une question ? Un projet ? Nous sommes là pour vous accompagner.
+            <p className="text-primary-foreground/80 text-xl leading-relaxed">
+              {t('contact.subtitle')}
             </p>
           </div>
         </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Content */}
@@ -50,18 +61,18 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="font-heading text-2xl font-bold mb-6">Informations</h2>
-                <div className="space-y-6">
+                <h2 className="font-heading text-2xl font-bold mb-6">{t('contact.info.title')}</h2>
+                <div className="space-y-4">
                   <a
                     href="mailto:contact@dgsafrica.com"
-                    className="flex items-start gap-4 group"
+                    className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border/50 hover:border-accent/30 hover:shadow-soft transition-all group"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-colors">
                       <Mail className="w-5 h-5 text-accent group-hover:text-accent-foreground transition-colors" />
                     </div>
                     <div>
-                      <p className="font-medium">Email</p>
-                      <p className="text-muted-foreground">contact@dgsafrica.com</p>
+                      <p className="font-semibold">Email</p>
+                      <p className="text-muted-foreground text-sm">contact@dgsafrica.com</p>
                     </div>
                   </a>
 
@@ -69,24 +80,33 @@ const Contact = () => {
                     href="https://wa.me/221775930196"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-4 group"
+                    className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border/50 hover:border-accent/30 hover:shadow-soft transition-all group"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-colors">
                       <Phone className="w-5 h-5 text-accent group-hover:text-accent-foreground transition-colors" />
                     </div>
                     <div>
-                      <p className="font-medium">WhatsApp</p>
-                      <p className="text-muted-foreground">+221 77 593 01 96</p>
+                      <p className="font-semibold">WhatsApp</p>
+                      <p className="text-muted-foreground text-sm">+221 77 593 01 96</p>
                     </div>
                   </a>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <div className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border/50">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-accent" />
                     </div>
                     <div>
-                      <p className="font-medium">Zone</p>
-                      <p className="text-muted-foreground">Sénégal & Afrique</p>
+                      <p className="font-semibold">Zone</p>
+                      <p className="text-muted-foreground text-sm">{t('common.senegal')}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 p-4 bg-accent/10 rounded-xl border border-accent/20">
+                    <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
+                      <Clock className="w-5 h-5 text-accent-foreground" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-accent">{t('contact.info.response')}</p>
                     </div>
                   </div>
                 </div>
@@ -99,7 +119,7 @@ const Contact = () => {
                   rel="noopener noreferrer"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Discuter sur WhatsApp
+                  {t('cta.whatsapp')}
                 </a>
               </Button>
             </div>
@@ -107,55 +127,56 @@ const Contact = () => {
             {/* Form */}
             <div className="lg:col-span-2">
               <div className="bg-card p-8 md:p-10 rounded-2xl shadow-card border border-border/50">
-                <h2 className="font-heading text-2xl font-bold mb-6">Demander un devis</h2>
+                <h2 className="font-heading text-2xl font-bold mb-2">{t('nav.quote')}</h2>
+                <p className="text-muted-foreground mb-8">{t('contact.subtitle')}</p>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Nom complet *</Label>
-                      <Input id="name" name="name" required placeholder="Votre nom" />
+                      <Label htmlFor="name">{t('contact.form.name')} *</Label>
+                      <Input id="name" name="name" required className="h-12" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="company">Société</Label>
-                      <Input id="company" name="company" placeholder="Nom de votre société" />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
-                      <Input id="email" name="email" type="email" required placeholder="votre@email.com" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Téléphone</Label>
-                      <Input id="phone" name="phone" type="tel" placeholder="+221 XX XXX XX XX" />
+                      <Label htmlFor="company">{t('contact.form.company')}</Label>
+                      <Input id="company" name="company" className="h-12" />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="budget">Budget estimé</Label>
-                      <Input id="budget" name="budget" placeholder="Votre budget" />
+                      <Label htmlFor="email">{t('contact.form.email')} *</Label>
+                      <Input id="email" name="email" type="email" required className="h-12" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="deadline">Délai souhaité</Label>
-                      <Input id="deadline" name="deadline" placeholder="Ex: 3 mois" />
+                      <Label htmlFor="phone">{t('contact.form.phone')}</Label>
+                      <Input id="phone" name="phone" type="tel" className="h-12" placeholder="+221 XX XXX XX XX" />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="budget">{t('contact.form.budget')}</Label>
+                      <Input id="budget" name="budget" className="h-12" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="deadline">{t('contact.form.deadline')}</Label>
+                      <Input id="deadline" name="deadline" className="h-12" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="project">Description du projet *</Label>
+                    <Label htmlFor="project">{t('contact.form.project')} *</Label>
                     <Textarea 
                       id="project" 
                       name="project" 
                       required 
                       rows={5}
-                      placeholder="Décrivez votre projet, vos besoins..."
+                      className="resize-none"
                     />
                   </div>
 
-                  <Button type="submit" variant="accent" size="lg" disabled={isSubmitting}>
-                    {isSubmitting ? "Envoi en cours..." : "Envoyer la demande"}
+                  <Button type="submit" variant="accent" size="lg" disabled={isSubmitting} className="w-full md:w-auto shadow-accent">
+                    {isSubmitting ? "..." : t('contact.form.submit')}
                     <Send className="w-5 h-5" />
                   </Button>
                 </form>
