@@ -1,28 +1,54 @@
+import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const partners = [
-  { name: 'Partner 1', logo: 'P1' },
-  { name: 'Partner 2', logo: 'P2' },
-  { name: 'Partner 3', logo: 'P3' },
-  { name: 'Partner 4', logo: 'P4' },
-  { name: 'Partner 5', logo: 'P5' },
-  { name: 'Partner 6', logo: 'P6' },
+  { name: 'Schneider Electric', initials: 'SE' },
+  { name: 'Siemens', initials: 'SI' },
+  { name: 'ABB', initials: 'ABB' },
+  { name: 'Legrand', initials: 'LG' },
+  { name: 'HP', initials: 'HP' },
+  { name: 'Dell', initials: 'DL' },
 ];
 
 const PartnersSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 bg-muted/30 overflow-hidden">
       <div className="container">
-        <div className="flex items-center justify-center gap-12 md:gap-20 flex-wrap opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center text-muted-foreground text-sm font-medium mb-8 uppercase tracking-wider"
+        >
+          {t('partners.title')}
+        </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center justify-center gap-8 md:gap-12 lg:gap-16 flex-wrap"
+        >
           {partners.map((partner, index) => (
-            <div 
+            <motion.div
               key={index}
-              className="flex items-center justify-center w-24 h-12 md:w-32 md:h-16 bg-card rounded-lg shadow-soft border border-border/30 hover:border-accent/30 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              className="flex items-center justify-center w-28 h-14 md:w-36 md:h-16 bg-card rounded-lg shadow-soft border border-border/30 hover:border-accent/30 hover:shadow-card transition-all duration-300 cursor-pointer"
             >
-              <span className="text-xl md:text-2xl font-bold text-muted-foreground/50">
-                {partner.logo}
+              <span className="text-xl md:text-2xl font-bold text-foreground/40 hover:text-accent transition-colors">
+                {partner.initials}
               </span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
