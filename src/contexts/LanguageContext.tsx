@@ -68,6 +68,16 @@ export const translations = {
     'aboutPreview.p2': 'Notre mission est d\'apporter des solutions fiables, conformes et adaptées aux réalités africaines, pour créer et maintenir des environnements de travail optimisés, sûrs et performants.',
     'aboutPreview.cta': 'Découvrir DGS Africa',
     
+    // About Section (Homepage)
+    'about.label': 'Qui sommes-nous',
+    'about.title': 'Votre partenaire de référence en Afrique',
+    'about.description': 'DGS Africa est une entreprise B2B spécialisée dans la fourniture et l\'intégration de solutions industrielles, informatiques et énergétiques en Afrique. Nous créons des environnements de travail optimisés, sûrs et performants.',
+    'about.cta': 'En savoir plus',
+    'about.values.reliability': 'Fiabilité',
+    'about.values.conformity': 'Conformité',
+    'about.values.transparency': 'Transparence',
+    'about.values.engagement': 'Engagement',
+    
     'values.reliability': 'Fiabilité',
     'values.reliability.desc': 'Solutions éprouvées et durables',
     'values.compliance': 'Conformité',
@@ -77,10 +87,15 @@ export const translations = {
     'values.commitment': 'Engagement',
     'values.commitment.desc': 'Accompagnement de A à Z',
     
+    // Partners
+    'partners.title': 'Ils nous font confiance',
+    
     // CTA Section
+    'cta.label': 'Contactez-nous',
     'cta.title': 'Prêt à optimiser vos infrastructures ?',
     'cta.subtitle': 'Contactez-nous pour discuter de votre projet et découvrir comment DGS Africa peut vous accompagner dans la gestion de vos équipements industriels, IT et énergétiques.',
     'cta.button': 'Demander un devis',
+    'cta.whatsapp': 'Discuter sur WhatsApp',
     'cta.whatsapp': 'Discuter sur WhatsApp',
     
     // Footer
