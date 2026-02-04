@@ -68,6 +68,16 @@ export const translations = {
     'aboutPreview.p2': 'Notre mission est d\'apporter des solutions fiables, conformes et adaptées aux réalités africaines, pour créer et maintenir des environnements de travail optimisés, sûrs et performants.',
     'aboutPreview.cta': 'Découvrir DGS Africa',
     
+    // About Section (Homepage)
+    'about.label': 'Qui sommes-nous',
+    'about.title': 'Votre partenaire de référence en Afrique',
+    'about.description': 'DGS Africa est une entreprise B2B spécialisée dans la fourniture et l\'intégration de solutions industrielles, informatiques et énergétiques en Afrique. Nous créons des environnements de travail optimisés, sûrs et performants.',
+    'about.cta': 'En savoir plus',
+    'about.values.reliability': 'Fiabilité',
+    'about.values.conformity': 'Conformité',
+    'about.values.transparency': 'Transparence',
+    'about.values.engagement': 'Engagement',
+    
     'values.reliability': 'Fiabilité',
     'values.reliability.desc': 'Solutions éprouvées et durables',
     'values.compliance': 'Conformité',
@@ -77,7 +87,11 @@ export const translations = {
     'values.commitment': 'Engagement',
     'values.commitment.desc': 'Accompagnement de A à Z',
     
+    // Partners
+    'partners.title': 'Ils nous font confiance',
+    
     // CTA Section
+    'cta.label': 'Contactez-nous',
     'cta.title': 'Prêt à optimiser vos infrastructures ?',
     'cta.subtitle': 'Contactez-nous pour discuter de votre projet et découvrir comment DGS Africa peut vous accompagner dans la gestion de vos équipements industriels, IT et énergétiques.',
     'cta.button': 'Demander un devis',
@@ -97,8 +111,6 @@ export const translations = {
     'footer.cookies': 'Cookies',
     
     // About Page
-    'about.label': 'Qui sommes-nous',
-    'about.title': 'DGS Africa',
     'about.subtitle': 'Votre partenaire de confiance pour le Facility Management en Afrique',
     'about.intro': 'Dynamic Global Services (DGS) est une société spécialisée dans l\'accompagnement des entreprises et organisations pour le développement de leurs activités économiques.',
     'about.experience': '+15 années d\'expérience cumulée',
@@ -207,6 +219,16 @@ export const translations = {
     'aboutPreview.p2': 'Our mission is to provide reliable, compliant solutions adapted to African realities, to create and maintain optimized, safe and efficient work environments.',
     'aboutPreview.cta': 'Discover DGS Africa',
     
+    // About Section (Homepage)
+    'about.label': 'About us',
+    'about.title': 'Your reference partner in Africa',
+    'about.description': 'DGS Africa is a B2B company specializing in the supply and integration of industrial, IT and energy solutions in Africa. We create optimized, safe and high-performing work environments.',
+    'about.cta': 'Learn more',
+    'about.values.reliability': 'Reliability',
+    'about.values.conformity': 'Compliance',
+    'about.values.transparency': 'Transparency',
+    'about.values.engagement': 'Commitment',
+    
     'values.reliability': 'Reliability',
     'values.reliability.desc': 'Proven and sustainable solutions',
     'values.compliance': 'Compliance',
@@ -216,7 +238,11 @@ export const translations = {
     'values.commitment': 'Commitment',
     'values.commitment.desc': 'End-to-end support',
     
+    // Partners
+    'partners.title': 'They trust us',
+    
     // CTA Section
+    'cta.label': 'Contact us',
     'cta.title': 'Ready to optimize your infrastructure?',
     'cta.subtitle': 'Contact us to discuss your project and discover how DGS Africa can support you in managing your industrial, IT and energy equipment.',
     'cta.button': 'Request a quote',
@@ -236,8 +262,6 @@ export const translations = {
     'footer.cookies': 'Cookies',
     
     // About Page
-    'about.label': 'About us',
-    'about.title': 'DGS Africa',
     'about.subtitle': 'Your trusted partner for Facility Management in Africa',
     'about.intro': 'Dynamic Global Services (DGS) is a company specializing in supporting businesses and organizations in developing their economic activities.',
     'about.experience': '+15 years of combined experience',
