@@ -14,27 +14,6 @@ const AboutPreview = () => {
     { icon: Users, label: t('about.values.engagement') },
   ];
 
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
     <section className="py-28 relative overflow-hidden">
       {/* Background decoration */}
@@ -47,7 +26,7 @@ const AboutPreview = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8 }}
           >
             <motion.span
               initial={{ opacity: 0, y: 10 }}
@@ -80,17 +59,14 @@ const AboutPreview = () => {
             </motion.p>
 
             {/* Values */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4 mb-10"
-            >
+            <div className="grid grid-cols-2 gap-4 mb-10">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
-                  variants={itemVariants}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   whileHover={{ x: 5 }}
                   className="flex items-center gap-3 group"
                 >
@@ -100,7 +76,7 @@ const AboutPreview = () => {
                   <span className="font-medium text-foreground">{value.label}</span>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -122,7 +98,7 @@ const AboutPreview = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
             <div className="grid gap-6">
