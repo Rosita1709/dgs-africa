@@ -96,7 +96,6 @@ export const translations = {
     'cta.subtitle': 'Contactez-nous pour discuter de votre projet et découvrir comment DGS Africa peut vous accompagner dans la gestion de vos équipements industriels, IT et énergétiques.',
     'cta.button': 'Demander un devis',
     'cta.whatsapp': 'Discuter sur WhatsApp',
-    'cta.whatsapp': 'Discuter sur WhatsApp',
     
     // Footer
     'footer.description': 'Solutions industrielles, IT et énergétiques fiables pour l\'Afrique.',
@@ -112,8 +111,6 @@ export const translations = {
     'footer.cookies': 'Cookies',
     
     // About Page
-    'about.label': 'Qui sommes-nous',
-    'about.title': 'DGS Africa',
     'about.subtitle': 'Votre partenaire de confiance pour le Facility Management en Afrique',
     'about.intro': 'Dynamic Global Services (DGS) est une société spécialisée dans l\'accompagnement des entreprises et organisations pour le développement de leurs activités économiques.',
     'about.experience': '+15 années d\'expérience cumulée',
