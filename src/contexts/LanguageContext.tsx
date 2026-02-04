@@ -219,6 +219,16 @@ export const translations = {
     'aboutPreview.p2': 'Our mission is to provide reliable, compliant solutions adapted to African realities, to create and maintain optimized, safe and efficient work environments.',
     'aboutPreview.cta': 'Discover DGS Africa',
     
+    // About Section (Homepage)
+    'about.label': 'About us',
+    'about.title': 'Your reference partner in Africa',
+    'about.description': 'DGS Africa is a B2B company specializing in the supply and integration of industrial, IT and energy solutions in Africa. We create optimized, safe and high-performing work environments.',
+    'about.cta': 'Learn more',
+    'about.values.reliability': 'Reliability',
+    'about.values.conformity': 'Compliance',
+    'about.values.transparency': 'Transparency',
+    'about.values.engagement': 'Commitment',
+    
     'values.reliability': 'Reliability',
     'values.reliability.desc': 'Proven and sustainable solutions',
     'values.compliance': 'Compliance',
@@ -228,7 +238,11 @@ export const translations = {
     'values.commitment': 'Commitment',
     'values.commitment.desc': 'End-to-end support',
     
+    // Partners
+    'partners.title': 'They trust us',
+    
     // CTA Section
+    'cta.label': 'Contact us',
     'cta.title': 'Ready to optimize your infrastructure?',
     'cta.subtitle': 'Contact us to discuss your project and discover how DGS Africa can support you in managing your industrial, IT and energy equipment.',
     'cta.button': 'Request a quote',
@@ -248,8 +262,6 @@ export const translations = {
     'footer.cookies': 'Cookies',
     
     // About Page
-    'about.label': 'About us',
-    'about.title': 'DGS Africa',
     'about.subtitle': 'Your trusted partner for Facility Management in Africa',
     'about.intro': 'Dynamic Global Services (DGS) is a company specializing in supporting businesses and organizations in developing their economic activities.',
     'about.experience': '+15 years of combined experience',
