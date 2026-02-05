@@ -48,13 +48,18 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <img 
-              src={logo} 
-              alt="DGS Africa - Facility Management & Equipment" 
-              className={`transition-all duration-300 ${
-                isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'
-              }`} 
-            />
+            <div className={`relative transition-all duration-300 ${
+              isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'
+            }`}>
+              <img 
+                src={logo} 
+                alt="DGS Africa - Facility Management & Equipment" 
+                className="h-full w-auto object-contain drop-shadow-lg"
+                style={{ 
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
+                }}
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
