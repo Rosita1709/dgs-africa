@@ -113,7 +113,7 @@ const PolesSection = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                 
                 {/* Icon overlay */}
                 <motion.div
@@ -121,7 +121,7 @@ const PolesSection = () => {
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className={`absolute top-4 left-4 w-14 h-14 rounded-xl bg-gradient-to-br ${pole.gradient} flex items-center justify-center shadow-lg`}
+                  className={`absolute top-4 left-4 w-14 h-14 rounded-xl ${pole.color} flex items-center justify-center shadow-lg`}
                 >
                   <pole.icon className="w-7 h-7 text-white" />
                 </motion.div>
@@ -145,9 +145,10 @@ const PolesSection = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.4 + i * 0.1 }}
-                      className="px-3 py-1.5 bg-muted rounded-full text-xs font-medium text-foreground/70 group-hover:bg-accent/10 group-hover:text-accent transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-muted rounded-full text-xs font-medium text-foreground/70 group-hover:bg-accent/10 group-hover:text-accent transition-all duration-300"
                     >
-                      {feature}
+                      <feature.icon className="w-3 h-3" />
+                      {feature.text}
                     </motion.span>
                   ))}
                 </div>
