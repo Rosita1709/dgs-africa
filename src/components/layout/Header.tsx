@@ -1,84 +1,58 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import logo from "@/assets/logo-dgs.png";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const navLinks = [
     { name: t('nav.home'), href: "/" },
-    { name: t('nav.about'), href: "/a-propos" },
-    { name: t('nav.solutions'), href: "/solutions" },
-    { name: t('nav.products'), href: "/produits" },
-    { name: t('nav.projects'), href: "/projets" },
-    { name: t('nav.contact'), href: "/contact" },
+    { name: language === 'fr' ? 'Qui sommes-nous ?' : 'About us', href: "/a-propos" },
+    { 
+      name: language === 'fr' ? 'Nos Services' : 'Our Services', 
+      href: "/solutions",
+      hasDropdown: true,
+      children: [
+        { name: language === 'fr' ? 'Équipements Industriels' : 'Industrial Equipment', href: "/solutions#industriel" },
+        { name: language === 'fr' ? 'Solutions IT' : 'IT Solutions', href: "/solutions#it" },
+        { name: language === 'fr' ? 'Énergie Solaire' : 'Solar Energy', href: "/solutions#energie" },
+      ]
+    },
+    { name: language === 'fr' ? 'Nous Contacter' : 'Contact us', href: "/contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-10 left-0 right-0 z-40 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-background/98 backdrop-blur-lg shadow-soft' 
+        ? 'top-0 bg-primary/98 backdrop-blur-lg shadow-lg' 
         : 'bg-transparent'
     }`}>
-      {/* Top bar */}
-      <div className={`bg-primary text-primary-foreground py-2.5 transition-all duration-300 ${
-        isScrolled ? 'hidden' : 'hidden md:block'
-      }`}>
-        <div className="container flex justify-between items-center text-sm">
-          <div className="flex items-center gap-2 text-primary-foreground/80">
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span>{t('hero.badge')}</span>
-          </div>
-          <div className="flex items-center gap-6">
-            <a 
-              href="mailto:contact@dgsafrica.com" 
-              className="flex items-center gap-2 hover:text-accent transition-colors"
-            >
-              <Mail className="w-4 h-4" />
-              contact@dgsafrica.com
-            </a>
-            <a 
-              href="https://wa.me/221775930196" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-accent transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              +221 77 593 01 96
-            </a>
-            <div className="border-l border-primary-foreground/20 pl-4">
-              <LanguageSwitcher />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main nav */}
-      <nav className={`container transition-all duration-300 ${
-        isScrolled ? 'py-3' : 'py-4'
-      }`}>
-        <div className="flex items-center justify-between">
+      <nav className="container">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
           <Link to="/" className="flex items-center group">
             <img 
               src={logo} 
-              alt="DGS Africa" 
+              alt="DGS Africa - Facility Management & Equipment" 
               className={`transition-all duration-300 ${
-                isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-14'
+                isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'
               }`} 
             />
           </Link>
@@ -86,95 +60,144 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg group ${
-                  location.pathname === link.href
-                    ? "text-accent"
-                    : isScrolled 
-                      ? "text-foreground hover:text-accent hover:bg-accent/5" 
-                      : "text-primary-foreground hover:text-accent"
-                }`}
-              >
-                {link.name}
-                {location.pathname === link.href && (
-                  <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-accent rounded-full" />
+              <div key={link.name} className="relative group">
+                {link.hasDropdown ? (
+                  <button
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                    className={`flex items-center gap-1 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${
+                      location.pathname === link.href
+                        ? "text-accent"
+                        : "text-primary-foreground hover:text-accent"
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                    
+                    {/* Underline */}
+                    <span className="absolute bottom-0 left-5 right-5 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                  </button>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className={`relative px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${
+                      location.pathname === link.href
+                        ? "text-accent"
+                        : "text-primary-foreground hover:text-accent"
+                    }`}
+                  >
+                    {link.name}
+                    {/* Underline */}
+                    <span className={`absolute bottom-0 left-5 right-5 h-0.5 bg-accent transition-transform origin-left ${
+                      location.pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`} />
+                  </Link>
                 )}
-              </Link>
+
+                {/* Dropdown */}
+                {link.hasDropdown && (
+                  <AnimatePresence>
+                    {servicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        onMouseEnter={() => setServicesOpen(true)}
+                        onMouseLeave={() => setServicesOpen(false)}
+                        className="absolute top-full left-0 w-64 bg-card rounded-lg shadow-premium overflow-hidden border border-border"
+                      >
+                        {link.children?.map((child) => (
+                          <Link
+                            key={child.name}
+                            to={child.href}
+                            className="block px-5 py-4 text-sm font-medium text-foreground hover:bg-accent/10 hover:text-accent transition-colors border-b border-border/50 last:border-0"
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+              </div>
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
-            {isScrolled && <LanguageSwitcher />}
-            <Button 
-              variant={isScrolled ? "outline" : "hero-outline"} 
-              size="sm" 
-              asChild
-              className={!isScrolled ? "border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" : ""}
+          {/* Right side */}
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher />
+            <button 
+              className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
+              aria-label="Search"
             >
-              <Link to="/contact">{t('nav.quote')}</Link>
-            </Button>
-            <Button variant="accent" size="sm" asChild>
-              <a 
-                href="https://wa.me/221775930196" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                WhatsApp
-              </a>
-            </Button>
+              <Search className="w-5 h-5" />
+            </button>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            }`}
+            className="lg:hidden p-2 rounded-lg transition-colors text-primary-foreground"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-premium animate-fade-in">
-            <div className="container py-6 flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-base font-medium py-3 px-4 rounded-lg transition-all ${
-                    location.pathname === link.href
-                      ? "text-accent bg-accent/10"
-                      : "text-foreground hover:text-accent hover:bg-accent/5"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="flex flex-col gap-3 pt-4 mt-2 border-t border-border">
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    {t('nav.quote')}
-                  </Link>
-                </Button>
-                <Button variant="accent" size="lg" asChild>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden overflow-hidden"
+            >
+              <div className="py-6 flex flex-col gap-2 border-t border-primary-foreground/10">
+                {navLinks.map((link) => (
+                  <div key={link.name}>
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`block text-lg font-semibold py-3 px-4 rounded-lg transition-all ${
+                        location.pathname === link.href
+                          ? "text-accent"
+                          : "text-primary-foreground hover:text-accent"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                    {link.children && (
+                      <div className="ml-4 border-l-2 border-accent/30 pl-4 mt-2">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.name}
+                            to={child.href}
+                            onClick={() => setIsOpen(false)}
+                            className="block text-base font-medium py-2 text-primary-foreground/70 hover:text-accent"
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div className="flex items-center gap-4 pt-4 mt-4 border-t border-primary-foreground/10">
+                  <LanguageSwitcher />
                   <a 
-                    href="https://wa.me/221775930196" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                    href="tel:+221775930196"
+                    className="flex items-center gap-2 text-accent font-semibold"
                   >
-                    WhatsApp
+                    <Phone className="w-5 h-5" />
+                    +221 77 593 01 96
                   </a>
-                </Button>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

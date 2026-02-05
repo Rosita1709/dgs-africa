@@ -179,6 +179,15 @@
       linear-gradient(to bottom, hsl(var(--primary) / 0.02) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+
+  /* Decorative corner clips */
+  .clip-corner {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+  
+  .clip-corner-bottom {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
 }
 
 @keyframes fadeIn {

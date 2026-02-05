@@ -30,6 +30,8 @@ export const translations = {
     'hero.response': 'Réponse sous 24-48h',
     'hero.delivery': 'Livraison Afrique',
     'hero.support': 'Support local',
+    'hero.learnMore': 'En savoir +',
+    'hero.contact': 'Nous Contacter',
     
     // Stats
     'stats.years': 'Années d\'expérience',
@@ -181,6 +183,8 @@ export const translations = {
     'hero.response': 'Response within 24-48h',
     'hero.delivery': 'Africa-wide delivery',
     'hero.support': 'Local support',
+    'hero.learnMore': 'Learn more +',
+    'hero.contact': 'Contact us',
     
     // Stats
     'stats.years': 'Years of experience',
