@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Zap, Monitor, Sun, ArrowUpRight } from "lucide-react";
+import { Zap, Monitor, Sun, ArrowUpRight, Lightbulb, AirVent, Settings } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import industrialPole from "@/assets/industrial-pole.jpg";
@@ -14,27 +14,39 @@ const PolesSection = () => {
       icon: Zap,
       title: t('poles.industrial.title'),
       description: t('poles.industrial.desc'),
-      features: [t('poles.industrial.f1'), t('poles.industrial.f2'), t('poles.industrial.f3')],
+      features: [
+        { icon: Lightbulb, text: t('poles.industrial.f1') },
+        { icon: AirVent, text: t('poles.industrial.f2') },
+        { icon: Settings, text: t('poles.industrial.f3') },
+      ],
       href: "/solutions#industriel",
-      gradient: "from-blue-500 to-blue-700",
+      color: "bg-blue-500",
       image: industrialPole,
     },
     {
       icon: Monitor,
       title: t('poles.it.title'),
       description: t('poles.it.desc'),
-      features: [t('poles.it.f1'), t('poles.it.f2'), t('poles.it.f3')],
+      features: [
+        { icon: Monitor, text: t('poles.it.f1') },
+        { icon: Monitor, text: t('poles.it.f2') },
+        { icon: Monitor, text: t('poles.it.f3') },
+      ],
       href: "/solutions#it",
-      gradient: "from-accent to-orange-600",
+      color: "bg-accent",
       image: itPole,
     },
     {
       icon: Sun,
       title: t('poles.energy.title'),
       description: t('poles.energy.desc'),
-      features: [t('poles.energy.f1'), t('poles.energy.f2'), t('poles.energy.f3')],
+      features: [
+        { icon: Sun, text: t('poles.energy.f1') },
+        { icon: Sun, text: t('poles.energy.f2') },
+        { icon: Sun, text: t('poles.energy.f3') },
+      ],
       href: "/solutions#energie",
-      gradient: "from-green-500 to-green-700",
+      color: "bg-green-500",
       image: energyPole,
     },
   ];
