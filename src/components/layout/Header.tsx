@@ -213,8 +213,9 @@ const Header = () => {
                     +221 77 593 01 96
                   </a>
                 </div>
-              </div>
-            </motion.div>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </nav>
