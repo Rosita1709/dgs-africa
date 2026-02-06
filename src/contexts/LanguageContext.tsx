@@ -147,7 +147,7 @@ export const translations = {
     'projects.cta': 'Discuter de votre projet',
     
     // Contact Page
-    'contact.label': 'Nous contacter',
+    'contact.label': 'Contacts',
     'contact.title': 'Parlons de votre projet',
     'contact.subtitle': 'Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.',
     'contact.form.name': 'Nom complet',

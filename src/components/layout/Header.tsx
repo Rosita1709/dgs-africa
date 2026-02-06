@@ -16,7 +16,7 @@ const Header = () => {
 
   const navLinks = [
     { name: t('nav.home'), href: "/" },
-    { name: language === 'fr' ? 'Qui sommes-nous ?' : 'About us', href: "/a-propos" },
+    { name: language === 'fr' ? 'À propos' : 'About', href: "/a-propos" },
     { 
       name: language === 'fr' ? 'Nos Services' : 'Our Services', 
       href: "/solutions",
@@ -27,7 +27,7 @@ const Header = () => {
         { name: language === 'fr' ? 'Énergie Solaire' : 'Solar Energy', href: "/solutions#energie" },
       ]
     },
-    { name: language === 'fr' ? 'Nous Contacter' : 'Contact us', href: "/contact" },
+    { name: language === 'fr' ? 'Contacts' : 'Contact', href: "/contact" },
   ];
 
   useEffect(() => {
@@ -54,10 +54,7 @@ const Header = () => {
               <img 
                 src={logo} 
                 alt="DGS Africa - Facility Management & Equipment" 
-                className="h-full w-auto object-contain drop-shadow-lg"
-                style={{ 
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
-                }}
+                className="h-full w-auto object-contain brightness-0 invert"
               />
             </div>
           </Link>
