@@ -16,7 +16,7 @@ const Header = () => {
 
   const navLinks = [
     { name: t('nav.home'), href: "/" },
-    { name: language === 'fr' ? 'Qui sommes-nous ?' : 'About us', href: "/a-propos" },
+    { name: language === 'fr' ? 'À propos' : 'About', href: "/a-propos" },
     { 
       name: language === 'fr' ? 'Nos Services' : 'Our Services', 
       href: "/solutions",
@@ -27,7 +27,7 @@ const Header = () => {
         { name: language === 'fr' ? 'Énergie Solaire' : 'Solar Energy', href: "/solutions#energie" },
       ]
     },
-    { name: language === 'fr' ? 'Nous Contacter' : 'Contact us', href: "/contact" },
+    { name: language === 'fr' ? 'Contacts' : 'Contact', href: "/contact" },
   ];
 
   useEffect(() => {
