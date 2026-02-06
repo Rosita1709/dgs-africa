@@ -151,13 +151,29 @@ const Header = () => {
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden overflow-hidden"
-            >
-              <div className="py-6 flex flex-col gap-2 border-t border-primary-foreground/10">
+            <>
+              {/* Overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                onClick={() => setIsOpen(false)}
+              />
+              {/* Slide-in menu from right */}
+              <motion.div 
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'tween', duration: 0.3 }}
+                className="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
+              >
+                <div className="flex justify-end p-4">
+                  <button onClick={() => setIsOpen(false)} className="text-primary-foreground">
+                    <X className="w-7 h-7" />
+                  </button>
+                </div>
+                <div className="py-6 px-6 flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <div key={link.name}>
                     <Link
