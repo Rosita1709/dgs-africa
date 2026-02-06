@@ -54,10 +54,7 @@ const Header = () => {
               <img 
                 src={logo} 
                 alt="DGS Africa - Facility Management & Equipment" 
-                className="h-full w-auto object-contain drop-shadow-lg"
-                style={{ 
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
-                }}
+                className="h-full w-auto object-contain brightness-0 invert"
               />
             </div>
           </Link>
