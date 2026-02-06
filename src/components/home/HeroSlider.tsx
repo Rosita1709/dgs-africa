@@ -209,7 +209,7 @@ const HeroSlider = () => {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Button variant="accent" size="lg" asChild className="group">
+                <Button variant="accent" size="lg" asChild className="group shadow-accent">
                   <Link to="/solutions">
                     {t('hero.learnMore')}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -217,7 +217,7 @@ const HeroSlider = () => {
                 </Button>
                 <Button variant="hero-outline" size="lg" asChild className="group">
                   <Link to="/contact">
-                    {t('hero.contact')}
+                    {language === 'fr' ? 'Contacts' : 'Contact'}
                   </Link>
                 </Button>
               </motion.div>
