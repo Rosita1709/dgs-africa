@@ -235,7 +235,7 @@ const HeroSlider = () => {
           >
             <span className="text-5xl md:text-7xl font-bold text-primary-foreground/10">01</span>
             <span className="text-primary-foreground font-semibold text-lg">
-              {language === 'fr' ? "Envoyez-nous un email" : "Send us an email"}
+              {language === 'fr' ? "Demander un devis" : "Request a quote"}
             </span>
             <ArrowRight className="w-6 h-6 text-primary-foreground group-hover:translate-x-2 transition-transform" />
           </Link>
