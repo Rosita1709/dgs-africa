@@ -39,10 +39,10 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-10 left-0 right-0 z-40 transition-all duration-500 ${
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
       isScrolled 
-        ? 'top-0 bg-primary/98 backdrop-blur-lg shadow-lg' 
-        : 'bg-transparent'
+        ? 'bg-primary/98 backdrop-blur-lg shadow-lg' 
+        : 'bg-primary/90 backdrop-blur-sm'
     }`}>
       <nav className="container">
         <div className="flex items-center justify-between py-4">
