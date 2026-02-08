@@ -166,7 +166,7 @@ const Header = () => {
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'tween', duration: 0.3 }}
-                className="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
+                className="fixed top-0 right-0 h-full w-3/5 md:w-2/5 max-w-sm bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
               >
                 <div className="flex justify-end p-4">
                   <button onClick={() => setIsOpen(false)} className="text-primary-foreground">
