@@ -126,9 +126,9 @@ export const translations = {
     'about.values.title': 'Ce qui nous définit',
     
     // Solutions Page
-    'solutions.label': 'Nos Solutions',
-    'solutions.title': 'Une expertise complète',
-    'solutions.subtitle': 'DGS Africa structure son offre autour de trois pôles complémentaires pour répondre à tous vos besoins.',
+    'solutions.label': 'Nos Services',
+    'solutions.title': 'Une expertise complète au service de l\'Afrique',
+    'solutions.subtitle': 'DGS Africa structure son offre autour de trois pôles complémentaires pour répondre à tous vos besoins en facility management.',
     
     // Products Page
     'products.label': 'Produits',
