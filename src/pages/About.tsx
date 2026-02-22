@@ -35,7 +35,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero avec image */}
-      <section className="relative py-32 bg-hero-premium overflow-hidden">
+      <section className="relative pt-40 pb-32 bg-hero-premium overflow-hidden">
         <div className="absolute inset-0 bg-pattern" />
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[100px]" />

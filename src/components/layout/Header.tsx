@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Search, ChevronDown } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -12,6 +12,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { t, language } = useLanguage();
 
   const navLinks = [
@@ -38,19 +39,54 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle hash scrolling after navigation
+  useEffect(() => {
+    if (location.hash) {
+      // Small delay to let the page render
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          const headerHeight = 80;
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: elementPosition - headerHeight,
+            behavior: 'smooth'
+          });
+        }
+      }, 300);
+    }
+  }, [location]);
+
+  const handleHashLink = (href: string) => {
+    const [path, hash] = href.split('#');
+    if (location.pathname === path && hash) {
+      // Same page, just scroll
+      const element = document.getElementById(hash);
+      if (element) {
+        const headerHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - headerHeight,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      navigate(href);
+    }
+  };
+
   return (
-    <header className={`fixed top-10 left-0 right-0 z-40 transition-all duration-500 ${
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
       isScrolled 
-        ? 'top-0 bg-primary/98 backdrop-blur-lg shadow-lg' 
-        : 'bg-transparent'
+        ? 'bg-primary/98 backdrop-blur-lg shadow-lg' 
+        : 'bg-primary/90 backdrop-blur-sm'
     }`}>
       <nav className="container">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <div className={`relative transition-all duration-300 ${
-              isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'
-            }`}>
+            <div className="relative h-10 md:h-12 transition-all duration-300">
               <img 
                 src={logo} 
                 alt="DGS Africa - Facility Management & Equipment" 
@@ -68,6 +104,7 @@ const Header = () => {
                   <button
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
+                    onClick={() => handleHashLink(link.href)}
                     className={`flex items-center gap-1 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${
                       location.pathname === link.href
                         ? "text-accent"
@@ -111,13 +148,16 @@ const Header = () => {
                         className="absolute top-full left-0 w-64 bg-card rounded-lg shadow-premium overflow-hidden border border-border"
                       >
                         {link.children?.map((child) => (
-                          <Link
+                          <button
                             key={child.name}
-                            to={child.href}
-                            className="block px-5 py-4 text-sm font-medium text-foreground hover:bg-accent/10 hover:text-accent transition-colors border-b border-border/50 last:border-0"
+                            onClick={() => {
+                              setServicesOpen(false);
+                              handleHashLink(child.href);
+                            }}
+                            className="block w-full text-left px-5 py-4 text-sm font-medium text-foreground hover:bg-accent/10 hover:text-accent transition-colors border-b border-border/50 last:border-0"
                           >
                             {child.name}
-                          </Link>
+                          </button>
                         ))}
                       </motion.div>
                     )}
@@ -130,12 +170,6 @@ const Header = () => {
           {/* Right side */}
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher />
-            <button 
-              className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" />
-            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -190,14 +224,16 @@ const Header = () => {
                     {link.children && (
                       <div className="ml-4 border-l-2 border-accent/30 pl-4 mt-2">
                         {link.children.map((child) => (
-                          <Link
+                          <button
                             key={child.name}
-                            to={child.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block text-base font-medium py-2 text-primary-foreground/70 hover:text-accent"
+                            onClick={() => {
+                              setIsOpen(false);
+                              handleHashLink(child.href);
+                            }}
+                            className="block w-full text-left text-base font-medium py-2 text-primary-foreground/70 hover:text-accent"
                           >
                             {child.name}
-                          </Link>
+                          </button>
                         ))}
                       </div>
                     )}
