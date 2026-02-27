@@ -61,7 +61,7 @@ const Header = () => {
         <div className="flex items-center justify-between py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <div className="relative h-10 md:h-12 transition-all duration-300">
+            <div className="relative h-10 md:h-14 transition-all duration-300">
               <img 
                 src={logo} 
                 alt="DGS Africa" 
