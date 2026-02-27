@@ -62,7 +62,7 @@ const ServiceIndustriel = () => {
       <section className="relative pt-32 pb-28 overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1600&q=80" 
+            src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1600&q=80" 
             alt="Industrial equipment" 
             className="w-full h-full object-cover"
           />
