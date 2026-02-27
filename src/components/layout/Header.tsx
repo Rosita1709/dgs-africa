@@ -38,7 +38,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
@@ -46,8 +45,8 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-primary backdrop-blur-lg shadow-lg' 
-        : 'bg-primary/95 backdrop-blur-sm'
+        ? 'bg-primary shadow-lg' 
+        : 'bg-transparent'
     }`}>
       <nav className="container">
         <div className="flex items-center justify-between py-3">
@@ -58,7 +57,7 @@ const Header = () => {
                 src={logo} 
                 alt="DGS Africa" 
                 className="h-full w-auto object-contain"
-                style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.4))' }}
+                style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}
               />
             </div>
           </Link>
@@ -84,7 +83,6 @@ const Header = () => {
                       <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                     </Link>
 
-                    {/* Dropdown */}
                     <AnimatePresence>
                       {servicesOpen && (
                         <motion.div
