@@ -170,7 +170,7 @@ const Header = () => {
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'tween', duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
+                className="fixed top-0 right-0 h-full w-[320px] max-w-[85vw] bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
                 style={{ scrollbarWidth: 'none' }}
               >
                 {/* Close button - top right, 44px touch target */}
