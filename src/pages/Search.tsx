@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { ArrowRight } from "lucide-react";
@@ -9,8 +9,7 @@ import { motion } from "framer-motion";
 const Search = () => {
   const { language } = useLanguage();
   const [searchParams] = useSearchParams();
-  const initialQuery = searchParams.get("q") || "";
-  const [query] = useState(initialQuery);
+  const query = searchParams.get("q") || "";
 
   const allPages = useMemo(() => [
     { title: language === 'fr' ? 'Accueil' : 'Home', desc: language === 'fr' ? 'Page d\'accueil DGS Africa' : 'DGS Africa homepage', href: '/', tags: 'accueil home dgs africa' },
