@@ -6,34 +6,31 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
 
 const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
 
+  const label = language === 'fr' ? 'FR / FR' : 'EN / EN';
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          className="gap-2 text-primary-foreground hover:text-accent hover:bg-transparent"
-        >
-          <span className="text-base">{language === 'fr' ? '🇫🇷' : '🇬🇧'}</span>
-          <span className="uppercase font-medium text-sm">{language === 'fr' ? 'FR' : 'EN'}</span>
-        </Button>
+        <button className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors text-sm font-medium focus:outline-none">
+          <Globe className="w-4 h-4" />
+          <span>{label}</span>
+        </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[140px]">
         <DropdownMenuItem 
           onClick={() => setLanguage('fr')}
-          className={`gap-3 ${language === 'fr' ? 'bg-accent/10 text-accent font-semibold' : ''}`}
+          className={`gap-3 cursor-pointer ${language === 'fr' ? 'bg-accent/10 text-accent font-semibold' : ''}`}
         >
           <span className="text-lg">🇫🇷</span>
           Français
         </DropdownMenuItem>
         <DropdownMenuItem 
           onClick={() => setLanguage('en')}
-          className={`gap-3 ${language === 'en' ? 'bg-accent/10 text-accent font-semibold' : ''}`}
+          className={`gap-3 cursor-pointer ${language === 'en' ? 'bg-accent/10 text-accent font-semibold' : ''}`}
         >
           <span className="text-lg">🇬🇧</span>
           English
