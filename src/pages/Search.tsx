@@ -24,19 +24,26 @@ const Search = () => {
     { title: language === 'fr' ? 'Contact' : 'Contact', desc: language === 'fr' ? 'Demander un devis, nous contacter' : 'Request a quote, contact us', href: '/contact', tags: 'contact devis whatsapp telephone email' },
   ], [language]);
 
+  // Normalize: remove accents for flexible matching
+  const normalize = (str: string) =>
+    str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/s\b/g, '');
+
   const results = useMemo(() => {
     if (!query.trim()) return allPages;
-    const q = query.toLowerCase();
-    return allPages.filter(p =>
-      p.title.toLowerCase().includes(q) ||
-      p.desc.toLowerCase().includes(q) ||
-      p.tags.includes(q)
-    );
+    const words = normalize(query).split(/\s+/).filter(Boolean);
+    // Score each page by how many query words match
+    const scored = allPages.map(p => {
+      const text = normalize(`${p.title} ${p.desc} ${p.tags}`);
+      const score = words.filter(w => text.includes(w)).length;
+      return { ...p, score };
+    }).filter(p => p.score > 0);
+    scored.sort((a, b) => b.score - a.score);
+    return scored;
   }, [query, allPages]);
 
-  // Auto-redirect if exactly 1 result matches
+  // Auto-redirect to the best match
   useEffect(() => {
-    if (query.trim() && results.length === 1) {
+    if (query.trim() && results.length > 0) {
       navigate(results[0].href, { replace: true });
     }
   }, [results, query, navigate]);
