@@ -140,14 +140,25 @@ const Header = () => {
           {/* Right side — search + language switcher */}
           <div className="hidden lg:flex items-center gap-3">
             {searchOpen ? (
-              <div className="flex items-center">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (searchQuery.trim()) {
+                    navigate(`/recherche?q=${encodeURIComponent(searchQuery.trim())}`);
+                    setSearchOpen(false);
+                    setSearchQuery("");
+                  }
+                }}
+                className="flex items-center"
+              >
                 <input
                   autoFocus
                   type="text"
                   value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    navigate(`/recherche?q=${encodeURIComponent(e.target.value.trim())}`, { replace: true });
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onBlur={(e) => {
+                    // Don't close if clicking sibling buttons
+                    if (e.relatedTarget && e.currentTarget.form?.contains(e.relatedTarget as Node)) return;
                   }}
                   onKeyDown={(e) => {
                     if (e.key === 'Escape') { setSearchOpen(false); setSearchQuery(""); }
@@ -156,7 +167,7 @@ const Header = () => {
                   className="w-48 px-3 py-1.5 rounded-l-full bg-primary-foreground/10 border border-primary-foreground/20 border-r-0 text-primary-foreground placeholder:text-primary-foreground/40 text-sm focus:outline-none focus:ring-1 focus:ring-accent/50"
                 />
                 <button 
-                  onClick={() => { if (searchQuery.trim()) navigate(`/recherche?q=${encodeURIComponent(searchQuery.trim())}`); }}
+                  type="submit"
                   className="px-3 py-1.5 rounded-r-full bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-colors"
                 >
                   <Search className="w-4 h-4" />
@@ -164,7 +175,7 @@ const Header = () => {
                 <button type="button" onClick={() => { setSearchOpen(false); setSearchQuery(""); }} className="ml-2 text-primary-foreground/60 hover:text-primary-foreground">
                   <X className="w-4 h-4" />
                 </button>
-              </div>
+              </form>
             ) : (
               <button
                 onClick={() => setSearchOpen(true)}
