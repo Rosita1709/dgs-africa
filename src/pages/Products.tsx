@@ -57,7 +57,7 @@ const Products = () => {
         {
           icon: Laptop,
           name: language === 'fr' ? "Ordinateurs" : "Computers",
-          image: "/products/airchal-fancoil.jpg",
+          image: "/products/dell-laptop.jpg",
           partner: "Dell / Blackview",
           partnerLogo: "/logos/dell.png",
           specs: ["Dell Latitude", "Dell Inspiron", language === 'fr' ? "Portables & Fixes" : "Laptops & Desktops", "Blackview Rugged"],
@@ -65,7 +65,7 @@ const Products = () => {
         {
           icon: Server,
           name: language === 'fr' ? "Serveurs & Réseau" : "Servers & Network",
-          image: "/products/airchal-fancoil.jpg",
+          image: "/products/dell-server.jpg",
           partner: "Dell",
           partnerLogo: "/logos/dell.png",
           specs: ["Dell PowerEdge", "Rack", "NAS", "Switches"],
@@ -73,7 +73,7 @@ const Products = () => {
         {
           icon: Printer,
           name: language === 'fr' ? "Imprimantes" : "Printers",
-          image: "/products/airchal-fancoil.jpg",
+          image: "/products/printer.jpg",
           partner: "Dell",
           partnerLogo: "/logos/dell.png",
           specs: ["Laser", language === 'fr' ? "Jet d'encre" : "Inkjet", "A3/A4", language === 'fr' ? "Multifonctions" : "All-in-one"],
@@ -88,7 +88,7 @@ const Products = () => {
         {
           icon: SunDim,
           name: language === 'fr' ? "Panneaux Solaires" : "Solar Panels",
-          image: "/products/led-explosion-proof.webp",
+          image: "/products/solar-panels.jpg",
           partner: "",
           partnerLogo: null,
           specs: [language === 'fr' ? "Monocristallin" : "Monocrystalline", language === 'fr' ? "Polycristallin" : "Polycrystalline", "300W–550W"],
@@ -96,7 +96,7 @@ const Products = () => {
         {
           icon: Battery,
           name: language === 'fr' ? "Onduleurs & Batteries" : "Inverters & Batteries",
-          image: "/products/led-explosion-proof.webp",
+          image: "/products/solar-inverter.jpg",
           partner: "",
           partnerLogo: null,
           specs: [language === 'fr' ? "Hybride" : "Hybrid", "On-grid", "Off-grid", "Lithium"],
@@ -104,7 +104,7 @@ const Products = () => {
         {
           icon: Monitor,
           name: language === 'fr' ? "Monitoring" : "Monitoring",
-          image: "/products/led-explosion-proof.webp",
+          image: "/products/iot-monitoring.jpg",
           partner: "",
           partnerLogo: null,
           specs: [language === 'fr' ? "Compteurs" : "Meters", language === 'fr' ? "Capteurs" : "Sensors", "IoT"],
