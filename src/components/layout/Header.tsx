@@ -11,7 +11,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchOpen, setSearchOpen] = useState(false);
+  // searchOpen state removed — search bar always visible like Dell
   const location = useLocation();
   const navigate = useNavigate();
   const { t, language } = useLanguage();
