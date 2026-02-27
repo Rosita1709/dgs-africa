@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useMemo, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 const Search = () => {
   const { language } = useLanguage();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const query = searchParams.get("q") || "";
 
   const allPages = useMemo(() => [
@@ -32,6 +33,13 @@ const Search = () => {
       p.tags.includes(q)
     );
   }, [query, allPages]);
+
+  // Auto-redirect if exactly 1 result matches
+  useEffect(() => {
+    if (query.trim() && results.length === 1) {
+      navigate(results[0].href, { replace: true });
+    }
+  }, [results, query, navigate]);
 
   return (
     <Layout>
