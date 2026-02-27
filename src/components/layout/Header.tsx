@@ -137,34 +137,64 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Right side — search bar always visible like Dell + language switcher */}
+          {/* Right side — search icon + language switcher */}
           <div className="hidden lg:flex items-center gap-3">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (searchQuery.trim()) {
-                  navigate(`/recherche?q=${encodeURIComponent(searchQuery.trim())}`);
+            {searchOpen ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const q = searchQuery.trim().toLowerCase();
+                  if (!q) return;
+                  // Direct navigation: match known pages
+                  const routes: Record<string, string> = {
+                    'accueil': '/', 'home': '/',
+                    'a propos': '/a-propos', 'about': '/a-propos', 'à propos': '/a-propos',
+                    'services': '/solutions', 'nos services': '/solutions', 'our services': '/solutions', 'solutions': '/solutions',
+                    'industriel': '/services/industriel', 'industrial': '/services/industriel', 'equipements industriels': '/services/industriel', 'industrial equipment': '/services/industriel',
+                    'it': '/services/it', 'solutions it': '/services/it', 'informatique': '/services/it',
+                    'energie': '/services/energie', 'energy': '/services/energie', 'solaire': '/services/energie', 'solar': '/services/energie', 'énergie': '/services/energie', 'énergie solaire': '/services/energie', 'solar energy': '/services/energie',
+                    'produits': '/produits', 'products': '/produits', 'catalogue': '/produits',
+                    'projets': '/projets', 'projects': '/projets', 'realisations': '/projets',
+                    'contact': '/contact', 'contacts': '/contact', 'devis': '/contact',
+                  };
+                  const match = routes[q];
+                  if (match) {
+                    navigate(match);
+                  } else {
+                    navigate(`/recherche?q=${encodeURIComponent(searchQuery.trim())}`);
+                  }
+                  setSearchOpen(false);
                   setSearchQuery("");
-                }
-              }}
-              className="flex items-center"
-            >
-              <div className="relative">
+                }}
+                className="flex items-center"
+              >
                 <input
+                  autoFocus
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={language === 'fr' ? 'Rechercher DGS...' : 'Search DGS...'}
-                  className="w-52 pl-4 pr-10 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:bg-primary-foreground/15 transition-all"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') { setSearchOpen(false); setSearchQuery(""); }
+                  }}
+                  placeholder={language === 'fr' ? 'Rechercher...' : 'Search...'}
+                  className="w-48 px-3 py-1.5 rounded-l-full bg-primary-foreground/10 border border-primary-foreground/20 border-r-0 text-primary-foreground placeholder:text-primary-foreground/40 text-sm focus:outline-none focus:ring-1 focus:ring-accent/50"
                 />
-                <button 
-                  type="submit"
-                  className="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-primary-foreground/60 hover:text-accent transition-colors"
-                >
+                <button type="submit" className="px-3 py-1.5 rounded-r-full bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-colors">
                   <Search className="w-4 h-4" />
                 </button>
-              </div>
-            </form>
+                <button type="button" onClick={() => { setSearchOpen(false); setSearchQuery(""); }} className="ml-2 text-primary-foreground/60 hover:text-primary-foreground">
+                  <X className="w-4 h-4" />
+                </button>
+              </form>
+            ) : (
+              <button
+                onClick={() => setSearchOpen(true)}
+                className="p-2 rounded-full text-primary-foreground/70 hover:text-accent hover:bg-primary-foreground/10 transition-colors"
+                aria-label="Search"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+            )}
             <LanguageSwitcher />
           </div>
 
