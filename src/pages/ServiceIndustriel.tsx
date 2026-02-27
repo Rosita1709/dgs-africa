@@ -25,7 +25,7 @@ const ServiceIndustriel = () => {
         ? "Solutions d'éclairage LED haute performance pour environnements industriels exigeants. Certifiées ATEX pour zones dangereuses."
         : "High-performance LED lighting solutions for demanding industrial environments. ATEX certified for hazardous areas.",
       specs: ["Explosion Proof (ATEX)", "Weatherproof IP65+", language === 'fr' ? "Haute Baie" : "High Bay", language === 'fr' ? "Projecteurs" : "Floodlights"],
-      image: "https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?w=800&q=80",
+      image: "/products/led-explosion-proof.webp",
     },
     {
       icon: Thermometer,
@@ -35,7 +35,7 @@ const ServiceIndustriel = () => {
         ? "Systèmes de climatisation et réfrigération industrielle. Centrales de traitement d'air, chambres froides et solutions VRV/VRF."
         : "Industrial air conditioning and refrigeration systems. Air handling units, cold rooms and VRV/VRF solutions.",
       specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"],
-      image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      image: "/products/airchal-ahu.jpg",
     },
     {
       icon: CircleDot,
@@ -45,7 +45,7 @@ const ServiceIndustriel = () => {
         ? "Gamme complète de courroies industrielles et automobiles. Poly-V, courroies crantées et trapézoïdales pour tous secteurs."
         : "Complete range of industrial and automotive belts. Poly-V, timing belts and V-belts for all sectors.",
       specs: ["Poly-V Belts", "Timing Belts", language === 'fr' ? "Courroies trapézoïdales" : "V-Belts", "Automotive"],
-      image: "https://images.unsplash.com/photo-1530124566582-a45a7e3ed25f?w=800&q=80",
+      image: "/products/belts-poly-v.jpg",
     },
   ];
 
