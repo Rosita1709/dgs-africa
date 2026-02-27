@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
+import SearchBar from "./SearchBar";
 
 import heroFacility from "@/assets/hero-facility.jpg";
 import heroIndustrial from "@/assets/hero-industrial.jpg";
@@ -134,7 +135,7 @@ const HeroSlider = () => {
 
       {/* Main content */}
       <div className="container relative z-20 h-full flex items-center pt-20">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -196,6 +197,9 @@ const HeroSlider = () => {
               </motion.div>
             </motion.div>
           </AnimatePresence>
+
+          {/* Search bar */}
+          <SearchBar />
         </div>
       </div>
 

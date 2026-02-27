@@ -1,13 +1,16 @@
 import { useState, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import { Search as SearchIcon, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Search = () => {
   const { language } = useLanguage();
-  const [query, setQuery] = useState("");
+  const [searchParams] = useSearchParams();
+  const initialQuery = searchParams.get("q") || "";
+  const [query] = useState(initialQuery);
 
   const allPages = useMemo(() => [
     { title: language === 'fr' ? 'Accueil' : 'Home', desc: language === 'fr' ? 'Page d\'accueil DGS Africa' : 'DGS Africa homepage', href: '/', tags: 'accueil home dgs africa' },
@@ -37,20 +40,14 @@ const Search = () => {
         <div className="absolute inset-0 bg-pattern" />
         <div className="container relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl mx-auto text-center">
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground mb-8">
-              {language === 'fr' ? 'Rechercher' : 'Search'}
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
+              {language === 'fr' ? 'Résultats de recherche' : 'Search Results'}
             </h1>
-            <div className="relative">
-              <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary-foreground/50" />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder={language === 'fr' ? 'Rechercher un service, produit...' : 'Search for a service, product...'}
-                className="w-full pl-12 pr-4 py-4 rounded-xl bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent text-lg"
-                autoFocus
-              />
-            </div>
+            {query && (
+              <p className="text-primary-foreground/60 text-lg">
+                {language === 'fr' ? `Recherche pour : "${query}"` : `Results for: "${query}"`}
+              </p>
+            )}
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
@@ -83,6 +80,11 @@ const Search = () => {
                 </Link>
               </motion.div>
             ))}
+            {results.length === 0 && (
+              <p className="text-center text-muted-foreground py-12">
+                {language === 'fr' ? 'Aucun résultat trouvé.' : 'No results found.'}
+              </p>
+            )}
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, Search } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import logo from "@/assets/logo-dgs.png";
@@ -128,23 +128,13 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Right side */}
+          {/* Right side — language switcher only */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              to="/recherche"
-              className="p-2 rounded-lg text-primary-foreground/70 hover:text-accent transition-colors"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" />
-            </Link>
             <LanguageSwitcher />
           </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-2">
-            <Link to="/recherche" className="p-2 text-primary-foreground">
-              <Search className="w-5 h-5" />
-            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg transition-colors text-primary-foreground"
