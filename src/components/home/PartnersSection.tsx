@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef, useEffect, useState } from "react";
+import { Building2, Landmark, Globe2, Shield } from "lucide-react";
 
 const partners = [
   { name: 'Universal RBM', logo: '/logos/universal-rbm.png', url: 'https://universal-rbm.com' },
@@ -11,149 +12,148 @@ const partners = [
 ];
 
 const clients = [
-  { name: 'LASPAD', text: 'LASPAD', url: 'https://laspad.org' },
-  { name: 'Ministère des Finances et du Budget', text: 'MFB', subtitle: 'Min. Finances', url: 'https://www.finances.gouv.sn' },
-  { name: "Ministère de l'Intégration Africaine", text: 'MIAAE', subtitle: 'Min. Affaires Étrangères', url: 'https://www.diplomatie.gouv.sn' },
-  { name: 'Ambassade du Sénégal aux EAU', text: '🇸🇳', subtitle: 'Amb. Sénégal EAU', url: 'https://ae-senegalembassy.com' },
+  { 
+    name: 'LASPAD', 
+    abbrev: 'LASPAD',
+    icon: Building2,
+    colors: { bg: 'from-emerald-600 to-emerald-800', text: 'text-white' },
+    url: 'https://laspad.org' 
+  },
+  { 
+    name: 'Ministère des Finances et du Budget', 
+    abbrev: 'MFB',
+    subtitle: 'Min. Finances & Budget',
+    icon: Landmark,
+    colors: { bg: 'from-blue-700 to-blue-900', text: 'text-white' },
+    url: 'https://www.finances.gouv.sn' 
+  },
+  { 
+    name: "Ministère de l'Intégration Africaine",
+    abbrev: 'MIAAE',
+    subtitle: "Min. Affaires Étrangères",
+    icon: Globe2,
+    colors: { bg: 'from-red-700 to-red-900', text: 'text-white' },
+    url: 'https://www.diplomatie.gouv.sn' 
+  },
+  { 
+    name: 'Ambassade du Sénégal aux EAU',
+    abbrev: '🇸🇳',
+    subtitle: 'Ambassade Sénégal EAU',
+    icon: Shield,
+    colors: { bg: 'from-green-600 via-yellow-500 to-red-600', text: 'text-white' },
+    url: 'https://ae-senegalembassy.com' 
+  },
 ];
 
 const PartnersSection = () => {
   const { language } = useLanguage();
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-
-  // Auto-scroll on mobile
-  useEffect(() => {
-    if (!isMobile || !scrollRef.current) return;
-    const el = scrollRef.current;
-    let pos = 0;
-    const speed = 0.5;
-    let raf: number;
-    const animate = () => {
-      pos += speed;
-      if (pos >= el.scrollWidth - el.clientWidth) pos = 0;
-      el.scrollLeft = pos;
-      raf = requestAnimationFrame(animate);
-    };
-    raf = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(raf);
-  }, [isMobile]);
+  const marqueeRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-24 bg-muted/20 overflow-hidden">
-      <div className="container space-y-16">
+    <section className="py-28 bg-background overflow-hidden">
+      <div className="container space-y-20">
         {/* Partners */}
         <div>
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
           >
-            <span className="text-accent font-semibold text-sm uppercase tracking-wider">
-              {language === 'fr' ? 'Nos Partenaires' : 'Our Partners'}
-            </span>
-            <div className="w-12 h-0.5 bg-accent mx-auto mt-3" />
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-3">
+              <span className="text-gradient">{language === 'fr' ? 'Nos Partenaires' : 'Our Partners'}</span>
+            </h2>
+            <div className="w-16 h-1 bg-accent mx-auto rounded-full" />
           </motion.div>
           
-          {/* Desktop: grid / Mobile: auto-scrolling carousel */}
-          <div
-            ref={scrollRef}
-            className={`${
-              isMobile 
-                ? 'flex gap-8 overflow-x-auto pb-4' 
-                : 'flex items-center justify-center gap-10 md:gap-14 flex-wrap'
-            }`}
-            style={isMobile ? { scrollbarWidth: 'none' } : {}}
-          >
-            {partners.map((partner, index) => (
-              <motion.a
-                key={index}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, y: -4 }}
-                className="flex items-center justify-center h-16 px-4 shrink-0 transition-all duration-300"
-                title={partner.name}
-              >
-                {partner.logo ? (
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name} 
-                    className="max-h-10 w-auto object-contain"
-                  />
-                ) : (
-                  <span className="text-xl font-black text-foreground hover:text-accent transition-colors tracking-tight">
-                    {partner.text}
-                  </span>
-                )}
-              </motion.a>
-            ))}
+          {/* Infinite marquee */}
+          <div className="relative overflow-hidden py-6">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
+            
+            <div className="flex animate-marquee gap-16 items-center" ref={marqueeRef}>
+              {[...partners, ...partners, ...partners].map((partner, index) => (
+                <a
+                  key={index}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center h-16 px-6 shrink-0 hover:scale-110 transition-transform duration-300 group"
+                  title={partner.name}
+                >
+                  {partner.logo ? (
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name} 
+                      className="h-10 w-auto object-contain group-hover:drop-shadow-lg transition-all duration-300"
+                    />
+                  ) : (
+                    <span className="text-2xl font-black text-foreground group-hover:text-accent transition-colors tracking-tight whitespace-nowrap">
+                      {partner.text}
+                    </span>
+                  )}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-border/50" />
+        <div className="flex items-center gap-4">
+          <div className="flex-1 h-px bg-border" />
+          <div className="w-2 h-2 rounded-full bg-accent" />
+          <div className="flex-1 h-px bg-border" />
+        </div>
 
-        {/* Clients */}
+        {/* Clients / Trust Section */}
         <div>
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
           >
-            <span className="text-muted-foreground font-semibold text-sm uppercase tracking-wider">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-3">
               {language === 'fr' ? 'Ils nous font confiance' : 'They trust us'}
-            </span>
-            <div className="w-12 h-0.5 bg-border mx-auto mt-3" />
+            </h2>
+            <div className="w-16 h-1 bg-border mx-auto rounded-full" />
           </motion.div>
           
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center justify-center gap-10 md:gap-16 flex-wrap"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {clients.map((client, index) => (
               <motion.a
                 key={index}
                 href={client.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.05 }}
-                className="flex flex-col items-center gap-2 group"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.05 }}
+                className="group flex flex-col items-center gap-4"
                 title={client.name}
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-card border-2 border-border/50 group-hover:border-accent/50 flex items-center justify-center shadow-soft group-hover:shadow-card transition-all duration-300">
-                  <span className="text-lg md:text-xl font-bold text-primary group-hover:text-accent transition-colors">
-                    {client.text}
+                {/* Professional emblem card */}
+                <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br ${client.colors.bg} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
+                  {/* Decorative ring */}
+                  <div className="absolute inset-2 rounded-xl border-2 border-white/20" />
+                  <client.icon className="w-6 h-6 text-white/80 mb-1" />
+                  <span className={`text-base md:text-lg font-black ${client.colors.text} relative z-10 leading-tight`}>
+                    {client.abbrev}
                   </span>
                 </div>
-                <span className="text-[10px] md:text-xs text-muted-foreground font-medium text-center max-w-[100px] leading-tight">
-                  {client.subtitle || client.name}
-                </span>
+                <div className="text-center">
+                  <span className="text-xs md:text-sm text-muted-foreground font-semibold leading-tight block max-w-[120px]">
+                    {client.subtitle || client.name}
+                  </span>
+                </div>
               </motion.a>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
