@@ -5,10 +5,6 @@ import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer,
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 
-import productsIndustrial from "@/assets/products-industrial.jpg";
-import productsIT from "@/assets/products-it.jpg";
-import productsEnergy from "@/assets/products-energy.jpg";
-
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
@@ -23,33 +19,36 @@ const Products = () => {
 
   const categories = [
     {
-      image: productsIndustrial,
+      image: "/products/led-explosion-proof.webp",
       color: "blue",
       badge: language === 'fr' ? "Équipements Industriels" : "Industrial Equipment",
+      partner: "Senben Lighting / Universal RBM / Airchal",
       items: [
-        { icon: Lightbulb, name: language === 'fr' ? "Éclairage LED" : "LED Lighting", specs: ["Waterproof", "ATEX", "IP65+", language === 'fr' ? "Solaire" : "Solar"] },
-        { icon: Thermometer, name: language === 'fr' ? "Froid & Climatisation" : "Cooling & HVAC", specs: ["CTA", "VRV/VRF", language === 'fr' ? "Chambres froides" : "Cold rooms", "Split"] },
-        { icon: CircleDot, name: language === 'fr' ? "Courroies Industrielles" : "Industrial Belts", specs: ["Gates", "Optibelt", "Continental", "Automotive"] },
+        { icon: Lightbulb, name: language === 'fr' ? "Éclairage LED Industriel" : "Industrial LED Lighting", specs: ["Explosion Proof (ATEX)", "Weatherproof IP65+", language === 'fr' ? "Haute Baie" : "High Bay", language === 'fr' ? "Projecteurs" : "Floodlights"], partner: "Senben Lighting" },
+        { icon: Thermometer, name: language === 'fr' ? "Froid & Climatisation" : "Cooling & HVAC", specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"], partner: "Airchal" },
+        { icon: CircleDot, name: language === 'fr' ? "Courroies Industrielles" : "Industrial Belts", specs: ["Poly-V Belts", "Timing Belts", language === 'fr' ? "Courroies trapézoïdales" : "V-Belts", "Automotive"], partner: "Universal RBM" },
       ],
     },
     {
-      image: productsIT,
+      image: "/products/airchal-ahu.jpg",
       color: "accent",
       badge: language === 'fr' ? "Matériel Informatique" : "IT Equipment",
+      partner: "Dell / Blackview",
       items: [
-        { icon: Laptop, name: language === 'fr' ? "Ordinateurs" : "Computers", specs: ["HP", "Dell", "Lenovo", language === 'fr' ? "Portables & Fixes" : "Laptops & Desktops"] },
-        { icon: Server, name: language === 'fr' ? "Serveurs & Réseau" : "Servers & Network", specs: ["Rack", "Tour", "NAS", language === 'fr' ? "Switches" : "Switches"] },
-        { icon: Printer, name: language === 'fr' ? "Imprimantes" : "Printers", specs: ["Laser", language === 'fr' ? "Jet d'encre" : "Inkjet", "A3/A4", language === 'fr' ? "Multifonctions" : "All-in-one"] },
+        { icon: Laptop, name: language === 'fr' ? "Ordinateurs" : "Computers", specs: ["Dell Latitude", "Dell Inspiron", language === 'fr' ? "Portables & Fixes" : "Laptops & Desktops", "Blackview Rugged"], partner: "Dell / Blackview" },
+        { icon: Server, name: language === 'fr' ? "Serveurs & Réseau" : "Servers & Network", specs: ["Dell PowerEdge", "Rack", "NAS", "Switches"], partner: "Dell" },
+        { icon: Printer, name: language === 'fr' ? "Imprimantes" : "Printers", specs: ["Laser", language === 'fr' ? "Jet d'encre" : "Inkjet", "A3/A4", language === 'fr' ? "Multifonctions" : "All-in-one"], partner: "Dell" },
       ],
     },
     {
-      image: productsEnergy,
+      image: "/products/led-weatherproof.webp",
       color: "green",
       badge: language === 'fr' ? "Solutions Énergétiques" : "Energy Solutions",
+      partner: "",
       items: [
-        { icon: SunDim, name: language === 'fr' ? "Panneaux Solaires" : "Solar Panels", specs: ["Monocristallin", "Polycristallin", "300W–550W"] },
-        { icon: Battery, name: language === 'fr' ? "Onduleurs & Batteries" : "Inverters & Batteries", specs: ["Hybride", "On-grid", "Off-grid", "Lithium"] },
-        { icon: Monitor, name: language === 'fr' ? "Monitoring" : "Monitoring", specs: [language === 'fr' ? "Compteurs" : "Meters", language === 'fr' ? "Capteurs" : "Sensors", "IoT"] },
+        { icon: SunDim, name: language === 'fr' ? "Panneaux Solaires" : "Solar Panels", specs: [language === 'fr' ? "Monocristallin" : "Monocrystalline", language === 'fr' ? "Polycristallin" : "Polycrystalline", "300W–550W"], partner: "" },
+        { icon: Battery, name: language === 'fr' ? "Onduleurs & Batteries" : "Inverters & Batteries", specs: [language === 'fr' ? "Hybride" : "Hybrid", "On-grid", "Off-grid", "Lithium"], partner: "" },
+        { icon: Monitor, name: language === 'fr' ? "Monitoring" : "Monitoring", specs: [language === 'fr' ? "Compteurs" : "Meters", language === 'fr' ? "Capteurs" : "Sensors", "IoT"], partner: "" },
       ],
     },
   ];
@@ -115,6 +114,11 @@ const Products = () => {
                   <div className={`absolute top-4 left-4 ${colors.badge} text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-lg shadow-lg`}>
                     {cat.badge}
                   </div>
+                  {cat.partner && (
+                    <div className="absolute bottom-4 right-4 bg-card/90 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-lg shadow border border-border/50">
+                      {cat.partner}
+                    </div>
+                  )}
                 </motion.div>
 
                 {/* Products list */}
@@ -136,7 +140,14 @@ const Products = () => {
                           <item.icon className={`w-6 h-6 ${colors.text}`} />
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-heading text-lg font-bold mb-2">{item.name}</h3>
+                          <div className="flex items-center gap-2 mb-2">
+                            <h3 className="font-heading text-lg font-bold">{item.name}</h3>
+                            {item.partner && (
+                              <span className="text-[10px] font-medium bg-muted px-2 py-0.5 rounded-full text-muted-foreground">
+                                {item.partner}
+                              </span>
+                            )}
+                          </div>
                           <div className="flex flex-wrap gap-2">
                             {item.specs.map((spec, i) => (
                               <span key={i} className="inline-flex items-center gap-1 text-xs bg-muted px-2.5 py-1 rounded-full text-muted-foreground">
@@ -150,10 +161,10 @@ const Products = () => {
                     </motion.div>
                   ))}
 
-                  <motion.div variants={fadeUp} custom={3}>
+                  <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
                     <Button variant="accent" size="lg" asChild className="shadow-accent">
                       <Link to="/contact">
-                        {t('products.cta')}
+                        {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
                         <ArrowRight className="w-5 h-5" />
                       </Link>
                     </Button>

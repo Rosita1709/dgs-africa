@@ -19,23 +19,23 @@ const LanguageSwitcher = () => {
           size="sm" 
           className="gap-2 text-primary-foreground hover:text-accent hover:bg-transparent"
         >
-          <Globe className="w-4 h-4" />
-          <span className="uppercase font-medium">{language}</span>
+          <span className="text-base">{language === 'fr' ? '🇫🇷' : '🇬🇧'}</span>
+          <span className="uppercase font-medium text-sm">{language === 'fr' ? 'FR' : 'EN'}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[120px]">
+      <DropdownMenuContent align="end" className="min-w-[140px]">
         <DropdownMenuItem 
           onClick={() => setLanguage('fr')}
-          className={language === 'fr' ? 'bg-accent/10 text-accent' : ''}
+          className={`gap-3 ${language === 'fr' ? 'bg-accent/10 text-accent font-semibold' : ''}`}
         >
-          <span className="mr-2">🇫🇷</span>
+          <span className="text-lg">🇫🇷</span>
           Français
         </DropdownMenuItem>
         <DropdownMenuItem 
           onClick={() => setLanguage('en')}
-          className={language === 'en' ? 'bg-accent/10 text-accent' : ''}
+          className={`gap-3 ${language === 'en' ? 'bg-accent/10 text-accent font-semibold' : ''}`}
         >
-          <span className="mr-2">🇬🇧</span>
+          <span className="text-lg">🇬🇧</span>
           English
         </DropdownMenuItem>
       </DropdownMenuContent>
