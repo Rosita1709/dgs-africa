@@ -63,7 +63,6 @@ const Header = () => {
                 src={logo} 
                 alt="DGS Africa" 
                 className="h-full w-auto object-contain"
-                style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}
               />
             </div>
           </Link>

@@ -25,7 +25,7 @@ const ServiceIndustriel = () => {
         ? "Solutions d'éclairage LED haute performance pour environnements industriels exigeants. Certifiées ATEX pour zones dangereuses."
         : "High-performance LED lighting solutions for demanding industrial environments. ATEX certified for hazardous areas.",
       specs: ["Explosion Proof (ATEX)", "Weatherproof IP65+", language === 'fr' ? "Haute Baie" : "High Bay", language === 'fr' ? "Projecteurs" : "Floodlights"],
-      image: "https://images.unsplash.com/photo-1565608087341-404b25492fee?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?w=800&q=80",
     },
     {
       icon: Thermometer,
@@ -35,7 +35,7 @@ const ServiceIndustriel = () => {
         ? "Systèmes de climatisation et réfrigération industrielle. Centrales de traitement d'air, chambres froides et solutions VRV/VRF."
         : "Industrial air conditioning and refrigeration systems. Air handling units, cold rooms and VRV/VRF solutions.",
       specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"],
-      image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
     },
     {
       icon: CircleDot,
@@ -45,7 +45,7 @@ const ServiceIndustriel = () => {
         ? "Gamme complète de courroies industrielles et automobiles. Poly-V, courroies crantées et trapézoïdales pour tous secteurs."
         : "Complete range of industrial and automotive belts. Poly-V, timing belts and V-belts for all sectors.",
       specs: ["Poly-V Belts", "Timing Belts", language === 'fr' ? "Courroies trapézoïdales" : "V-Belts", "Automotive"],
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1530124566582-a45a7e3ed25f?w=800&q=80",
     },
   ];
 
@@ -72,8 +72,8 @@ const ServiceIndustriel = () => {
         <div className="container relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg">
-                <Zap className="w-7 h-7 text-white" />
+              <div className="w-14 h-14 rounded-2xl bg-accent-gradient flex items-center justify-center shadow-lg">
+                <Zap className="w-7 h-7 text-accent-foreground" />
               </div>
               <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">
                 {language === 'fr' ? 'Pôle Industriel' : 'Industrial Division'}
@@ -145,17 +145,17 @@ const ServiceIndustriel = () => {
                 className={index % 2 === 1 ? 'order-1' : ''}
               >
                 <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                    <service.icon className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 rounded-xl bg-[#e8f0fe] flex items-center justify-center">
+                    <service.icon className="w-6 h-6 text-accent" />
                   </div>
-                  <span className="text-xs font-medium bg-blue-100 text-blue-700 px-3 py-1 rounded-full">{service.partner}</span>
+                  <span className="text-xs font-medium bg-accent/10 text-accent px-3 py-1 rounded-full">{service.partner}</span>
                 </motion.div>
                 <motion.h2 variants={fadeUp} custom={1} className="font-heading text-3xl md:text-4xl font-bold mb-4">{service.title}</motion.h2>
                 <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-lg mb-6 leading-relaxed">{service.desc}</motion.p>
                 <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-2 mb-8">
                   {service.specs.map((spec, i) => (
                     <span key={i} className="inline-flex items-center gap-1.5 text-sm bg-muted px-3 py-1.5 rounded-full text-muted-foreground">
-                      <CheckCircle className="w-3.5 h-3.5 text-blue-500" />
+                      <CheckCircle className="w-3.5 h-3.5 text-accent" />
                       {spec}
                     </span>
                   ))}
