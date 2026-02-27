@@ -65,7 +65,7 @@ const Header = () => {
               <img 
                 src={logo} 
                 alt="DGS Africa" 
-                className="h-full w-auto object-contain brightness-[10]"
+                className="h-full w-auto object-contain"
               />
             </div>
           </Link>
