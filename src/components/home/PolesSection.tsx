@@ -53,7 +53,6 @@ const PolesSection = () => {
 
   return (
     <section className="py-28 bg-muted/30 relative overflow-hidden">
-      {/* Background grid */}
       <div className="absolute inset-0 bg-grid" />
       
       <div className="container relative z-10">
@@ -64,58 +63,42 @@ const PolesSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4"
-          >
+          <span className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">
             {t('poles.label')}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
-          >
+          </span>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             {t('poles.title')}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-muted-foreground text-lg leading-relaxed"
-          >
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
             {t('poles.subtitle')}
-          </motion.p>
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {poles.map((pole, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.7, delay: index * 0.15 }}
               whileHover={{ y: -8 }}
-              className="group relative bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-500 border border-border/50"
+              className="group relative bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-500 border border-border/50 hover:border-accent/30"
             >
+              {/* Glassmorphism overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-card/90 z-[1] pointer-events-none" />
+              
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
                 <motion.img
                   src={pole.image}
                   alt={pole.title}
                   className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.08 }}
                   transition={{ duration: 0.6 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
                 
-                {/* Icon overlay */}
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
@@ -128,7 +111,7 @@ const PolesSection = () => {
               </div>
 
               {/* Content */}
-              <div className="relative p-6">
+              <div className="relative z-[2] p-6">
                 <h3 className="font-heading text-2xl font-bold mb-3 group-hover:text-accent transition-colors">
                   {pole.title}
                 </h3>
@@ -136,24 +119,18 @@ const PolesSection = () => {
                   {pole.description}
                 </p>
 
-                {/* Features */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {pole.features.map((feature, i) => (
-                    <motion.span
+                    <span
                       key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.4 + i * 0.1 }}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-muted rounded-full text-xs font-medium text-foreground/70 group-hover:bg-accent/10 group-hover:text-accent transition-all duration-300"
                     >
                       <feature.icon className="w-3 h-3" />
                       {feature.text}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
 
-                {/* CTA */}
                 <Link 
                   to={pole.href}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-accent transition-colors"
