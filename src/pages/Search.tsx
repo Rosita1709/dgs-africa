@@ -10,8 +10,6 @@ const Search = () => {
   const { language } = useLanguage();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const query = searchParams.get("q") || "";
-  const query = searchParams.get("q") || "";
 
   const allPages = useMemo(() => [
     { title: language === 'fr' ? 'Accueil' : 'Home', desc: language === 'fr' ? 'Page d\'accueil DGS Africa' : 'DGS Africa homepage', href: '/', tags: 'accueil home dgs africa' },
