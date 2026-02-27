@@ -52,7 +52,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled ? 'bg-primary shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-primary shadow-lg' : 'bg-primary/80 backdrop-blur-md'
     }`}>
       <nav className="container">
         <div className="flex items-center justify-between py-3">
@@ -63,7 +63,6 @@ const Header = () => {
                 src={logo} 
                 alt="DGS Africa" 
                 className="h-full w-auto object-contain"
-                style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))' }}
               />
             </div>
           </Link>
