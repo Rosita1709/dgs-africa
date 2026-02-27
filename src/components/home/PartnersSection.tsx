@@ -40,6 +40,7 @@ const clients = [
     name: 'Ambassade du Sénégal aux EAU',
     abbrev: '🇸🇳',
     subtitle: 'Ambassade Sénégal EAU',
+    logo: '/logos/ambassade-senegal.png',
     icon: Shield,
     colors: { bg: 'from-green-600 via-yellow-500 to-red-600', text: 'text-white' },
     url: 'https://ae-senegalembassy.com' 
