@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useMemo, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
