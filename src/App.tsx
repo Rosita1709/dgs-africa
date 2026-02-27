@@ -14,6 +14,10 @@ import Legal from "./pages/Legal";
 import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
 import NotFound from "./pages/NotFound";
+import ServiceIndustriel from "./pages/ServiceIndustriel";
+import ServiceIT from "./pages/ServiceIT";
+import ServiceEnergie from "./pages/ServiceEnergie";
+import Search from "./pages/Search";
 
 const queryClient = new QueryClient();
 
@@ -28,9 +32,13 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/a-propos" element={<About />} />
             <Route path="/solutions" element={<Solutions />} />
+            <Route path="/services/industriel" element={<ServiceIndustriel />} />
+            <Route path="/services/it" element={<ServiceIT />} />
+            <Route path="/services/energie" element={<ServiceEnergie />} />
             <Route path="/produits" element={<Products />} />
             <Route path="/projets" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/recherche" element={<Search />} />
             <Route path="/mentions-legales" element={<Legal />} />
             <Route path="/politique-confidentialite" element={<Privacy />} />
             <Route path="/cookies" element={<Cookies />} />

@@ -71,7 +71,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  to="/solutions#industriel"
+                  to="/services/industriel"
                   className="text-primary-foreground/70 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-accent transition-all duration-300" />
@@ -80,7 +80,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link 
-                  to="/solutions#it"
+                  to="/services/it"
                   className="text-primary-foreground/70 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-accent transition-all duration-300" />
@@ -89,7 +89,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link 
-                  to="/solutions#energie"
+                  to="/services/energie"
                   className="text-primary-foreground/70 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-accent transition-all duration-300" />
