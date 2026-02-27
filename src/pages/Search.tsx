@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 const Search = () => {
   const { language } = useLanguage();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const query = searchParams.get("q") || "";
   const query = searchParams.get("q") || "";
 
   const allPages = useMemo(() => [
