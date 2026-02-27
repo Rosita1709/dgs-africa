@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRef, useEffect, useState } from "react";
 
 const partners = [
   { name: 'Universal RBM', logo: '/logos/universal-rbm.png', url: 'https://universal-rbm.com' },
@@ -18,10 +19,36 @@ const clients = [
 
 const PartnersSection = () => {
   const { language } = useLanguage();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  // Auto-scroll on mobile
+  useEffect(() => {
+    if (!isMobile || !scrollRef.current) return;
+    const el = scrollRef.current;
+    let pos = 0;
+    const speed = 0.5;
+    let raf: number;
+    const animate = () => {
+      pos += speed;
+      if (pos >= el.scrollWidth - el.clientWidth) pos = 0;
+      el.scrollLeft = pos;
+      raf = requestAnimationFrame(animate);
+    };
+    raf = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(raf);
+  }, [isMobile]);
 
   return (
     <section className="py-24 bg-muted/20 overflow-hidden">
-      <div className="container space-y-20">
+      <div className="container space-y-16">
         {/* Partners */}
         <div>
           <motion.div
@@ -37,12 +64,15 @@ const PartnersSection = () => {
             <div className="w-12 h-0.5 bg-accent mx-auto mt-3" />
           </motion.div>
           
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center justify-center gap-8 md:gap-14 flex-wrap"
+          {/* Desktop: grid / Mobile: auto-scrolling carousel */}
+          <div
+            ref={scrollRef}
+            className={`${
+              isMobile 
+                ? 'flex gap-8 overflow-x-auto pb-4' 
+                : 'flex items-center justify-center gap-10 md:gap-14 flex-wrap'
+            }`}
+            style={isMobile ? { scrollbarWidth: 'none' } : {}}
           >
             {partners.map((partner, index) => (
               <motion.a
@@ -50,12 +80,12 @@ const PartnersSection = () => {
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                whileHover={{ scale: 1.08, y: -4 }}
-                className="flex items-center justify-center h-16 px-4 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.1, y: -4 }}
+                className="flex items-center justify-center h-16 px-4 shrink-0 transition-all duration-300"
                 title={partner.name}
               >
                 {partner.logo ? (
@@ -65,13 +95,13 @@ const PartnersSection = () => {
                     className="max-h-10 w-auto object-contain"
                   />
                 ) : (
-                  <span className="text-xl font-black text-foreground/50 hover:text-accent transition-colors tracking-tight">
+                  <span className="text-xl font-black text-foreground hover:text-accent transition-colors tracking-tight">
                     {partner.text}
                   </span>
                 )}
               </motion.a>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Divider */}
@@ -108,7 +138,7 @@ const PartnersSection = () => {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -5, scale: 1.05 }}
                 className="flex flex-col items-center gap-2 group"
                 title={client.name}

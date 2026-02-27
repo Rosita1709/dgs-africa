@@ -31,9 +31,7 @@ const Header = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -42,11 +40,19 @@ const Header = () => {
     setIsOpen(false);
   }, [location.pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? 'bg-primary shadow-lg' 
-        : 'bg-transparent'
+      isScrolled ? 'bg-primary shadow-lg' : 'bg-transparent'
     }`}>
       <nav className="container">
         <div className="flex items-center justify-between py-3">
@@ -73,7 +79,7 @@ const Header = () => {
                   >
                     <Link
                       to={link.href}
-                      className={`flex items-center gap-1 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${
+                      className={`flex items-center gap-1 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 relative ${
                         location.pathname.startsWith('/services') || location.pathname === '/solutions'
                           ? "text-accent"
                           : "text-primary-foreground hover:text-accent"
@@ -119,7 +125,8 @@ const Header = () => {
                     }`}
                   >
                     {link.name}
-                    <span className={`absolute bottom-0 left-5 right-5 h-0.5 bg-accent transition-transform origin-left ${
+                    {/* Gold underline slide-in on hover */}
+                    <span className={`absolute bottom-0 left-5 right-5 h-0.5 bg-accent transition-transform origin-left duration-300 ${
                       location.pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                     }`} />
                   </Link>
@@ -128,7 +135,7 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Right side — language switcher only */}
+          {/* Right side — language switcher */}
           <div className="hidden lg:flex items-center gap-3">
             <LanguageSwitcher />
           </div>
@@ -137,7 +144,7 @@ const Header = () => {
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg transition-colors text-primary-foreground"
+              className="p-2 rounded-lg transition-colors text-primary-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -149,67 +156,97 @@ const Header = () => {
         <AnimatePresence>
           {isOpen && (
             <>
+              {/* Dark overlay */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
                 onClick={() => setIsOpen(false)}
               />
+              {/* Slide-in drawer */}
               <motion.div 
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
-                transition={{ type: 'tween', duration: 0.3 }}
-                className="fixed top-0 right-0 h-full w-3/5 md:w-2/5 max-w-sm bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
+                transition={{ type: 'tween', duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
+                style={{ scrollbarWidth: 'none' }}
               >
+                {/* Close button - top right, 44px touch target */}
                 <div className="flex justify-end p-4">
-                  <button onClick={() => setIsOpen(false)} className="text-primary-foreground">
+                  <button 
+                    onClick={() => setIsOpen(false)} 
+                    className="text-primary-foreground min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-primary-foreground/10 transition-colors"
+                  >
                     <X className="w-7 h-7" />
                   </button>
                 </div>
-                <div className="py-6 px-6 flex flex-col gap-2">
-                  {navLinks.map((link) => (
-                    <div key={link.name}>
+
+                <div className="py-4 px-6 flex flex-col">
+                  {navLinks.map((link, index) => (
+                    <motion.div 
+                      key={link.name}
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05, duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                      className="border-b border-primary-foreground/10"
+                    >
                       <Link
                         to={link.href}
-                        className={`block text-lg font-semibold py-3 px-4 rounded-lg transition-all ${
+                        className={`block text-lg font-semibold py-4 px-3 rounded-lg transition-all min-h-[48px] flex items-center ${
                           location.pathname === link.href
-                            ? "text-accent"
-                            : "text-primary-foreground hover:text-accent"
+                            ? "text-accent bg-accent/10"
+                            : "text-primary-foreground hover:text-accent hover:bg-primary-foreground/5"
                         }`}
                       >
                         {link.name}
                       </Link>
                       {link.children && (
-                        <div className="ml-4 border-l-2 border-accent/30 pl-4 mt-2">
-                          {link.children.map((child) => (
-                            <Link
+                        <div className="ml-3 border-l-2 border-accent/50 pl-4 mb-3">
+                          {link.children.map((child, childIndex) => (
+                            <motion.div
                               key={child.name}
-                              to={child.href}
-                              className={`block text-base font-medium py-2 ${
-                                location.pathname === child.href
-                                  ? 'text-accent'
-                                  : 'text-primary-foreground/70 hover:text-accent'
-                              }`}
+                              initial={{ opacity: 0, x: 20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: (index * 0.05) + (childIndex * 0.04) + 0.1, duration: 0.25 }}
                             >
-                              {child.name}
-                            </Link>
+                              <Link
+                                to={child.href}
+                                className={`block text-base font-medium py-3 px-3 rounded-md transition-all min-h-[44px] flex items-center ${
+                                  location.pathname === child.href
+                                    ? 'text-accent bg-accent/10'
+                                    : 'text-primary-foreground/70 hover:text-accent hover:bg-primary-foreground/5'
+                                }`}
+                              >
+                                {child.name}
+                              </Link>
+                            </motion.div>
                           ))}
                         </div>
                       )}
-                    </div>
+                    </motion.div>
                   ))}
-                  <div className="flex items-center gap-4 pt-4 mt-4 border-t border-primary-foreground/10">
+
+                  {/* Language switcher + Phone */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: navLinks.length * 0.05 + 0.1, duration: 0.3 }}
+                    className="flex items-center gap-4 pt-6 mt-4 border-t border-primary-foreground/10"
+                  >
                     <LanguageSwitcher />
-                    <a 
-                      href="tel:+221775930196"
-                      className="flex items-center gap-2 text-accent font-semibold"
-                    >
-                      <Phone className="w-5 h-5" />
-                      +221 77 593 01 96
-                    </a>
-                  </div>
+                  </motion.div>
+                  <motion.a 
+                    href="tel:+221775930196"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: navLinks.length * 0.05 + 0.15, duration: 0.3 }}
+                    className="flex items-center gap-2 text-accent font-semibold mt-4 whitespace-nowrap"
+                  >
+                    <Phone className="w-5 h-5 shrink-0" />
+                    +221 77 593 01 96
+                  </motion.a>
                 </div>
               </motion.div>
             </>
