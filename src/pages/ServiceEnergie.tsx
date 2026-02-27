@@ -57,15 +57,20 @@ const ServiceEnergie = () => {
     <Layout>
       {/* Hero with real image */}
       <section className="relative pt-32 pb-28 overflow-hidden min-h-[70vh] flex items-center">
-        <div className="absolute inset-0">
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.2, x: '-5%' }}
+          animate={{ scale: 1, x: '0%' }}
+          transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           <img 
             src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1600&q=80" 
             alt="Solar panels" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/50" />
-          <div className="absolute inset-0 bg-pattern" />
-        </div>
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/50" />
+        <div className="absolute inset-0 bg-pattern" />
         <div className="container relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
             <div className="inline-flex items-center gap-3 mb-6">
