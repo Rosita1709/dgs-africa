@@ -4,9 +4,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const partners = [
   { name: 'Universal RBM', logo: '/logos/universal-rbm.png', url: 'https://universal-rbm.com' },
   { name: 'Senben Lighting', logo: '/logos/senben.webp', url: 'https://www.senbenlighting.com' },
-  { name: 'Airchal', logo: null, text: 'Airchal', url: 'https://airchal.com' },
+  { name: 'Airchal', logo: null, text: 'Airchal', textClass: 'text-pink-600 font-black italic', url: 'https://airchal.com' },
   { name: 'Blackview', logo: '/logos/blackview.webp', url: 'https://www.blackview.hk' },
-  { name: 'Dell Technologies', logo: null, text: 'DELL', url: 'https://www.dell.com' },
+  { name: 'Dell Technologies', logo: '/logos/dell.png', url: 'https://www.dell.com' },
 ];
 
 const clients = [
@@ -17,7 +17,7 @@ const clients = [
 ];
 
 const PartnersSection = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <section className="py-16 bg-muted/30 overflow-hidden">
@@ -53,6 +53,7 @@ const PartnersSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 className="flex items-center justify-center w-32 h-16 md:w-40 md:h-20 bg-card rounded-lg shadow-soft border border-border/30 hover:border-accent/30 hover:shadow-card transition-all duration-300 cursor-pointer px-4"
+                title={partner.name}
               >
                 {partner.logo ? (
                   <img 
@@ -61,8 +62,8 @@ const PartnersSection = () => {
                     className="max-h-10 md:max-h-12 w-auto object-contain"
                   />
                 ) : (
-                  <span className="text-lg md:text-xl font-bold text-foreground/60 hover:text-accent transition-colors">
-                    {partner.text}
+                  <span className={`text-lg md:text-xl font-bold transition-colors ${(partner as any).textClass || 'text-foreground/60 hover:text-accent'}`}>
+                    {(partner as any).text}
                   </span>
                 )}
               </motion.a>
@@ -101,6 +102,7 @@ const PartnersSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 className="flex items-center justify-center w-36 h-16 md:w-44 md:h-20 bg-card rounded-lg shadow-soft border border-border/30 hover:border-accent/30 hover:shadow-card transition-all duration-300 cursor-pointer px-4"
+                title={client.name}
               >
                 <span className="text-xs md:text-sm font-semibold text-foreground/50 hover:text-accent transition-colors text-center leading-tight">
                   {client.text}
