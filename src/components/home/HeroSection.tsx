@@ -121,7 +121,7 @@ const HeroSection = () => {
               </Button>
               <Button variant="hero-outline" size="xl" asChild className="group">
                 <a 
-                  href="https://wa.me/221775930196" 
+                  href="https://api.whatsapp.com/send?phone=221775930196" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
