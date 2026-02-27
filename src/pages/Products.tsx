@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer, Monitor, SunDim, Battery, CheckCircle } from "lucide-react";
+import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer, Monitor, SunDim, Battery, CheckCircle, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 
@@ -19,44 +19,104 @@ const Products = () => {
 
   const categories = [
     {
-      image: "/products/led-explosion-proof.webp",
+      title: language === 'fr' ? "Équipements Industriels" : "Industrial Equipment",
+      subtitle: language === 'fr' ? "LED, Climatisation & Courroies" : "LED, HVAC & Belts",
       color: "blue",
-      badge: language === 'fr' ? "Équipements Industriels" : "Industrial Equipment",
-      partner: "Senben Lighting / Universal RBM / Airchal",
       items: [
-        { icon: Lightbulb, name: language === 'fr' ? "Éclairage LED Industriel" : "Industrial LED Lighting", specs: ["Explosion Proof (ATEX)", "Weatherproof IP65+", language === 'fr' ? "Haute Baie" : "High Bay", language === 'fr' ? "Projecteurs" : "Floodlights"], partner: "Senben Lighting" },
-        { icon: Thermometer, name: language === 'fr' ? "Froid & Climatisation" : "Cooling & HVAC", specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"], partner: "Airchal" },
-        { icon: CircleDot, name: language === 'fr' ? "Courroies Industrielles" : "Industrial Belts", specs: ["Poly-V Belts", "Timing Belts", language === 'fr' ? "Courroies trapézoïdales" : "V-Belts", "Automotive"], partner: "Universal RBM" },
+        {
+          icon: Lightbulb,
+          name: language === 'fr' ? "Éclairage LED Industriel" : "Industrial LED Lighting",
+          image: "/products/led-weatherproof.webp",
+          partner: "Senben Lighting",
+          partnerLogo: "/logos/senben.webp",
+          specs: ["Explosion Proof (ATEX)", "Weatherproof IP65+", language === 'fr' ? "Haute Baie" : "High Bay", language === 'fr' ? "Projecteurs" : "Floodlights"],
+        },
+        {
+          icon: Thermometer,
+          name: language === 'fr' ? "Froid & Climatisation" : "Cooling & HVAC",
+          image: "/products/airchal-ahu.jpg",
+          partner: "Airchal",
+          partnerLogo: null,
+          specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"],
+        },
+        {
+          icon: CircleDot,
+          name: language === 'fr' ? "Courroies Industrielles" : "Industrial Belts",
+          image: "/products/belts-poly-v.jpg",
+          partner: "Universal RBM",
+          partnerLogo: "/logos/universal-rbm.png",
+          specs: ["Poly-V Belts", "Timing Belts", language === 'fr' ? "Courroies trapézoïdales" : "V-Belts", "Automotive"],
+        },
       ],
     },
     {
-      image: "/products/airchal-ahu.jpg",
+      title: language === 'fr' ? "Matériel Informatique" : "IT Equipment",
+      subtitle: language === 'fr' ? "Ordinateurs, Serveurs & Réseaux" : "Computers, Servers & Networks",
       color: "accent",
-      badge: language === 'fr' ? "Matériel Informatique" : "IT Equipment",
-      partner: "Dell / Blackview",
       items: [
-        { icon: Laptop, name: language === 'fr' ? "Ordinateurs" : "Computers", specs: ["Dell Latitude", "Dell Inspiron", language === 'fr' ? "Portables & Fixes" : "Laptops & Desktops", "Blackview Rugged"], partner: "Dell / Blackview" },
-        { icon: Server, name: language === 'fr' ? "Serveurs & Réseau" : "Servers & Network", specs: ["Dell PowerEdge", "Rack", "NAS", "Switches"], partner: "Dell" },
-        { icon: Printer, name: language === 'fr' ? "Imprimantes" : "Printers", specs: ["Laser", language === 'fr' ? "Jet d'encre" : "Inkjet", "A3/A4", language === 'fr' ? "Multifonctions" : "All-in-one"], partner: "Dell" },
+        {
+          icon: Laptop,
+          name: language === 'fr' ? "Ordinateurs" : "Computers",
+          image: "/products/airchal-fancoil.jpg",
+          partner: "Dell / Blackview",
+          partnerLogo: "/logos/dell.png",
+          specs: ["Dell Latitude", "Dell Inspiron", language === 'fr' ? "Portables & Fixes" : "Laptops & Desktops", "Blackview Rugged"],
+        },
+        {
+          icon: Server,
+          name: language === 'fr' ? "Serveurs & Réseau" : "Servers & Network",
+          image: "/products/airchal-fancoil.jpg",
+          partner: "Dell",
+          partnerLogo: "/logos/dell.png",
+          specs: ["Dell PowerEdge", "Rack", "NAS", "Switches"],
+        },
+        {
+          icon: Printer,
+          name: language === 'fr' ? "Imprimantes" : "Printers",
+          image: "/products/airchal-fancoil.jpg",
+          partner: "Dell",
+          partnerLogo: "/logos/dell.png",
+          specs: ["Laser", language === 'fr' ? "Jet d'encre" : "Inkjet", "A3/A4", language === 'fr' ? "Multifonctions" : "All-in-one"],
+        },
       ],
     },
     {
-      image: "/products/led-weatherproof.webp",
+      title: language === 'fr' ? "Solutions Énergétiques" : "Energy Solutions",
+      subtitle: language === 'fr' ? "Solaire, Onduleurs & Monitoring" : "Solar, Inverters & Monitoring",
       color: "green",
-      badge: language === 'fr' ? "Solutions Énergétiques" : "Energy Solutions",
-      partner: "",
       items: [
-        { icon: SunDim, name: language === 'fr' ? "Panneaux Solaires" : "Solar Panels", specs: [language === 'fr' ? "Monocristallin" : "Monocrystalline", language === 'fr' ? "Polycristallin" : "Polycrystalline", "300W–550W"], partner: "" },
-        { icon: Battery, name: language === 'fr' ? "Onduleurs & Batteries" : "Inverters & Batteries", specs: [language === 'fr' ? "Hybride" : "Hybrid", "On-grid", "Off-grid", "Lithium"], partner: "" },
-        { icon: Monitor, name: language === 'fr' ? "Monitoring" : "Monitoring", specs: [language === 'fr' ? "Compteurs" : "Meters", language === 'fr' ? "Capteurs" : "Sensors", "IoT"], partner: "" },
+        {
+          icon: SunDim,
+          name: language === 'fr' ? "Panneaux Solaires" : "Solar Panels",
+          image: "/products/led-explosion-proof.webp",
+          partner: "",
+          partnerLogo: null,
+          specs: [language === 'fr' ? "Monocristallin" : "Monocrystalline", language === 'fr' ? "Polycristallin" : "Polycrystalline", "300W–550W"],
+        },
+        {
+          icon: Battery,
+          name: language === 'fr' ? "Onduleurs & Batteries" : "Inverters & Batteries",
+          image: "/products/led-explosion-proof.webp",
+          partner: "",
+          partnerLogo: null,
+          specs: [language === 'fr' ? "Hybride" : "Hybrid", "On-grid", "Off-grid", "Lithium"],
+        },
+        {
+          icon: Monitor,
+          name: language === 'fr' ? "Monitoring" : "Monitoring",
+          image: "/products/led-explosion-proof.webp",
+          partner: "",
+          partnerLogo: null,
+          specs: [language === 'fr' ? "Compteurs" : "Meters", language === 'fr' ? "Capteurs" : "Sensors", "IoT"],
+        },
       ],
     },
   ];
 
-  const colorMap: Record<string, { bg: string; text: string; border: string; icon: string; badge: string }> = {
-    blue: { bg: "bg-blue-500/10", text: "text-blue-600", border: "hover:border-blue-200", icon: "text-blue-500", badge: "bg-blue-600" },
-    accent: { bg: "bg-accent/10", text: "text-accent", border: "hover:border-accent/30", icon: "text-accent", badge: "bg-accent" },
-    green: { bg: "bg-green-500/10", text: "text-green-600", border: "hover:border-green-200", icon: "text-green-500", badge: "bg-green-600" },
+  const colorMap: Record<string, { bg: string; text: string; border: string; icon: string; badge: string; gradient: string }> = {
+    blue: { bg: "bg-blue-500/10", text: "text-blue-600", border: "border-blue-200/50", icon: "text-blue-500", badge: "bg-blue-600", gradient: "from-blue-600 to-blue-500" },
+    accent: { bg: "bg-accent/10", text: "text-accent", border: "border-accent/30", icon: "text-accent", badge: "bg-accent", gradient: "from-accent to-accent/80" },
+    green: { bg: "bg-green-500/10", text: "text-green-600", border: "border-green-200/50", icon: "text-green-500", badge: "bg-green-600", gradient: "from-green-600 to-green-500" },
   };
 
   return (
@@ -94,87 +154,144 @@ const Products = () => {
       {/* Product Categories */}
       {categories.map((cat, catIndex) => {
         const colors = colorMap[cat.color];
-        const isReversed = catIndex % 2 === 1;
 
         return (
           <section key={catIndex} className={`py-20 ${catIndex % 2 === 1 ? 'bg-muted/30' : ''}`}>
             <div className="container">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Image */}
-                <motion.div
-                  initial={{ opacity: 0, x: isReversed ? 40 : -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8 }}
-                  className={`relative ${isReversed ? 'order-2' : 'order-2 lg:order-1'}`}
-                >
-                  <div className="rounded-2xl overflow-hidden shadow-premium">
-                    <img src={cat.image} alt={cat.badge} className="w-full h-[380px] object-cover" />
-                  </div>
-                  <div className={`absolute top-4 left-4 ${colors.badge} text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-lg shadow-lg`}>
-                    {cat.badge}
-                  </div>
-                  {cat.partner && (
-                    <div className="absolute bottom-4 right-4 bg-card/90 backdrop-blur-sm text-xs font-medium px-3 py-1.5 rounded-lg shadow border border-border/50">
-                      {cat.partner}
-                    </div>
-                  )}
-                </motion.div>
+              {/* Category Header */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-14"
+              >
+                <span className={`inline-block bg-gradient-to-r ${colors.gradient} text-white text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full mb-4 shadow-lg`}>
+                  {cat.title}
+                </span>
+                <h2 className="font-heading text-3xl md:text-4xl font-bold mb-3">{cat.title}</h2>
+                <p className="text-muted-foreground text-lg">{cat.subtitle}</p>
+              </motion.div>
 
-                {/* Products list */}
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  className={`space-y-5 ${isReversed ? 'order-1' : 'order-1 lg:order-2'}`}
-                >
-                  {cat.items.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      variants={fadeUp}
-                      custom={index}
-                      className={`group bg-card p-6 rounded-xl shadow-soft border border-border/50 ${colors.border} transition-all`}
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className={`w-12 h-12 rounded-xl ${colors.bg} flex items-center justify-center shrink-0`}>
-                          <item.icon className={`w-6 h-6 ${colors.text}`} />
+              {/* Product Cards Grid */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              >
+                {cat.items.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeUp}
+                    custom={index}
+                    className={`group bg-card rounded-2xl overflow-hidden shadow-soft border ${colors.border} hover:shadow-premium transition-all duration-500`}
+                  >
+                    {/* Product Image */}
+                    <div className="relative h-56 overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      
+                      {/* Partner Logo Badge */}
+                      {item.partnerLogo && (
+                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+                          <img src={item.partnerLogo} alt={item.partner} className="h-6 w-auto object-contain" />
                         </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h3 className="font-heading text-lg font-bold">{item.name}</h3>
-                            {item.partner && (
-                              <span className="text-[10px] font-medium bg-muted px-2 py-0.5 rounded-full text-muted-foreground">
-                                {item.partner}
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {item.specs.map((spec, i) => (
-                              <span key={i} className="inline-flex items-center gap-1 text-xs bg-muted px-2.5 py-1 rounded-full text-muted-foreground">
-                                <CheckCircle className={`w-3 h-3 ${colors.icon}`} />
-                                {spec}
-                              </span>
-                            ))}
-                          </div>
+                      )}
+                      {item.partner && !item.partnerLogo && (
+                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-lg">
+                          <span className="text-xs font-bold text-foreground">{item.partner}</span>
                         </div>
+                      )}
+                      
+                      {/* Product Name Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="font-heading text-lg font-bold text-white flex items-center gap-2">
+                          <item.icon className="w-5 h-5" />
+                          {item.name}
+                        </h3>
                       </div>
-                    </motion.div>
-                  ))}
+                    </div>
 
-                  <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
-                    <Button variant="accent" size="lg" asChild className="shadow-accent">
-                      <Link to="/contact">
-                        {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
-                        <ArrowRight className="w-5 h-5" />
-                      </Link>
-                    </Button>
+                    {/* Product Specs */}
+                    <div className="p-5">
+                      {item.partner && (
+                        <p className={`text-xs font-semibold ${colors.text} mb-3 uppercase tracking-wider`}>
+                          {item.partner}
+                        </p>
+                      )}
+                      <div className="flex flex-wrap gap-2">
+                        {item.specs.map((spec, i) => (
+                          <span key={i} className="inline-flex items-center gap-1 text-xs bg-muted px-2.5 py-1.5 rounded-full text-muted-foreground">
+                            <CheckCircle className={`w-3 h-3 ${colors.icon}`} />
+                            {spec}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-border/50">
+                        <Link
+                          to="/contact"
+                          className={`inline-flex items-center gap-1.5 text-sm font-semibold ${colors.text} hover:underline transition-colors`}
+                        >
+                          {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
                   </motion.div>
-                </motion.div>
-              </div>
+                ))}
+              </motion.div>
             </div>
           </section>
         );
       })}
+
+      {/* Partners Logos Banner */}
+      <section className="py-16 bg-muted/20">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <h3 className="font-heading text-2xl font-bold mb-2">
+              {language === 'fr' ? 'Nos Partenaires' : 'Our Partners'}
+            </h3>
+            <p className="text-muted-foreground">
+              {language === 'fr' ? 'Des marques de confiance pour des produits de qualité' : 'Trusted brands for quality products'}
+            </p>
+          </motion.div>
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            {[
+              { src: "/logos/senben.webp", alt: "Senben Lighting" },
+              { src: "/logos/universal-rbm.png", alt: "Universal RBM" },
+              { src: "/logos/dell.png", alt: "Dell" },
+              { src: "/logos/blackview.webp", alt: "Blackview" },
+            ].map((logo, i) => (
+              <motion.div
+                key={logo.alt}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="group"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-12 md:h-16 w-auto object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-500"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-24 bg-hero-premium relative overflow-hidden">
@@ -193,12 +310,20 @@ const Products = () => {
             <p className="text-primary-foreground/70 text-lg mb-8">
               {t('cta.subtitle')}
             </p>
-            <Button variant="accent" size="xl" asChild className="shadow-accent">
-              <Link to="/contact">
-                {t('cta.button')}
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button variant="accent" size="xl" asChild className="shadow-accent">
+                <Link to="/contact">
+                  {t('cta.button')}
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                <a href="https://wa.me/221775930196" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="w-5 h-5" />
+                  WhatsApp
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
