@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Phone, ChevronDown, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import logo from "@/assets/logo-dgs.png";
@@ -12,7 +11,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
   const { t, language } = useLanguage();
 
   const navLinks = [
@@ -23,11 +21,12 @@ const Header = () => {
       href: "/solutions",
       hasDropdown: true,
       children: [
-        { name: language === 'fr' ? 'Équipements Industriels' : 'Industrial Equipment', href: "/solutions#industriel" },
-        { name: language === 'fr' ? 'Solutions IT' : 'IT Solutions', href: "/solutions#it" },
-        { name: language === 'fr' ? 'Énergie Solaire' : 'Solar Energy', href: "/solutions#energie" },
+        { name: language === 'fr' ? 'Équipements Industriels' : 'Industrial Equipment', href: "/services/industriel" },
+        { name: language === 'fr' ? 'Solutions IT' : 'IT Solutions', href: "/services/it" },
+        { name: language === 'fr' ? 'Énergie Solaire' : 'Solar Energy', href: "/services/energie" },
       ]
     },
+    { name: language === 'fr' ? 'Produits' : 'Products', href: "/produits" },
     { name: language === 'fr' ? 'Contacts' : 'Contact', href: "/contact" },
   ];
 
@@ -39,48 +38,16 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle hash scrolling after navigation
+  // Close mobile menu on route change
   useEffect(() => {
-    if (location.hash) {
-      // Small delay to let the page render
-      setTimeout(() => {
-        const id = location.hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          const headerHeight = 80;
-          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({
-            top: elementPosition - headerHeight,
-            behavior: 'smooth'
-          });
-        }
-      }, 300);
-    }
-  }, [location]);
-
-  const handleHashLink = (href: string) => {
-    const [path, hash] = href.split('#');
-    if (location.pathname === path && hash) {
-      // Same page, just scroll
-      const element = document.getElementById(hash);
-      if (element) {
-        const headerHeight = 80;
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: elementPosition - headerHeight,
-          behavior: 'smooth'
-        });
-      }
-    } else {
-      navigate(href);
-    }
-  };
+    setIsOpen(false);
+  }, [location.pathname]);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-primary/98 backdrop-blur-lg shadow-lg' 
-        : 'bg-primary/90 backdrop-blur-sm'
+        ? 'bg-primary backdrop-blur-lg shadow-lg' 
+        : 'bg-primary/95 backdrop-blur-sm'
     }`}>
       <nav className="container">
         <div className="flex items-center justify-between py-3">
@@ -89,7 +56,7 @@ const Header = () => {
             <div className="relative h-10 md:h-12 transition-all duration-300">
               <img 
                 src={logo} 
-                alt="DGS Africa - Facility Management & Equipment" 
+                alt="DGS Africa" 
                 className="h-full w-auto object-contain"
                 style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.4))' }}
               />
@@ -101,22 +68,49 @@ const Header = () => {
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
                 {link.hasDropdown ? (
-                  <button
+                  <div
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
-                    onClick={() => handleHashLink(link.href)}
-                    className={`flex items-center gap-1 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${
-                      location.pathname === link.href
-                        ? "text-accent"
-                        : "text-primary-foreground hover:text-accent"
-                    }`}
                   >
-                    {link.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-                    
-                    {/* Underline */}
-                    <span className="absolute bottom-0 left-5 right-5 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                  </button>
+                    <Link
+                      to={link.href}
+                      className={`flex items-center gap-1 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${
+                        location.pathname.startsWith('/services') || location.pathname === '/solutions'
+                          ? "text-accent"
+                          : "text-primary-foreground hover:text-accent"
+                      }`}
+                    >
+                      {link.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                    </Link>
+
+                    {/* Dropdown */}
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 w-64 bg-card rounded-lg shadow-premium overflow-hidden border border-border"
+                        >
+                          {link.children?.map((child) => (
+                            <Link
+                              key={child.name}
+                              to={child.href}
+                              className={`block px-5 py-4 text-sm font-medium transition-colors border-b border-border/50 last:border-0 ${
+                                location.pathname === child.href
+                                  ? 'text-accent bg-accent/10'
+                                  : 'text-foreground hover:bg-accent/10 hover:text-accent'
+                              }`}
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 ) : (
                   <Link
                     to={link.href}
@@ -127,66 +121,46 @@ const Header = () => {
                     }`}
                   >
                     {link.name}
-                    {/* Underline */}
                     <span className={`absolute bottom-0 left-5 right-5 h-0.5 bg-accent transition-transform origin-left ${
                       location.pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                     }`} />
                   </Link>
-                )}
-
-                {/* Dropdown */}
-                {link.hasDropdown && (
-                  <AnimatePresence>
-                    {servicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        onMouseEnter={() => setServicesOpen(true)}
-                        onMouseLeave={() => setServicesOpen(false)}
-                        className="absolute top-full left-0 w-64 bg-card rounded-lg shadow-premium overflow-hidden border border-border"
-                      >
-                        {link.children?.map((child) => (
-                          <button
-                            key={child.name}
-                            onClick={() => {
-                              setServicesOpen(false);
-                              handleHashLink(child.href);
-                            }}
-                            className="block w-full text-left px-5 py-4 text-sm font-medium text-foreground hover:bg-accent/10 hover:text-accent transition-colors border-b border-border/50 last:border-0"
-                          >
-                            {child.name}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 )}
               </div>
             ))}
           </div>
 
           {/* Right side */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              to="/recherche"
+              className="p-2 rounded-lg text-primary-foreground/70 hover:text-accent transition-colors"
+              aria-label="Search"
+            >
+              <Search className="w-5 h-5" />
+            </Link>
             <LanguageSwitcher />
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg transition-colors text-primary-foreground"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <Link to="/recherche" className="p-2 text-primary-foreground">
+              <Search className="w-5 h-5" />
+            </Link>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg transition-colors text-primary-foreground"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isOpen && (
             <>
-              {/* Overlay */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -194,7 +168,6 @@ const Header = () => {
                 className="fixed inset-0 bg-black/50 z-40 lg:hidden"
                 onClick={() => setIsOpen(false)}
               />
-              {/* Slide-in menu from right */}
               <motion.div 
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
@@ -208,47 +181,47 @@ const Header = () => {
                   </button>
                 </div>
                 <div className="py-6 px-6 flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <div key={link.name}>
-                    <Link
-                      to={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`block text-lg font-semibold py-3 px-4 rounded-lg transition-all ${
-                        location.pathname === link.href
-                          ? "text-accent"
-                          : "text-primary-foreground hover:text-accent"
-                      }`}
+                  {navLinks.map((link) => (
+                    <div key={link.name}>
+                      <Link
+                        to={link.href}
+                        className={`block text-lg font-semibold py-3 px-4 rounded-lg transition-all ${
+                          location.pathname === link.href
+                            ? "text-accent"
+                            : "text-primary-foreground hover:text-accent"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                      {link.children && (
+                        <div className="ml-4 border-l-2 border-accent/30 pl-4 mt-2">
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.name}
+                              to={child.href}
+                              className={`block text-base font-medium py-2 ${
+                                location.pathname === child.href
+                                  ? 'text-accent'
+                                  : 'text-primary-foreground/70 hover:text-accent'
+                              }`}
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  <div className="flex items-center gap-4 pt-4 mt-4 border-t border-primary-foreground/10">
+                    <LanguageSwitcher />
+                    <a 
+                      href="tel:+221775930196"
+                      className="flex items-center gap-2 text-accent font-semibold"
                     >
-                      {link.name}
-                    </Link>
-                    {link.children && (
-                      <div className="ml-4 border-l-2 border-accent/30 pl-4 mt-2">
-                        {link.children.map((child) => (
-                          <button
-                            key={child.name}
-                            onClick={() => {
-                              setIsOpen(false);
-                              handleHashLink(child.href);
-                            }}
-                            className="block w-full text-left text-base font-medium py-2 text-primary-foreground/70 hover:text-accent"
-                          >
-                            {child.name}
-                          </button>
-                        ))}
-                      </div>
-                    )}
+                      <Phone className="w-5 h-5" />
+                      +221 77 593 01 96
+                    </a>
                   </div>
-                ))}
-                <div className="flex items-center gap-4 pt-4 mt-4 border-t border-primary-foreground/10">
-                  <LanguageSwitcher />
-                  <a 
-                    href="tel:+221775930196"
-                    className="flex items-center gap-2 text-accent font-semibold"
-                  >
-                    <Phone className="w-5 h-5" />
-                    +221 77 593 01 96
-                  </a>
-                </div>
                 </div>
               </motion.div>
             </>
