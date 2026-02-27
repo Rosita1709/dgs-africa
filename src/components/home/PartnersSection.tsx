@@ -141,9 +141,9 @@ const PartnersSection = () => {
                 title={client.name}
               >
                 {/* Professional emblem card */}
-                <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-2xl ${client.logo ? 'bg-white' : `bg-gradient-to-br ${client.colors.bg}`} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
+                <div className={`relative w-28 h-28 md:w-36 md:h-36 rounded-2xl ${client.logo ? 'bg-white' : `bg-gradient-to-br ${client.colors.bg}`} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
                   {client.logo ? (
-                    <img src={client.logo} alt={client.name} className="w-20 md:w-24 h-auto object-contain" />
+                    <img src={client.logo} alt={client.name} className="w-24 md:w-32 h-auto object-contain p-2" />
                   ) : (
                     <>
                       {/* Decorative ring */}
