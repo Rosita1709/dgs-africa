@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1 space-y-6">
-            <img src={logo} alt="DGS Africa" className="h-14 brightness-0 invert" />
+            <img src={logo} alt="DGS Africa" className="h-14" />
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
               {t('footer.description')}
             </p>
