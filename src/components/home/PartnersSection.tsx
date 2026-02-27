@@ -139,13 +139,19 @@ const PartnersSection = () => {
                 title={client.name}
               >
                 {/* Professional emblem card */}
-                <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br ${client.colors.bg} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
-                  {/* Decorative ring */}
-                  <div className="absolute inset-2 rounded-xl border-2 border-white/20" />
-                  <client.icon className="w-6 h-6 text-white/80 mb-1" />
-                  <span className={`text-base md:text-lg font-black ${client.colors.text} relative z-10 leading-tight`}>
-                    {client.abbrev}
-                  </span>
+                <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-2xl ${client.logo ? 'bg-white' : `bg-gradient-to-br ${client.colors.bg}`} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
+                  {client.logo ? (
+                    <img src={client.logo} alt={client.name} className="w-20 md:w-24 h-auto object-contain" />
+                  ) : (
+                    <>
+                      {/* Decorative ring */}
+                      <div className="absolute inset-2 rounded-xl border-2 border-white/20" />
+                      <client.icon className="w-6 h-6 text-white/80 mb-1" />
+                      <span className={`text-base md:text-lg font-black ${client.colors.text} relative z-10 leading-tight`}>
+                        {client.abbrev}
+                      </span>
+                    </>
+                  )}
                 </div>
                 <div className="text-center">
                   <span className="text-xs md:text-sm text-muted-foreground font-semibold leading-tight block max-w-[120px]">
