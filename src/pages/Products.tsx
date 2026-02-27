@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer, Monitor, SunDim, Battery, CheckCircle, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
+import productsIT from "@/assets/products-it.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -121,19 +122,25 @@ const Products = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="relative pt-40 pb-32 bg-hero-premium overflow-hidden">
+      {/* Hero with sweeping image */}
+      <section className="relative pt-40 pb-32 overflow-hidden">
+        {/* Background image with sweep/pan animation */}
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.2, x: '-5%' }}
+          animate={{ scale: 1, x: '0%' }}
+          transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <img src={productsIT} alt="" className="w-full h-full object-cover" />
+        </motion.div>
+        <div className="absolute inset-0 bg-primary/80" />
         <div className="absolute inset-0 bg-pattern" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[100px]" />
-          <div className="absolute bottom-20 right-10 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[80px]" />
-        </div>
         
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
             className="max-w-3xl"
           >
             <span className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">
@@ -251,8 +258,8 @@ const Products = () => {
         );
       })}
 
-      {/* Partners Logos Banner */}
-      <section className="py-16 bg-muted/20">
+      {/* Partners & Clients — Marquee */}
+      <section className="py-20 bg-muted/20 overflow-hidden">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -260,34 +267,42 @@ const Products = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h3 className="font-heading text-2xl font-bold mb-2">
+            <h3 className="font-heading text-2xl md:text-3xl font-bold mb-2">
               {language === 'fr' ? 'Nos Partenaires' : 'Our Partners'}
             </h3>
             <p className="text-muted-foreground">
               {language === 'fr' ? 'Des marques de confiance pour des produits de qualité' : 'Trusted brands for quality products'}
             </p>
+            <div className="w-16 h-1 bg-accent mx-auto rounded-full mt-4" />
           </motion.div>
-          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-            {[
+        </div>
+
+        {/* Infinite marquee — same as homepage */}
+        <div className="relative overflow-hidden py-6">
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-muted/20 via-muted/20 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted/20 via-muted/20 to-transparent z-10" />
+          
+          <div className="flex animate-marquee gap-16 items-center">
+            {[...Array(3)].flatMap(() => [
               { src: "/logos/senben.webp", alt: "Senben Lighting" },
               { src: "/logos/universal-rbm.png", alt: "Universal RBM" },
               { src: "/logos/dell.png", alt: "Dell" },
               { src: "/logos/blackview.webp", alt: "Blackview" },
-            ].map((logo, i) => (
-              <motion.div
-                key={logo.alt}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="group"
+              { src: "/logos/laspad.png", alt: "LASPAD" },
+              { src: "/logos/mfb.png", alt: "Ministère des Finances" },
+              { src: "/logos/ambassade-senegal.png", alt: "Ambassade du Sénégal" },
+            ]).map((logo, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-center h-16 px-6 shrink-0 hover:scale-110 transition-transform duration-300 group"
+                title={logo.alt}
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 md:h-16 w-auto object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-500"
+                  className="h-10 md:h-12 w-auto object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-500"
                 />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
