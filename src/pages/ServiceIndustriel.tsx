@@ -25,7 +25,7 @@ const ServiceIndustriel = () => {
         ? "Solutions d'éclairage LED haute performance pour environnements industriels exigeants. Certifiées ATEX pour zones dangereuses."
         : "High-performance LED lighting solutions for demanding industrial environments. ATEX certified for hazardous areas.",
       specs: ["Explosion Proof (ATEX)", "Weatherproof IP65+", language === 'fr' ? "Haute Baie" : "High Bay", language === 'fr' ? "Projecteurs" : "Floodlights"],
-      image: "/products/led-explosion-proof.webp",
+      image: "/products/led-weatherproof.webp",
     },
     {
       icon: Thermometer,
