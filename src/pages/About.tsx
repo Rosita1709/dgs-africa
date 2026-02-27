@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import aboutTeam from "@/assets/about-team.jpg";
 import aboutMission from "@/assets/about-mission.jpg";
+import teamHero from "@/assets/team-hero.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -35,12 +36,18 @@ const About = () => {
   return (
     <Layout>
       {/* Hero avec image */}
-      <section className="relative pt-40 pb-32 bg-hero-premium overflow-hidden">
+      <section className="relative pt-40 pb-32 overflow-hidden">
+        {/* Sweeping background image */}
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.2, x: '-5%' }}
+          animate={{ scale: 1, x: '0%' }}
+          transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <img src={teamHero} alt="" className="w-full h-full object-cover" />
+        </motion.div>
+        <div className="absolute inset-0 bg-primary/75" />
         <div className="absolute inset-0 bg-pattern" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[100px]" />
-          <div className="absolute bottom-20 right-10 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[80px]" />
-        </div>
         
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
