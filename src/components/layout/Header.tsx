@@ -11,7 +11,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchOpen, setSearchOpen] = useState(false);
+  // searchOpen state removed — search bar always visible like Dell
   const location = useLocation();
   const navigate = useNavigate();
   const { t, language } = useLanguage();
@@ -137,54 +137,34 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Right side — search + language switcher */}
+          {/* Right side — search bar always visible like Dell + language switcher */}
           <div className="hidden lg:flex items-center gap-3">
-            {searchOpen ? (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (searchQuery.trim()) {
-                    navigate(`/recherche?q=${encodeURIComponent(searchQuery.trim())}`);
-                    setSearchOpen(false);
-                    setSearchQuery("");
-                  }
-                }}
-                className="flex items-center"
-              >
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (searchQuery.trim()) {
+                  navigate(`/recherche?q=${encodeURIComponent(searchQuery.trim())}`);
+                  setSearchQuery("");
+                }
+              }}
+              className="flex items-center"
+            >
+              <div className="relative">
                 <input
-                  autoFocus
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  onBlur={(e) => {
-                    // Don't close if clicking sibling buttons
-                    if (e.relatedTarget && e.currentTarget.form?.contains(e.relatedTarget as Node)) return;
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Escape') { setSearchOpen(false); setSearchQuery(""); }
-                  }}
-                  placeholder={language === 'fr' ? 'Rechercher...' : 'Search...'}
-                  className="w-48 px-3 py-1.5 rounded-l-full bg-primary-foreground/10 border border-primary-foreground/20 border-r-0 text-primary-foreground placeholder:text-primary-foreground/40 text-sm focus:outline-none focus:ring-1 focus:ring-accent/50"
+                  placeholder={language === 'fr' ? 'Rechercher DGS...' : 'Search DGS...'}
+                  className="w-52 pl-4 pr-10 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:bg-primary-foreground/15 transition-all"
                 />
                 <button 
                   type="submit"
-                  className="px-3 py-1.5 rounded-r-full bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-colors"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-primary-foreground/60 hover:text-accent transition-colors"
                 >
                   <Search className="w-4 h-4" />
                 </button>
-                <button type="button" onClick={() => { setSearchOpen(false); setSearchQuery(""); }} className="ml-2 text-primary-foreground/60 hover:text-primary-foreground">
-                  <X className="w-4 h-4" />
-                </button>
-              </form>
-            ) : (
-              <button
-                onClick={() => setSearchOpen(true)}
-                className="p-2 rounded-full text-primary-foreground/70 hover:text-accent hover:bg-primary-foreground/10 transition-colors"
-                aria-label="Search"
-              >
-                <Search className="w-5 h-5" />
-              </button>
-            )}
+              </div>
+            </form>
             <LanguageSwitcher />
           </div>
 
