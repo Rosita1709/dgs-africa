@@ -34,6 +34,13 @@ const Search = () => {
     );
   }, [query, allPages]);
 
+  // Auto-redirect if exactly 1 result matches
+  useEffect(() => {
+    if (query.trim() && results.length === 1) {
+      navigate(results[0].href, { replace: true });
+    }
+  }, [results, query, navigate]);
+
   return (
     <Layout>
       <section className="relative pt-40 pb-20 bg-hero-premium overflow-hidden">
