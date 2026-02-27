@@ -15,6 +15,7 @@ const clients = [
   { 
     name: 'LASPAD', 
     abbrev: 'LASPAD',
+    logo: '/logos/laspad.png',
     icon: Building2,
     colors: { bg: 'from-emerald-600 to-emerald-800', text: 'text-white' },
     url: 'https://laspad.org' 
