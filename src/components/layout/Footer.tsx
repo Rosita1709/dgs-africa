@@ -116,7 +116,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://wa.me/221775930196"
+                  href="https://api.whatsapp.com/send?phone=221775930196"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors text-sm group"

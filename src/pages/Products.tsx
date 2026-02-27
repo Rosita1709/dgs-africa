@@ -300,7 +300,7 @@ const Products = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-10 md:h-12 w-auto object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-500"
+                  className="h-10 md:h-12 w-auto object-contain hover:scale-105 transition-all duration-500"
                 />
               </div>
             ))}
@@ -333,7 +333,7 @@ const Products = () => {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                <a href="https://wa.me/221775930196" target="_blank" rel="noopener noreferrer">
+                <a href="https://api.whatsapp.com/send?phone=221775930196" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp
                 </a>
