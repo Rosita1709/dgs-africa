@@ -74,11 +74,19 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-40 pb-32 bg-hero-premium overflow-hidden">
+      <section className="relative pt-40 pb-32 overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.15, x: '3%' }}
+          animate={{ scale: 1, x: '0%' }}
+          transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <div className="w-full h-full bg-hero-premium" />
+        </motion.div>
+        <div className="absolute inset-0 bg-primary/90" />
         <div className="absolute inset-0 bg-pattern" />
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px]" />
         </div>
         
         <div className="container relative z-10">

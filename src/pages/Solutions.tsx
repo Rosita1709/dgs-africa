@@ -24,12 +24,17 @@ const Solutions = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-40 pb-32 bg-hero-premium overflow-hidden">
+      <section className="relative pt-40 pb-32 overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.2, x: '-5%' }}
+          animate={{ scale: 1, x: '0%' }}
+          transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <img src={solutionsIndustrial} alt="" className="w-full h-full object-cover" />
+        </motion.div>
+        <div className="absolute inset-0 bg-primary/80" />
         <div className="absolute inset-0 bg-pattern" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[100px]" />
-          <div className="absolute bottom-20 right-10 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[80px]" />
-        </div>
         
         <div className="container relative z-10">
           <motion.div
