@@ -24,6 +24,7 @@ const clients = [
     name: 'Ministère des Finances et du Budget', 
     abbrev: 'MFB',
     subtitle: 'Min. Finances & Budget',
+    logo: '/logos/mfb.png',
     icon: Landmark,
     colors: { bg: 'from-blue-700 to-blue-900', text: 'text-white' },
     url: 'https://www.finances.gouv.sn' 
