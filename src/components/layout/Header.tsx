@@ -212,105 +212,78 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <>
-              {/* Dark overlay */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
-                onClick={() => setIsOpen(false)}
-              />
-              {/* Slide-in drawer */}
-              <motion.div 
-                initial={{ x: '100%' }}
-                animate={{ x: 0 }}
-                exit={{ x: '100%' }}
-                transition={{ type: 'tween', duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                className="fixed top-0 right-0 h-full w-[320px] max-w-[85vw] bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
-                style={{ scrollbarWidth: 'none' }}
-              >
-                {/* Close button - top right, 44px touch target */}
-                <div className="flex justify-end p-4">
-                  <button 
-                    onClick={() => setIsOpen(false)} 
-                    className="text-primary-foreground min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-primary-foreground/10 transition-colors"
-                  >
-                    <X className="w-7 h-7" />
-                  </button>
-                </div>
+        {isOpen && (
+          <>
+            {/* Dark overlay */}
+            <div
+              className="fixed top-0 left-0 w-screen h-[100dvh] bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              onClick={() => setIsOpen(false)}
+            />
 
-                <div className="py-4 px-6 flex flex-col">
-                  {navLinks.map((link, index) => (
-                    <motion.div 
-                      key={link.name}
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05, duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                      className="border-b border-primary-foreground/10"
+            {/* Slide-in drawer */}
+            <div
+              className="fixed top-0 right-0 h-[100dvh] w-[320px] max-w-[85vw] bg-primary z-[60] lg:hidden shadow-2xl overflow-y-auto"
+              style={{ scrollbarWidth: 'none' }}
+            >
+              {/* Close button */}
+              <div className="flex justify-end p-4">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-primary-foreground min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-primary-foreground/10 transition-colors"
+                >
+                  <X className="w-7 h-7" />
+                </button>
+              </div>
+
+              <div className="py-4 px-6 flex flex-col">
+                {navLinks.map((link) => (
+                  <div key={link.name} className="border-b border-primary-foreground/10">
+                    <Link
+                      to={link.href}
+                      className={`block text-lg font-semibold py-4 px-3 rounded-lg transition-all min-h-[48px] flex items-center ${
+                        location.pathname === link.href
+                          ? "text-accent bg-accent/10"
+                          : "text-primary-foreground hover:text-accent hover:bg-primary-foreground/5"
+                      }`}
                     >
-                      <Link
-                        to={link.href}
-                        className={`block text-lg font-semibold py-4 px-3 rounded-lg transition-all min-h-[48px] flex items-center ${
-                          location.pathname === link.href
-                            ? "text-accent bg-accent/10"
-                            : "text-primary-foreground hover:text-accent hover:bg-primary-foreground/5"
-                        }`}
-                      >
-                        {link.name}
-                      </Link>
-                      {link.children && (
-                        <div className="ml-3 border-l-2 border-accent/50 pl-4 mb-3">
-                          {link.children.map((child, childIndex) => (
-                            <motion.div
-                              key={child.name}
-                              initial={{ opacity: 0, x: 20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: (index * 0.05) + (childIndex * 0.04) + 0.1, duration: 0.25 }}
-                            >
-                              <Link
-                                to={child.href}
-                                className={`block text-base font-medium py-3 px-3 rounded-md transition-all min-h-[44px] flex items-center ${
-                                  location.pathname === child.href
-                                    ? 'text-accent bg-accent/10'
-                                    : 'text-primary-foreground/70 hover:text-accent hover:bg-primary-foreground/5'
-                                }`}
-                              >
-                                {child.name}
-                              </Link>
-                            </motion.div>
-                          ))}
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
+                      {link.name}
+                    </Link>
 
-                  {/* Language switcher + Phone */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navLinks.length * 0.05 + 0.1, duration: 0.3 }}
-                    className="flex items-center gap-4 pt-6 mt-4 border-t border-primary-foreground/10"
-                  >
-                    <LanguageSwitcher />
-                  </motion.div>
-                  <motion.a 
-                    href="tel:+221775930196"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navLinks.length * 0.05 + 0.15, duration: 0.3 }}
-                    className="flex items-center gap-2 text-accent font-semibold mt-4 whitespace-nowrap"
-                  >
-                    <Phone className="w-5 h-5 shrink-0" />
-                    +221 77 593 01 96
-                  </motion.a>
+                    {link.children && (
+                      <div className="ml-3 border-l-2 border-accent/50 pl-4 mb-3">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.name}
+                            to={child.href}
+                            className={`block text-base font-medium py-3 px-3 rounded-md transition-all min-h-[44px] flex items-center ${
+                              location.pathname === child.href
+                                ? 'text-accent bg-accent/10'
+                                : 'text-primary-foreground/70 hover:text-accent hover:bg-primary-foreground/5'
+                            }`}
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {/* Language switcher + Phone */}
+                <div className="flex items-center gap-4 pt-6 mt-4 border-t border-primary-foreground/10">
+                  <LanguageSwitcher />
                 </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
+                <a
+                  href="tel:+221775930196"
+                  className="flex items-center gap-2 text-accent font-semibold mt-4 whitespace-nowrap"
+                >
+                  <Phone className="w-5 h-5 shrink-0" />
+                  +221 77 593 01 96
+                </a>
+              </div>
+            </div>
+          </>
+        )}
       </nav>
     </header>
   );
