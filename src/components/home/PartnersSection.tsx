@@ -33,6 +33,7 @@ const clients = [
     name: "Ministère de l'Intégration Africaine",
     abbrev: 'MIAAE',
     subtitle: "Min. Affaires Étrangères",
+    logo: '/logos/miaae.png',
     icon: Globe2,
     colors: { bg: 'from-red-700 to-red-900', text: 'text-white' },
     url: 'https://www.diplomatie.gouv.sn' 

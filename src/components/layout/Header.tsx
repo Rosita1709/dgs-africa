@@ -199,7 +199,8 @@ const Header = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-3">
+            <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg transition-colors text-primary-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
