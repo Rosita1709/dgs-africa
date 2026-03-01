@@ -291,6 +291,7 @@ const Products = () => {
               { src: "/logos/laspad.png", alt: "LASPAD" },
               { src: "/logos/mfb.png", alt: "Ministère des Finances" },
               { src: "/logos/ambassade-senegal.png", alt: "Ambassade du Sénégal" },
+              { src: "/logos/miaae.png", alt: "MIAAE" },
             ]).map((logo, i) => (
               <div
                 key={i}
