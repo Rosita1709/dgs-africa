@@ -19,10 +19,10 @@ const LanguageSwitcher = () => {
   const labels: Record<string, string> = { fr: 'FR', en: 'EN' };
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative z-[60]">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors text-primary-foreground text-sm font-semibold"
+        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/30 bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors text-white text-sm font-bold shadow-sm"
       >
         <span className="text-base leading-none">{flags[language]}</span>
         {labels[language]}
@@ -30,14 +30,14 @@ const LanguageSwitcher = () => {
       </button>
 
       {open && (
-        <div className="absolute top-full right-0 mt-2 bg-card rounded-lg shadow-premium border border-border overflow-hidden min-w-[120px] z-50">
+        <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-border overflow-hidden min-w-[130px] z-[70]">
           {(['fr', 'en'] as const).map((lang) => (
             <button
               key={lang}
               onClick={() => { setLanguage(lang); setOpen(false); }}
-              className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium transition-colors ${
+              className={`w-full flex items-center gap-2.5 px-4 py-3 text-sm font-semibold transition-colors ${
                 language === lang
-                  ? 'bg-accent/10 text-accent'
+                  ? 'bg-accent/15 text-accent'
                   : 'text-foreground hover:bg-muted'
               }`}
             >
