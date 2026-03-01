@@ -222,7 +222,7 @@ const Header = () => {
 
             {/* Slide-in drawer */}
             <div
-              className="fixed top-0 right-0 h-full w-[320px] max-w-[85vw] bg-primary z-[60] lg:hidden shadow-2xl overflow-y-auto"
+              className="fixed top-0 right-0 h-[100dvh] w-[320px] max-w-[85vw] bg-primary z-[60] lg:hidden shadow-2xl overflow-y-auto"
               style={{ scrollbarWidth: 'none' }}
             >
               {/* Close button */}
