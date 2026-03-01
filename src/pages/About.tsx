@@ -38,14 +38,6 @@ const About = () => {
       {/* Hero avec image */}
       <section className="relative pt-40 pb-32 overflow-hidden">
         {/* Sweeping background image */}
-        <motion.div
-          className="absolute inset-0"
-          initial={{ scale: 1.2, x: '-5%' }}
-          animate={{ scale: 1, x: '0%' }}
-          transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          <img src={teamHero} alt="" className="w-full h-full object-cover" />
-        </motion.div>
         <div className="absolute inset-0 bg-primary/75" />
         <div className="absolute inset-0 bg-pattern" />
         
