@@ -38,7 +38,7 @@ const About = () => {
       {/* Hero avec image */}
       <section className="relative pt-40 pb-32 overflow-hidden">
         {/* Sweeping background image */}
-        <div className="absolute inset-0 bg-primary/75" />
+        <div className="absolute inset-0 bg-primary" />
         <div className="absolute inset-0 bg-pattern" />
         
         <div className="container relative z-10">
