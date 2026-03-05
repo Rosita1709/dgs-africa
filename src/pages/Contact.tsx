@@ -48,8 +48,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: "WhatsApp",
-      value: "+221 77 593 01 96",
-      href: "https://api.whatsapp.com/send?phone=221775930196",
+      value: "+221 77 686 20 24",
+      href: "https://api.whatsapp.com/send?phone=221776862024",
       color: "bg-green-500/10 text-green-500",
       hoverColor: "hover:border-green-300",
     },
@@ -199,7 +199,7 @@ const Contact = () => {
                     : "Need an immediate response? Contact us directly on WhatsApp."}
                 </p>
                 <Button variant="whatsapp" size="lg" className="w-full" asChild>
-                  <a href="https://api.whatsapp.com/send?phone=221775930196" target="_blank" rel="noopener noreferrer">
+                  <a href="https://api.whatsapp.com/send?phone=221776862024" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />
                     {t('cta.whatsapp')}
                   </a>

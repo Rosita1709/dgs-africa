@@ -236,11 +236,11 @@ const HeroSlider = () => {
             <ArrowRight className="w-5 h-5 text-accent group-hover:translate-x-1 transition-transform" />
           </Link>
           <a 
-            href="tel:+221775930196"
+            href="tel:+221776862024"
             className="flex-1 bg-accent hover:bg-accent/90 transition-colors py-5 px-6 flex items-center justify-center gap-3 group"
           >
             <span className="text-accent-foreground font-semibold">
-              +221 77 593 01 96
+              +221 77 686 20 24
             </span>
             <ArrowRight className="w-5 h-5 text-accent-foreground group-hover:translate-x-1 transition-transform" />
           </a>
@@ -249,7 +249,7 @@ const HeroSlider = () => {
 
       {/* WhatsApp floating button */}
       <motion.a
-        href="https://api.whatsapp.com/send?phone=221775930196"
+        href="https://api.whatsapp.com/send?phone=221776862024"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}
