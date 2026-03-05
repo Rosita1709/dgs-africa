@@ -97,7 +97,7 @@ const Products = () => {
         {
           icon: Battery,
           name: language === 'fr' ? "Onduleurs & Batteries" : "Inverters & Batteries",
-          image: "/products/solar-inverter.jpg",
+          image: "/products/solar-inverter.png",
           partner: "",
           partnerLogo: null,
           specs: [language === 'fr' ? "Hybride" : "Hybrid", "On-grid", "Off-grid", "Lithium"],
