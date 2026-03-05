@@ -30,7 +30,7 @@ const Header = () => {
       ]
     },
     { name: language === 'fr' ? 'Produits' : 'Products', href: "/produits" },
-    { name: language === 'fr' ? 'Contacts' : 'Contact', href: "/contact" },
+    { name: 'Contact', href: "/contact" },
   ];
 
   useEffect(() => {

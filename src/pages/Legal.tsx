@@ -17,12 +17,6 @@ const Legal = () => {
                 Zone d'intervention : Sénégal & Afrique
               </p>
 
-              <h2 className="font-heading text-2xl font-bold text-foreground mt-8 mb-4">Hébergement</h2>
-              <p>
-                Ce site est hébergé par Lovable.<br />
-                Site web : www.lovable.dev
-              </p>
-
               <h2 className="font-heading text-2xl font-bold text-foreground mt-8 mb-4">Propriété intellectuelle</h2>
               <p>
                 L'ensemble du contenu de ce site (textes, images, logos, etc.) est la propriété 
