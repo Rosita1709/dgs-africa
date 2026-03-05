@@ -18,6 +18,7 @@ import ServiceIndustriel from "./pages/ServiceIndustriel";
 import ServiceIT from "./pages/ServiceIT";
 import ServiceEnergie from "./pages/ServiceEnergie";
 import Search from "./pages/Search";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/a-propos" element={<About />} />
