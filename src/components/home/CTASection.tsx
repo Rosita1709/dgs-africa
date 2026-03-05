@@ -82,7 +82,7 @@ const CTASection = () => {
             </Button>
             <Button variant="hero-outline" size="xl" asChild className="group">
               <a 
-                href="https://api.whatsapp.com/send?phone=221775930196" 
+                href="https://api.whatsapp.com/send?phone=221776862024" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -110,7 +110,7 @@ const CTASection = () => {
               contact@dgsafrica.com
             </a>
             <a 
-              href="tel:+221775930196" 
+              href="tel:+221776862024" 
               className="flex items-center gap-2 hover:text-accent transition-colors"
             >
               <span className="w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center">
