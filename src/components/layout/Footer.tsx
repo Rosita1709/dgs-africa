@@ -116,7 +116,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://api.whatsapp.com/send?phone=221775930196"
+                  href="https://api.whatsapp.com/send?phone=221776862024"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors text-sm group"
@@ -124,7 +124,7 @@ const Footer = () => {
                   <span className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center group-hover:bg-accent transition-all duration-300">
                     <Phone className="w-4 h-4" />
                   </span>
-                  +221 77 593 01 96
+                   +221 77 686 20 24
                 </a>
               </li>
               <li className="flex items-center gap-3 text-primary-foreground/70 text-sm">

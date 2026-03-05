@@ -274,11 +274,11 @@ const Header = () => {
                   <LanguageSwitcher />
                 </div>
                 <a
-                  href="tel:+221775930196"
+                  href="tel:+221776862024"
                   className="flex items-center gap-2 text-accent font-semibold mt-4 whitespace-nowrap"
                 >
                   <Phone className="w-5 h-5 shrink-0" />
-                  +221 77 593 01 96
+                  +221 77 686 20 24
                 </a>
               </div>
             </div>
