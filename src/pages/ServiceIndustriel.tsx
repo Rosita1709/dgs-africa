@@ -185,6 +185,7 @@ const ServiceIndustriel = () => {
                   </motion.div>
                 )}
                 {!service.details && <div className="mb-8" />}
+                <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-4">
                   <Button variant="accent" size="lg" asChild className="shadow-accent">
                     <Link to="/contact">
                       {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
