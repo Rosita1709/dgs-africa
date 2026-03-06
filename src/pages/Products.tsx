@@ -40,14 +40,6 @@ const Products = () => {
           partner: "Airchal",
           partnerLogo: null,
           specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"],
-          details: [
-            { label: "Performance", value: "EN 1866" },
-            { label: "Thermal Transmittance", value: "T2" },
-            { label: "Thermal Bridging", value: "TB2" },
-            { label: "Casing Air Leakage", value: "L1" },
-            { label: "Mechanical Strength", value: "D1" },
-            { label: "Filter Bypass", value: language === 'fr' ? "Section à travers le caisson" : "Section through the casing" },
-          ],
         },
         {
           icon: CircleDot,
@@ -75,7 +67,7 @@ const Products = () => {
         {
           icon: Tablet,
           name: language === 'fr' ? "Tablettes Blackview" : "Blackview Tablets",
-          image: "/products/dell-laptop.jpg",
+          image: "/logos/blackview.webp",
           partner: "Blackview",
           partnerLogo: "/logos/blackview.webp",
           specs: ["Blackview Tab 18", "Blackview Tab 16 Pro", "IP68/IP69K", language === 'fr' ? "Usage terrain" : "Field use"],
@@ -247,19 +239,6 @@ const Products = () => {
                         ))}
                       </div>
                       
-                      {/* Detail specs table if available */}
-                      {(item as any).details && (
-                        <div className="mt-3 mb-1">
-                          <div className="grid grid-cols-2 gap-1.5">
-                            {(item as any).details.map((d: {label: string; value: string}, di: number) => (
-                              <div key={di} className="flex flex-col bg-muted/60 rounded-lg px-2.5 py-1.5">
-                                <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-medium">{d.label}</span>
-                                <span className="text-xs font-bold text-foreground">{d.value}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
 
                       <div className="mt-4 pt-4 border-t border-border/50 flex items-center gap-3">
                         <Button variant="accent" size="sm" asChild className="flex-1 shadow-accent text-xs">
