@@ -4,9 +4,9 @@ import { motion, useInView } from 'framer-motion';
 
 const stats = [
   { value: 15, suffix: '+', key: 'stats.years' },
-  { value: 200, suffix: '+', key: 'stats.clients' },
-  { value: 500, suffix: '+', key: 'stats.projects' },
-  { value: 10, suffix: '+', key: 'stats.countries' },
+  { value: 100, suffix: '+', key: 'stats.clients' },
+  { value: 50, suffix: '+', key: 'stats.projects' },
+  { value: 5, suffix: '+', key: 'stats.countries' },
 ];
 
 const StatsSection = () => {
