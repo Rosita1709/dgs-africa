@@ -35,7 +35,15 @@ const ServiceIndustriel = () => {
         ? "Systèmes de climatisation et réfrigération industrielle. Centrales de traitement d'air, chambres froides et solutions VRV/VRF."
         : "Industrial air conditioning and refrigeration systems. Air handling units, cold rooms and VRV/VRF solutions.",
       specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"],
-      image: "/products/airchal-ahu.jpg",
+      details: [
+        { label: "Performance", value: "EN 1866" },
+        { label: "Thermal Transmittance", value: "T2" },
+        { label: "Thermal Bridging", value: "TB2" },
+        { label: "Casing Air Leakage", value: "L1" },
+        { label: "Mechanical Strength", value: "D1" },
+        { label: "Filter Bypass", value: language === 'fr' ? "Section à travers le caisson" : "Section through the casing" },
+      ],
+      image: airchalImg,
     },
     {
       icon: CircleDot,
