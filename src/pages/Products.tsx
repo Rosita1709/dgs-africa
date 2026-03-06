@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer, Monitor, SunDim, Battery, CheckCircle, MessageCircle } from "lucide-react";
+import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer, Monitor, SunDim, Battery, CheckCircle, MessageCircle, Tablet, Info } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import productsIT from "@/assets/products-it.jpg";
@@ -62,6 +62,14 @@ const Products = () => {
           partner: "Dell / Blackview",
           partnerLogo: "/logos/dell.png",
           specs: ["Dell Latitude", "Dell Inspiron", language === 'fr' ? "Portables & Fixes" : "Laptops & Desktops", "Blackview Rugged"],
+        },
+        {
+          icon: Tablet,
+          name: language === 'fr' ? "Tablettes Blackview" : "Blackview Tablets",
+          image: "/products/dell-laptop.jpg",
+          partner: "Blackview",
+          partnerLogo: "/logos/blackview.webp",
+          specs: ["Blackview Tab 18", "Blackview Tab 16 Pro", "IP68/IP69K", language === 'fr' ? "Usage terrain" : "Field use"],
         },
         {
           icon: Server,
@@ -240,13 +248,20 @@ const Products = () => {
                         ))}
                       </div>
                       
-                      <div className="mt-4 pt-4 border-t border-border/50">
+                      <div className="mt-4 pt-4 border-t border-border/50 flex items-center gap-4">
                         <Link
                           to="/contact"
                           className={`inline-flex items-center gap-1.5 text-sm font-semibold ${colors.text} hover:underline transition-colors`}
                         >
                           {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
                           <ArrowRight className="w-4 h-4" />
+                        </Link>
+                        <Link
+                          to={cat.color === 'blue' ? '/services/industriel' : cat.color === 'accent' ? '/services/it' : '/services/energie'}
+                          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          <Info className="w-3.5 h-3.5" />
+                          {language === 'fr' ? 'En savoir plus' : 'Learn more'}
                         </Link>
                       </div>
                     </div>
