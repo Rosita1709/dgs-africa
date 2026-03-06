@@ -5,6 +5,7 @@ import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer,
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import productsIT from "@/assets/products-it.jpg";
+import airchalCta from "@/assets/airchal-cta.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -35,10 +36,18 @@ const Products = () => {
         {
           icon: Thermometer,
           name: language === 'fr' ? "Froid & Climatisation" : "Cooling & HVAC",
-          image: "/products/airchal-ahu.jpg",
+          image: airchalCta,
           partner: "Airchal",
           partnerLogo: null,
           specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"],
+          details: [
+            { label: "Performance", value: "EN 1866" },
+            { label: "Thermal Transmittance", value: "T2" },
+            { label: "Thermal Bridging", value: "TB2" },
+            { label: "Casing Air Leakage", value: "L1" },
+            { label: "Mechanical Strength", value: "D1" },
+            { label: "Filter Bypass", value: language === 'fr' ? "Section à travers le caisson" : "Section through the casing" },
+          ],
         },
         {
           icon: CircleDot,
@@ -211,17 +220,7 @@ const Products = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       
-                      {/* Partner Logo Badge */}
-                      {item.partnerLogo && (
-                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-lg p-2 shadow-lg">
-                          <img src={item.partnerLogo} alt={item.partner} className="h-6 w-auto object-contain" />
-                        </div>
-                      )}
-                      {item.partner && !item.partnerLogo && (
-                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-lg">
-                          <span className="text-xs font-bold text-foreground">{item.partner}</span>
-                        </div>
-                      )}
+                      {/* Partner Logo Badge removed */}
                       
                       {/* Product Name Overlay */}
                       <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -248,21 +247,33 @@ const Products = () => {
                         ))}
                       </div>
                       
-                      <div className="mt-4 pt-4 border-t border-border/50 flex items-center gap-4">
-                        <Link
-                          to="/contact"
-                          className={`inline-flex items-center gap-1.5 text-sm font-semibold ${colors.text} hover:underline transition-colors`}
-                        >
-                          {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
-                        <Link
-                          to={cat.color === 'blue' ? '/services/industriel' : cat.color === 'accent' ? '/services/it' : '/services/energie'}
-                          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          <Info className="w-3.5 h-3.5" />
-                          {language === 'fr' ? 'En savoir plus' : 'Learn more'}
-                        </Link>
+                      {/* Detail specs table if available */}
+                      {(item as any).details && (
+                        <div className="mt-3 mb-1">
+                          <div className="grid grid-cols-2 gap-1.5">
+                            {(item as any).details.map((d: {label: string; value: string}, di: number) => (
+                              <div key={di} className="flex flex-col bg-muted/60 rounded-lg px-2.5 py-1.5">
+                                <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-medium">{d.label}</span>
+                                <span className="text-xs font-bold text-foreground">{d.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="mt-4 pt-4 border-t border-border/50 flex items-center gap-3">
+                        <Button variant="accent" size="sm" asChild className="flex-1 shadow-accent text-xs">
+                          <Link to="/contact">
+                            <ArrowRight className="w-3.5 h-3.5" />
+                            {language === 'fr' ? 'Devis' : 'Quote'}
+                          </Link>
+                        </Button>
+                        <Button variant="outline" size="sm" asChild className="flex-1 text-xs">
+                          <Link to={cat.color === 'blue' ? '/services/industriel' : cat.color === 'accent' ? '/services/it' : '/services/energie'}>
+                            <Info className="w-3.5 h-3.5" />
+                            {language === 'fr' ? 'En savoir plus' : 'Learn more'}
+                          </Link>
+                        </Button>
                       </div>
                     </div>
                   </motion.div>
