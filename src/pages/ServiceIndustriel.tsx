@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import airchalImg from "@/assets/airchal-cta.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -35,7 +36,15 @@ const ServiceIndustriel = () => {
         ? "Systèmes de climatisation et réfrigération industrielle. Centrales de traitement d'air, chambres froides et solutions VRV/VRF."
         : "Industrial air conditioning and refrigeration systems. Air handling units, cold rooms and VRV/VRF solutions.",
       specs: [language === 'fr' ? "Centrales de traitement d'air" : "Air Handling Units", "Fan Coils", language === 'fr' ? "Chambres froides" : "Cold rooms", "Chillers"],
-      image: "/products/airchal-ahu.jpg",
+      details: [
+        { label: "Performance", value: "EN 1866" },
+        { label: "Thermal Transmittance", value: "T2" },
+        { label: "Thermal Bridging", value: "TB2" },
+        { label: "Casing Air Leakage", value: "L1" },
+        { label: "Mechanical Strength", value: "D1" },
+        { label: "Filter Bypass", value: language === 'fr' ? "Section à travers le caisson" : "Section through the casing" },
+      ],
+      image: airchalImg,
     },
     {
       icon: CircleDot,
@@ -157,7 +166,7 @@ const ServiceIndustriel = () => {
                 </motion.div>
                 <motion.h2 variants={fadeUp} custom={1} className="font-heading text-3xl md:text-4xl font-bold mb-4">{service.title}</motion.h2>
                 <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-lg mb-6 leading-relaxed">{service.desc}</motion.p>
-                <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-2 mb-8">
+                <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-2 mb-4">
                   {service.specs.map((spec, i) => (
                     <span key={i} className="inline-flex items-center gap-1.5 text-sm bg-muted px-3 py-1.5 rounded-full text-muted-foreground">
                       <CheckCircle className="w-3.5 h-3.5 text-accent" />
@@ -165,6 +174,17 @@ const ServiceIndustriel = () => {
                     </span>
                   ))}
                 </motion.div>
+                {service.details && (
+                  <motion.div variants={fadeUp} custom={3.5} className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8">
+                    {service.details.map((d, i) => (
+                      <div key={i} className="bg-muted/60 rounded-lg px-3 py-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted-foreground block">{d.label}</span>
+                        <span className="text-sm font-bold text-foreground">{d.value}</span>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+                {!service.details && <div className="mb-8" />}
                 <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-4">
                   <Button variant="accent" size="lg" asChild className="shadow-accent">
                     <Link to="/contact">
