@@ -54,7 +54,7 @@ const Projects = () => {
         : ["200 workstations deployed in 3 weeks", "Secured network infrastructure", "On-site technical support"],
     },
     {
-      image: projectItDeploy,
+      image: projectItSolutions,
       icon: Monitor,
       color: "accent",
       pole: "IT",
