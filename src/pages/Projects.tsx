@@ -34,8 +34,8 @@ const Projects = () => {
         ? "Installation complète d'un système VRV/VRF pour un complexe hôtelier de 120 chambres nécessitant une climatisation performante et économe en énergie."
         : "Complete VRV/VRF system installation for a 120-room hotel complex requiring energy-efficient air conditioning.",
       results: language === 'fr'
-        ? ["Réduction de 35% de la consommation", "Confort optimal dans 120 chambres", "Maintenance préventive incluse"]
-        : ["35% energy consumption reduction", "Optimal comfort in 120 rooms", "Preventive maintenance included"],
+        ? ["Réduction de 5% de la consommation", "Confort optimal dans 120 chambres", "Maintenance préventive incluse"]
+        : ["5% energy consumption reduction", "Optimal comfort in 120 rooms", "Preventive maintenance included"],
     },
     {
       image: projectItDeploy,
