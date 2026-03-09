@@ -53,19 +53,19 @@ const Projects = () => {
         : ["200 workstations deployed in 3 weeks", "Secured network infrastructure", "On-site technical support"],
     },
     {
-      image: projectSolar,
-      icon: Sun,
-      color: "green",
-      pole: language === 'fr' ? "Énergie" : "Energy",
-      title: language === 'fr' ? "Centrale solaire — Site industriel" : "Solar Plant — Industrial Site",
-      location: language === 'fr' ? "Thiès, Sénégal" : "Thiès, Senegal",
+      image: projectItDeploy,
+      icon: Monitor,
+      color: "accent",
+      pole: "IT",
+      title: language === 'fr' ? "Solutions IT — Équipements & Maintenance" : "IT Solutions — Equipment & Maintenance",
+      location: language === 'fr' ? "Dakar, Sénégal" : "Dakar, Senegal",
       year: "2024",
       context: language === 'fr'
-        ? "Conception et installation d'une centrale solaire de 150 kWc pour alimenter un site de production industrielle, réduisant la dépendance au réseau électrique."
-        : "Design and installation of a 150 kWp solar plant to power an industrial production site, reducing grid dependency.",
+        ? "Fourniture, configuration et maintenance d'équipements informatiques de haute qualité : postes Dell OptiPlex Ultra 5, All-in-One et stations de travail. Un accompagnement complet de la livraison au support technique sur site."
+        : "Supply, configuration and maintenance of high-quality IT equipment: Dell OptiPlex Ultra 5 desktops, All-in-One workstations. Complete support from delivery to on-site technical assistance.",
       results: language === 'fr'
-        ? ["150 kWc installés", "ROI estimé à 4 ans", "Réduction de 60% des coûts énergétiques"]
-        : ["150 kWp installed", "Estimated 4-year ROI", "60% energy cost reduction"],
+        ? ["Dell OptiPlex Ultra 5 & All-in-One déployés", "Configuration sur mesure pour chaque poste", "Maintenance préventive et support technique continu"]
+        : ["Dell OptiPlex Ultra 5 & All-in-One deployed", "Custom configuration per workstation", "Preventive maintenance and ongoing technical support"],
     },
   ];
 
