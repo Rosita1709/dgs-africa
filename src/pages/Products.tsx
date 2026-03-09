@@ -88,6 +88,22 @@ const Products = () => {
           partnerLogo: "/logos/dell.png",
           specs: ["Laser", language === 'fr' ? "Jet d'encre" : "Inkjet", "A3/A4", language === 'fr' ? "Multifonctions" : "All-in-one"],
         },
+        {
+          icon: CircleDot,
+          name: language === 'fr' ? "Clés USB & Stockage" : "USB Drives & Storage",
+          image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800&q=80",
+          partner: "",
+          partnerLogo: null,
+          specs: ["USB 3.0", "USB-C", "16 GB – 256 GB", language === 'fr' ? "Cartes mémoire" : "Memory cards"],
+        },
+        {
+          icon: Monitor,
+          name: language === 'fr' ? "Écouteurs & Audio" : "Headphones & Audio",
+          image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+          partner: "",
+          partnerLogo: null,
+          specs: [language === 'fr' ? "Écouteurs filaires" : "Wired earphones", "Bluetooth", language === 'fr' ? "Casques audio" : "Headsets", language === 'fr' ? "Kits mains libres" : "Hands-free kits"],
+        },
       ],
     },
     {
