@@ -67,7 +67,7 @@ const Products = () => {
         {
           icon: Tablet,
           name: language === 'fr' ? "Tablettes Blackview" : "Blackview Tablets",
-          image: "/logos/blackview.webp",
+          image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80",
           partner: "Blackview",
           partnerLogo: "/logos/blackview.webp",
           specs: ["Blackview Tab 18", "Blackview Tab 16 Pro", "IP68/IP69K", language === 'fr' ? "Usage terrain" : "Field use"],
