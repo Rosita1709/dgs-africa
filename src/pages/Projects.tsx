@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import projectHvac from "@/assets/project-hvac.jpg";
 import projectItDeploy from "@/assets/project-it-deploy.jpg";
 import projectSolar from "@/assets/project-solar.jpg";
+import projectItSolutions from "@/assets/project-it-solutions.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
