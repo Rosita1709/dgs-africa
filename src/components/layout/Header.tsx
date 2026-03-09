@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Search, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Phone, ChevronDown, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import logo from "@/assets/logo-dgs.png";
@@ -11,7 +10,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { t, language } = useLanguage();
 
   const navLinks = [
@@ -22,40 +24,48 @@ const Header = () => {
       href: "/solutions",
       hasDropdown: true,
       children: [
-        { name: language === 'fr' ? 'Équipements Industriels' : 'Industrial Equipment', href: "/solutions#industriel" },
-        { name: language === 'fr' ? 'Solutions IT' : 'IT Solutions', href: "/solutions#it" },
-        { name: language === 'fr' ? 'Énergie Solaire' : 'Solar Energy', href: "/solutions#energie" },
+        { name: language === 'fr' ? 'Équipements Industriels' : 'Industrial Equipment', href: "/services/industriel" },
+        { name: language === 'fr' ? 'Solutions IT' : 'IT Solutions', href: "/services/it" },
+        { name: language === 'fr' ? 'Énergie Solaire' : 'Solar Energy', href: "/services/energie" },
       ]
     },
-    { name: language === 'fr' ? 'Contacts' : 'Contact', href: "/contact" },
+    { name: language === 'fr' ? 'Produits' : 'Products', href: "/produits" },
+    { name: 'Contact', href: "/contact" },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
   return (
-    <header className={`fixed top-10 left-0 right-0 z-40 transition-all duration-500 ${
-      isScrolled 
-        ? 'top-0 bg-primary/98 backdrop-blur-lg shadow-lg' 
-        : 'bg-transparent'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled ? 'bg-primary shadow-lg' : 'bg-primary'
     }`}>
       <nav className="container">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <div className={`relative transition-all duration-300 ${
-              isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'
-            }`}>
+            <div className="relative h-10 md:h-14 transition-all duration-300">
               <img 
                 src={logo} 
-                alt="DGS Africa - Facility Management & Equipment" 
+                alt="DGS Africa" 
                 className="h-full w-auto object-contain"
-                style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.4))' }}
               />
             </div>
           </Link>
@@ -65,21 +75,48 @@ const Header = () => {
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
                 {link.hasDropdown ? (
-                  <button
+                  <div
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
-                    className={`flex items-center gap-1 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${
-                      location.pathname === link.href
-                        ? "text-accent"
-                        : "text-primary-foreground hover:text-accent"
-                    }`}
                   >
-                    {link.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-                    
-                    {/* Underline */}
-                    <span className="absolute bottom-0 left-5 right-5 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                  </button>
+                    <Link
+                      to={link.href}
+                      className={`flex items-center gap-1 px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 relative ${
+                        location.pathname.startsWith('/services') || location.pathname === '/solutions'
+                          ? "text-accent"
+                          : "text-primary-foreground hover:text-accent"
+                      }`}
+                    >
+                      {link.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                    </Link>
+
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 w-64 bg-card rounded-lg shadow-premium overflow-hidden border border-border"
+                        >
+                          {link.children?.map((child) => (
+                            <Link
+                              key={child.name}
+                              to={child.href}
+                              className={`block px-5 py-4 text-sm font-medium transition-colors border-b border-border/50 last:border-0 ${
+                                location.pathname === child.href
+                                  ? 'text-accent bg-accent/10'
+                                  : 'text-foreground hover:bg-accent/10 hover:text-accent'
+                              }`}
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 ) : (
                   <Link
                     to={link.href}
@@ -90,111 +127,139 @@ const Header = () => {
                     }`}
                   >
                     {link.name}
-                    {/* Underline */}
-                    <span className={`absolute bottom-0 left-5 right-5 h-0.5 bg-accent transition-transform origin-left ${
+                    {/* Gold underline slide-in on hover */}
+                    <span className={`absolute bottom-0 left-5 right-5 h-0.5 bg-accent transition-transform origin-left duration-300 ${
                       location.pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                     }`} />
                   </Link>
-                )}
-
-                {/* Dropdown */}
-                {link.hasDropdown && (
-                  <AnimatePresence>
-                    {servicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        onMouseEnter={() => setServicesOpen(true)}
-                        onMouseLeave={() => setServicesOpen(false)}
-                        className="absolute top-full left-0 w-64 bg-card rounded-lg shadow-premium overflow-hidden border border-border"
-                      >
-                        {link.children?.map((child) => (
-                          <Link
-                            key={child.name}
-                            to={child.href}
-                            className="block px-5 py-4 text-sm font-medium text-foreground hover:bg-accent/10 hover:text-accent transition-colors border-b border-border/50 last:border-0"
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 )}
               </div>
             ))}
           </div>
 
-          {/* Right side */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Right side — search icon + language switcher */}
+          <div className="hidden lg:flex items-center gap-3">
+            {searchOpen ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const q = searchQuery.trim().toLowerCase();
+                  if (!q) return;
+                  // Direct navigation: match known pages
+                  const routes: Record<string, string> = {
+                    'accueil': '/', 'home': '/',
+                    'a propos': '/a-propos', 'about': '/a-propos', 'à propos': '/a-propos',
+                    'services': '/solutions', 'nos services': '/solutions', 'our services': '/solutions', 'solutions': '/solutions',
+                    'industriel': '/services/industriel', 'industrial': '/services/industriel', 'equipements industriels': '/services/industriel', 'industrial equipment': '/services/industriel',
+                    'it': '/services/it', 'solutions it': '/services/it', 'informatique': '/services/it',
+                    'energie': '/services/energie', 'energy': '/services/energie', 'solaire': '/services/energie', 'solar': '/services/energie', 'énergie': '/services/energie', 'énergie solaire': '/services/energie', 'solar energy': '/services/energie',
+                    'produits': '/produits', 'products': '/produits', 'catalogue': '/produits',
+                    'projets': '/projets', 'projects': '/projets', 'realisations': '/projets',
+                    'contact': '/contact', 'contacts': '/contact', 'devis': '/contact',
+                  };
+                  const match = routes[q];
+                  if (match) {
+                    navigate(match);
+                  } else {
+                    navigate(`/recherche?q=${encodeURIComponent(searchQuery.trim())}`);
+                  }
+                  setSearchOpen(false);
+                  setSearchQuery("");
+                }}
+                className="flex items-center"
+              >
+                <input
+                  autoFocus
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') { setSearchOpen(false); setSearchQuery(""); }
+                  }}
+                  placeholder={language === 'fr' ? 'Rechercher...' : 'Search...'}
+                  className="w-48 px-3 py-1.5 rounded-l-full bg-primary-foreground/10 border border-primary-foreground/20 border-r-0 text-primary-foreground placeholder:text-primary-foreground/40 text-sm focus:outline-none focus:ring-1 focus:ring-accent/50"
+                />
+                <button type="submit" className="px-3 py-1.5 rounded-r-full bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-colors">
+                  <Search className="w-4 h-4" />
+                </button>
+                <button type="button" onClick={() => { setSearchOpen(false); setSearchQuery(""); }} className="ml-2 text-primary-foreground/60 hover:text-primary-foreground">
+                  <X className="w-4 h-4" />
+                </button>
+              </form>
+            ) : (
+              <button
+                onClick={() => setSearchOpen(true)}
+                className="p-2 rounded-full text-primary-foreground/70 hover:text-accent hover:bg-primary-foreground/10 transition-colors"
+                aria-label="Search"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+            )}
             <LanguageSwitcher />
-            <button 
-              className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" />
-            </button>
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg transition-colors text-primary-foreground"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-          </button>
+          <div className="lg:hidden flex items-center gap-3">
+            <LanguageSwitcher />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg transition-colors text-primary-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <>
-              {/* Overlay */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-                onClick={() => setIsOpen(false)}
-              />
-              {/* Slide-in menu from right */}
-              <motion.div 
-                initial={{ x: '100%' }}
-                animate={{ x: 0 }}
-                exit={{ x: '100%' }}
-                transition={{ type: 'tween', duration: 0.3 }}
-                className="fixed top-0 right-0 h-full w-3/5 md:w-2/5 max-w-sm bg-primary z-50 lg:hidden shadow-2xl overflow-y-auto"
-              >
-                <div className="flex justify-end p-4">
-                  <button onClick={() => setIsOpen(false)} className="text-primary-foreground">
-                    <X className="w-7 h-7" />
-                  </button>
-                </div>
-                <div className="py-6 px-6 flex flex-col gap-2">
+        {isOpen && (
+          <>
+            {/* Dark overlay */}
+            <div
+              className="fixed top-0 left-0 w-screen h-[100dvh] bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* Slide-in drawer */}
+            <div
+              className="fixed top-0 right-0 h-[100dvh] w-[320px] max-w-[85vw] bg-primary z-[60] lg:hidden shadow-2xl overflow-y-auto"
+              style={{ scrollbarWidth: 'none' }}
+            >
+              {/* Close button */}
+              <div className="flex justify-end p-4">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-primary-foreground min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-primary-foreground/10 transition-colors"
+                >
+                  <X className="w-7 h-7" />
+                </button>
+              </div>
+
+              <div className="py-4 px-6 flex flex-col">
                 {navLinks.map((link) => (
-                  <div key={link.name}>
+                  <div key={link.name} className="border-b border-primary-foreground/10">
                     <Link
                       to={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`block text-lg font-semibold py-3 px-4 rounded-lg transition-all ${
+                      className={`block text-lg font-semibold py-4 px-3 rounded-lg transition-all min-h-[48px] flex items-center ${
                         location.pathname === link.href
-                          ? "text-accent"
-                          : "text-primary-foreground hover:text-accent"
+                          ? "text-accent bg-accent/10"
+                          : "text-primary-foreground hover:text-accent hover:bg-primary-foreground/5"
                       }`}
                     >
                       {link.name}
                     </Link>
+
                     {link.children && (
-                      <div className="ml-4 border-l-2 border-accent/30 pl-4 mt-2">
+                      <div className="ml-3 border-l-2 border-accent/50 pl-4 mb-3">
                         {link.children.map((child) => (
                           <Link
                             key={child.name}
                             to={child.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block text-base font-medium py-2 text-primary-foreground/70 hover:text-accent"
+                            className={`block text-base font-medium py-3 px-3 rounded-md transition-all min-h-[44px] flex items-center ${
+                              location.pathname === child.href
+                                ? 'text-accent bg-accent/10'
+                                : 'text-primary-foreground/70 hover:text-accent hover:bg-primary-foreground/5'
+                            }`}
                           >
                             {child.name}
                           </Link>
@@ -203,21 +268,22 @@ const Header = () => {
                     )}
                   </div>
                 ))}
-                <div className="flex items-center gap-4 pt-4 mt-4 border-t border-primary-foreground/10">
+
+                {/* Language switcher + Phone */}
+                <div className="flex items-center gap-4 pt-6 mt-4 border-t border-primary-foreground/10">
                   <LanguageSwitcher />
-                  <a 
-                    href="tel:+221775930196"
-                    className="flex items-center gap-2 text-accent font-semibold"
-                  >
-                    <Phone className="w-5 h-5" />
-                    +221 77 593 01 96
-                  </a>
                 </div>
-                </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
+                <a
+                  href="tel:+221776862024"
+                  className="flex items-center gap-2 text-accent font-semibold mt-4 whitespace-nowrap"
+                >
+                  <Phone className="w-5 h-5 shrink-0" />
+                  +221 77 686 20 24
+                </a>
+              </div>
+            </div>
+          </>
+        )}
       </nav>
     </header>
   );

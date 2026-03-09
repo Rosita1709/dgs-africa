@@ -6,6 +6,7 @@ import PolesSection from "@/components/home/PolesSection";
 import AboutPreview from "@/components/home/AboutPreview";
 import PartnersSection from "@/components/home/PartnersSection";
 import CTASection from "@/components/home/CTASection";
+import BackToTop from "@/components/BackToTop";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
         <CTASection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

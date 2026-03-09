@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Facebook, Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo-dgs.png";
 
@@ -27,22 +27,39 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1 space-y-6">
-            <img src={logo} alt="DGS Africa" className="h-14 brightness-0 invert" />
+            <img src={logo} alt="DGS Africa" className="h-14" />
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
               {t('footer.description')}
             </p>
             <div className="flex gap-3">
               <a 
-                href="#" 
+                href="https://www.linkedin.com/company/dynamic-global-services/" 
+                target="_blank" rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="#" 
+                href="https://www.facebook.com/profile.php?id=61568176133970&mibextid=LQQJ4d" 
+                target="_blank" rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
               >
-                <Twitter className="w-4 h-4" />
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.instagram.com/dgs_africa25?igsh=MXNnbmsxMGxvdTBudQ%3D%3D&utm_source=qr" 
+                target="_blank" rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@dgsafrica?_r=1&_t=ZS-94Pr9rVkfmj" 
+                target="_blank" rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                title="TikTok"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.7a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.13z"/></svg>
               </a>
             </div>
           </div>
@@ -71,7 +88,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  to="/solutions#industriel"
+                  to="/services/industriel"
                   className="text-primary-foreground/70 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-accent transition-all duration-300" />
@@ -80,7 +97,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link 
-                  to="/solutions#it"
+                  to="/services/it"
                   className="text-primary-foreground/70 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-accent transition-all duration-300" />
@@ -89,7 +106,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link 
-                  to="/solutions#energie"
+                  to="/services/energie"
                   className="text-primary-foreground/70 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-accent transition-all duration-300" />
@@ -116,7 +133,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://wa.me/221775930196"
+                  href="https://api.whatsapp.com/send?phone=221776862024"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors text-sm group"
@@ -124,7 +141,7 @@ const Footer = () => {
                   <span className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center group-hover:bg-accent transition-all duration-300">
                     <Phone className="w-4 h-4" />
                   </span>
-                  +221 77 593 01 96
+                   +221 77 686 20 24
                 </a>
               </li>
               <li className="flex items-center gap-3 text-primary-foreground/70 text-sm">

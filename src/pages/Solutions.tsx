@@ -24,12 +24,17 @@ const Solutions = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-32 bg-hero-premium overflow-hidden">
+      <section className="relative pt-40 pb-32 overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.2, x: '-5%' }}
+          animate={{ scale: 1, x: '0%' }}
+          transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <img src={solutionsIndustrial} alt="" className="w-full h-full object-cover" />
+        </motion.div>
+        <div className="absolute inset-0 bg-primary/80" />
         <div className="absolute inset-0 bg-pattern" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[100px]" />
-          <div className="absolute bottom-20 right-10 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[80px]" />
-        </div>
         
         <div className="container relative z-10">
           <motion.div
@@ -54,7 +59,7 @@ const Solutions = () => {
       </section>
 
       {/* Industriel */}
-      <section id="industriel" className="py-24 scroll-mt-32">
+      <section id="industriel" className="py-24 scroll-mt-24">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -103,10 +108,16 @@ const Solutions = () => {
                 ))}
               </motion.div>
 
-              <motion.div variants={fadeUp} custom={3}>
-                <Button variant="outline" size="lg" asChild>
+              <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4">
+                <Button variant="accent" size="lg" asChild className="shadow-accent">
                   <Link to="/contact">
-                    {t('nav.quote')}
+                    {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link to="/produits">
+                    {language === 'fr' ? 'Découvrir nos produits' : 'Discover our products'}
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
@@ -130,7 +141,7 @@ const Solutions = () => {
       </section>
 
       {/* IT */}
-      <section id="it" className="py-24 bg-muted/30 scroll-mt-32 relative overflow-hidden">
+      <section id="it" className="py-24 bg-muted/30 scroll-mt-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid" />
         
         <div className="container relative z-10">
@@ -184,10 +195,16 @@ const Solutions = () => {
                 ))}
               </motion.div>
 
-              <motion.div variants={fadeUp} custom={3}>
+              <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4">
                 <Button variant="accent" size="lg" asChild className="shadow-accent">
                   <Link to="/contact">
-                    {t('nav.quote')}
+                    {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link to="/produits">
+                    {language === 'fr' ? 'Découvrir nos produits' : 'Discover our products'}
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
@@ -198,7 +215,7 @@ const Solutions = () => {
       </section>
 
       {/* Énergie */}
-      <section id="energie" className="py-24 scroll-mt-32">
+      <section id="energie" className="py-24 scroll-mt-24">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -254,10 +271,16 @@ const Solutions = () => {
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeUp} custom={3}>
-                <Button variant="outline" size="lg" asChild>
+              <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4">
+                <Button variant="accent" size="lg" asChild className="shadow-accent">
                   <Link to="/contact">
-                    {t('nav.quote')}
+                    {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link to="/produits">
+                    {language === 'fr' ? 'Découvrir nos produits' : 'Discover our products'}
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
