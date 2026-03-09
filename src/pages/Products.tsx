@@ -59,10 +59,10 @@ const Products = () => {
         {
           icon: Laptop,
           name: language === 'fr' ? "Ordinateurs" : "Computers",
-          image: "/products/dell-laptop.jpg",
-          partner: "Dell / Blackview",
-          partnerLogo: "/logos/dell.png",
-          specs: ["Dell Latitude", "Dell Inspiron", language === 'fr' ? "Portables & Fixes" : "Laptops & Desktops", "Blackview Rugged"],
+          image: "/products/laptop-generic.jpg",
+          partner: "Dell / Blackview / Lenovo",
+          partnerLogo: null,
+          specs: ["Dell Latitude", "Lenovo ThinkPad", language === 'fr' ? "Portables & Fixes" : "Laptops & Desktops", "Blackview Rugged"],
         },
         {
           icon: Tablet,
