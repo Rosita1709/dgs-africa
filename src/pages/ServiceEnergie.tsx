@@ -33,7 +33,7 @@ const ServiceEnergie = () => {
         ? "Solutions de stockage et conversion d'énergie. Onduleurs hybrides, batteries lithium et systèmes de backup."
         : "Energy storage and conversion solutions. Hybrid inverters, lithium batteries and backup systems.",
       specs: [language === 'fr' ? "Hybride" : "Hybrid", "Lithium", language === 'fr' ? "Stockage" : "Storage", "Backup"],
-      image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80",
+      image: "/products/solar-inverter.png",
     },
     {
       icon: ClipboardCheck,
