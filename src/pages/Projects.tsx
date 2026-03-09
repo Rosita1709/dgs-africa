@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import projectHvac from "@/assets/project-hvac.jpg";
 import projectItDeploy from "@/assets/project-it-deploy.jpg";
 import projectSolar from "@/assets/project-solar.jpg";
+import projectItSolutions from "@/assets/project-it-solutions.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -34,8 +35,8 @@ const Projects = () => {
         ? "Installation complète d'un système VRV/VRF pour un complexe hôtelier de 120 chambres nécessitant une climatisation performante et économe en énergie."
         : "Complete VRV/VRF system installation for a 120-room hotel complex requiring energy-efficient air conditioning.",
       results: language === 'fr'
-        ? ["Réduction de 35% de la consommation", "Confort optimal dans 120 chambres", "Maintenance préventive incluse"]
-        : ["35% energy consumption reduction", "Optimal comfort in 120 rooms", "Preventive maintenance included"],
+        ? ["Réduction de 5% de la consommation", "Confort optimal dans 120 chambres", "Maintenance préventive incluse"]
+        : ["5% energy consumption reduction", "Optimal comfort in 120 rooms", "Preventive maintenance included"],
     },
     {
       image: projectItDeploy,
@@ -53,7 +54,7 @@ const Projects = () => {
         : ["200 workstations deployed in 3 weeks", "Secured network infrastructure", "On-site technical support"],
     },
     {
-      image: projectItDeploy,
+      image: projectItSolutions,
       icon: Monitor,
       color: "accent",
       pole: "IT",
