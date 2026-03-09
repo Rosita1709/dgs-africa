@@ -62,11 +62,11 @@ const Projects = () => {
       location: language === 'fr' ? "Dakar, Sénégal" : "Dakar, Senegal",
       year: "2024",
       context: language === 'fr'
-        ? "Fourniture, configuration et maintenance d'équipements informatiques de haute qualité : postes Dell OptiPlex Ultra 5, All-in-One et stations de travail. Un accompagnement complet de la livraison au support technique sur site."
-        : "Supply, configuration and maintenance of high-quality IT equipment: Dell OptiPlex Ultra 5 desktops, All-in-One workstations. Complete support from delivery to on-site technical assistance.",
+        ? "Fourniture, configuration et maintenance d'équipements informatiques de haute qualité : postes de travail, All-in-One et stations performantes des marques Dell, HP, Lenovo et Blackview. Un accompagnement complet de la livraison au support technique sur site."
+        : "Supply, configuration and maintenance of high-quality IT equipment: workstations, All-in-One and high-performance stations from Dell, HP, Lenovo and Blackview. Complete support from delivery to on-site technical assistance.",
       results: language === 'fr'
-        ? ["Dell OptiPlex Ultra 5 & All-in-One déployés", "Configuration sur mesure pour chaque poste", "Maintenance préventive et support technique continu"]
-        : ["Dell OptiPlex Ultra 5 & All-in-One deployed", "Custom configuration per workstation", "Preventive maintenance and ongoing technical support"],
+        ? ["Équipements Dell, HP, Lenovo & Blackview déployés", "Configuration sur mesure pour chaque poste", "Maintenance préventive et support technique continu"]
+        : ["Dell, HP, Lenovo & Blackview equipment deployed", "Custom configuration per workstation", "Preventive maintenance and ongoing technical support"],
     },
   ];
 
