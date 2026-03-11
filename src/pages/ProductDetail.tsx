@@ -10,14 +10,17 @@ interface ProductData {
   titleFr: string;
   titleEn: string;
   image: string;
+  galleryImages?: string[];
   color: string;
   servicePath: string;
+  partnerName?: string;
+  partnerUrl?: string;
   descriptionFr: string;
   descriptionEn: string;
   detailsFr: string[];
   detailsEn: string[];
-  productsFr: { name: string; description: string }[];
-  productsEn: { name: string; description: string }[];
+  productsFr: { name: string; description: string; image?: string }[];
+  productsEn: { name: string; description: string; image?: string }[];
 }
 
 const productsData: ProductData[] = [
