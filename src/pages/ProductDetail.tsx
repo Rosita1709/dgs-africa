@@ -616,10 +616,17 @@ const ProductDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-soft border border-border/50 hover:shadow-premium transition-all duration-500"
+                className="bg-card rounded-2xl overflow-hidden shadow-soft border border-border/50 hover:shadow-premium transition-all duration-500"
               >
-                <h3 className={`font-heading text-xl font-bold mb-3 ${colors.text}`}>{item.name}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                {item.image && (
+                  <div className="h-48 overflow-hidden">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  </div>
+                )}
+                <div className="p-8">
+                  <h3 className={`font-heading text-xl font-bold mb-3 ${colors.text}`}>{item.name}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
