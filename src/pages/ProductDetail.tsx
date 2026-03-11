@@ -68,14 +68,14 @@ const productsData: ProductData[] = [
     productsFr: [
       { name: "Luminaires Antidéflagrants (ATEX)", description: "Gamme complète de luminaires certifiés ATEX/IECEx pour zones à risque d'explosion (Zone 1, Zone 2, Zone 21, Zone 22). High Bay, Low Bay, Street Light, Panel Light et lampes torches. Conçus pour raffineries, plateformes pétrolières et usines chimiques.", image: "/products/senben-explosion-proof.webp" },
       { name: "Éclairages Étanches (Weatherproof)", description: "Luminaires IP65+ résistants aux intempéries pour environnements industriels non dangereux. Solutions durables pour entrepôts, hangars, tunnels et installations extérieures soumises à des conditions climatiques sévères.", image: "/products/senben-weatherproof.webp" },
-      { name: "Éclairages Haute Baie (High Bay)", description: "Luminaires haute puissance pour grands espaces avec hauteur sous plafond importante. Disponibles en versions ATEX et standard, de 50W à 600W, pour usines, entrepôts et halls industriels.", image: "/products/senben-hazardous.webp" },
-      { name: "Projecteurs LED (Floodlights)", description: "Projecteurs industriels à large faisceau pour éclairage extérieur de chantiers, parkings, périmètres de sécurité et zones portuaires. Versions antidéflagrantes disponibles.", image: "/products/senben-non-hazardous.webp" },
+      { name: "Éclairages Haute Baie (High Bay)", description: "Luminaires haute puissance pour grands espaces avec hauteur sous plafond importante. Disponibles en versions ATEX et standard, de 50W à 600W, pour usines, entrepôts et halls industriels.", image: "/products/senben-high-bay.webp" },
+      { name: "Projecteurs LED (Floodlights)", description: "Projecteurs industriels à large faisceau pour éclairage extérieur de chantiers, parkings, périmètres de sécurité et zones portuaires. Versions antidéflagrantes disponibles.", image: "/products/senben-floodlight.webp" },
     ],
     productsEn: [
       { name: "Explosion Proof Luminaires (ATEX)", description: "Complete range of ATEX/IECEx certified luminaires for explosive atmosphere zones (Zone 1, Zone 2, Zone 21, Zone 22). High Bay, Low Bay, Street Light, Panel Light, and torch lights. Designed for refineries, oil platforms, and chemical plants.", image: "/products/senben-explosion-proof.webp" },
       { name: "Weatherproof Luminaires", description: "IP65+ weather-resistant luminaires for non-hazardous industrial environments. Durable solutions for warehouses, hangars, tunnels, and outdoor installations exposed to severe weather conditions.", image: "/products/senben-weatherproof.webp" },
-      { name: "High Bay Lights", description: "High-power luminaires for large spaces with high ceilings. Available in ATEX and standard versions, from 50W to 600W, for factories, warehouses, and industrial halls.", image: "/products/senben-hazardous.webp" },
-      { name: "LED Floodlights", description: "Industrial floodlights with wide beam for outdoor lighting of construction sites, parking lots, security perimeters, and port areas. Explosion-proof versions available.", image: "/products/senben-non-hazardous.webp" },
+      { name: "High Bay Lights", description: "High-power luminaires for large spaces with high ceilings. Available in ATEX and standard versions, from 50W to 600W, for factories, warehouses, and industrial halls.", image: "/products/senben-high-bay.webp" },
+      { name: "LED Floodlights", description: "Industrial floodlights with wide beam for outdoor lighting of construction sites, parking lots, security perimeters, and port areas. Explosion-proof versions available.", image: "/products/senben-floodlight.webp" },
     ],
   },
   {
