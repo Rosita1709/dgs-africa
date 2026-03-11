@@ -545,6 +545,11 @@ const ProductDetail = () => {
             </Link>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">{title}</h1>
             <p className="text-primary-foreground/80 text-xl leading-relaxed">{description}</p>
+            {product.partnerUrl && (
+              <a href={product.partnerUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-accent hover:underline font-semibold text-sm">
+                {language === "fr" ? `Visitez le site ${product.partnerName}` : `Visit ${product.partnerName} website`} →
+              </a>
+            )}
           </motion.div>
         </div>
 
