@@ -63,6 +63,7 @@ const Products = () => {
       items: [
         {
           icon: Laptop,
+          slug: "ordinateurs",
           name: language === 'fr' ? "Ordinateurs" : "Computers",
           image: "/products/laptop-generic.jpg",
           partner: "Dell / Blackview / Lenovo",
@@ -71,6 +72,7 @@ const Products = () => {
         },
         {
           icon: Tablet,
+          slug: "tablettes",
           name: language === 'fr' ? "Tablettes Blackview" : "Blackview Tablets",
           image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80",
           partner: "Blackview",
@@ -79,6 +81,7 @@ const Products = () => {
         },
         {
           icon: Server,
+          slug: "serveurs",
           name: language === 'fr' ? "Serveurs & Réseau" : "Servers & Network",
           image: "/products/dell-server.jpg",
           partner: "Dell",
@@ -87,6 +90,7 @@ const Products = () => {
         },
         {
           icon: Printer,
+          slug: "imprimantes",
           name: language === 'fr' ? "Imprimantes" : "Printers",
           image: "/products/printer.jpg",
           partner: "HP",
@@ -95,6 +99,7 @@ const Products = () => {
         },
         {
           icon: CircleDot,
+          slug: "cles-usb",
           name: language === 'fr' ? "Clés USB & Stockage" : "USB Drives & Storage",
           image: productsUsbStorage,
           partner: "",
@@ -103,6 +108,7 @@ const Products = () => {
         },
         {
           icon: Monitor,
+          slug: "ecouteurs",
           name: language === 'fr' ? "Écouteurs & Audio" : "Headphones & Audio",
           image: productsEarphones,
           partner: "",
