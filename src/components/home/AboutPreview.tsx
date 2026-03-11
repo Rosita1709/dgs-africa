@@ -160,7 +160,7 @@ const AboutPreview = () => {
                   </div>
                   <div className="w-px h-12 bg-primary-foreground/20" />
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent">10+</div>
+                    <div className="text-3xl font-bold text-accent">5+</div>
                     <div className="text-sm text-primary-foreground/70">Pays</div>
                   </div>
                 </div>
