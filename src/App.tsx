@@ -19,6 +19,7 @@ import ServiceIT from "./pages/ServiceIT";
 import ServiceEnergie from "./pages/ServiceEnergie";
 import Search from "./pages/Search";
 import ProductDetail from "./pages/ProductDetail";
+import CatalogueIT from "./pages/CatalogueIT";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
