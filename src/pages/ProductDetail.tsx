@@ -130,8 +130,8 @@ const productsData: ProductData[] = [
     productsEn: [
       { name: "CC Clean Concept Air Handling Units", description: "Airchal's flagship range: modular AHUs up to 450,000 m³/h, designed for easy installation and maintenance. Integrated filtration, heating, cooling, and energy recovery.", image: "/products/airchal-cc-ahu.png" },
       { name: "POLCC Polyester Series", description: "Polyester air handling units specially designed for extreme environments and temperatures down to -35°C. Ideal for food processing and cold rooms.", image: "/products/airchal-polcc.png" },
-      { name: "Fan Coils", description: "Standard and purpose-built terminal units for localized heating and cooling. Quiet and efficient solutions for offices, hotels, and commercial buildings.", image: "/products/airchal-building-fan.jpg" },
-      { name: "Industrial Fans", description: "High-performance fans for demanding industrial applications: extraction, ventilation, pressurization, and ATEX environments. Up to 200,000 m³/h and 400°C.", image: "/products/airchal-industrial-fan.jpg" },
+      { name: "Fan Coils", description: "Standard and purpose-built terminal units for localized heating and cooling. Quiet and efficient solutions for offices, hotels, and commercial buildings.", image: "/products/airchal-fancoil-detail.jpg" },
+      { name: "Industrial Fans", description: "High-performance fans for demanding industrial applications: extraction, ventilation, pressurization, and ATEX environments. Up to 200,000 m³/h and 400°C.", image: "/products/airchal-fans.jpg" },
       { name: "Oil & Gas Solutions", description: "Specialized air handling systems for oil platforms, refineries, and offshore installations, compliant with the strictest standards.", image: "/products/airchal-cc-standard.png" },
       { name: "Control & Automation", description: "Control cabinets and integrated automation systems to manage and optimize your air handling installations.", image: "/products/airchal-controls.png" },
     ],
