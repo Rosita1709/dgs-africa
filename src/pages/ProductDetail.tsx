@@ -586,10 +586,21 @@ const ProductDetail = () => {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-premium">
-                <img src={product.image} alt={title} className="w-full h-[450px] object-cover" />
-                <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-20`} />
-              </div>
+              {product.galleryImages && product.galleryImages.length > 1 ? (
+                <div className="grid grid-cols-2 gap-4">
+                  {product.galleryImages.map((img, i) => (
+                    <div key={i} className="relative rounded-2xl overflow-hidden shadow-premium">
+                      <img src={img} alt={`${title} ${i + 1}`} className="w-full h-52 object-cover hover:scale-105 transition-transform duration-500" />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-10`} />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="relative rounded-2xl overflow-hidden shadow-premium">
+                  <img src={product.image} alt={title} className="w-full h-[450px] object-cover" />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-20`} />
+                </div>
+              )}
             </motion.div>
           </div>
         </div>
