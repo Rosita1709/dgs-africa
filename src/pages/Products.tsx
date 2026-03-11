@@ -86,8 +86,8 @@ const Products = () => {
           icon: Printer,
           name: language === 'fr' ? "Imprimantes" : "Printers",
           image: "/products/printer.jpg",
-          partner: "Dell",
-          partnerLogo: "/logos/dell.png",
+          partner: "HP",
+          partnerLogo: null,
           specs: ["Laser", language === 'fr' ? "Jet d'encre" : "Inkjet", "A3/A4", language === 'fr' ? "Multifonctions" : "All-in-one"],
         },
         {
