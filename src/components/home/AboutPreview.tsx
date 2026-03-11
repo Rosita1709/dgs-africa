@@ -155,7 +155,7 @@ const AboutPreview = () => {
                   </div>
                   <div className="w-px h-12 bg-primary-foreground/20" />
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent">500+</div>
+                    <div className="text-3xl font-bold text-accent">50+</div>
                     <div className="text-sm text-primary-foreground/70">Projets</div>
                   </div>
                   <div className="w-px h-12 bg-primary-foreground/20" />
