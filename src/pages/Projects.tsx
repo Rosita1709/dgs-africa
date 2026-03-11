@@ -70,19 +70,34 @@ const Projects = () => {
         : ["1,000 Blackview Mega 12 tablets delivered", "Complete ready-to-use kits", "Digital transformation of education"],
     },
     {
+      image: projectItDeploy,
+      icon: Monitor,
+      color: "accent",
+      pole: "IT",
+      title: language === 'fr' ? "Déploiement informatique — Siège entreprise" : "IT Deployment — Corporate HQ",
+      location: language === 'fr' ? "Abidjan, Côte d'Ivoire" : "Abidjan, Côte d'Ivoire",
+      year: "2023",
+      context: language === 'fr'
+        ? "Fourniture et installation de 200 postes de travail, serveurs, infrastructure réseau et système de sauvegarde pour le nouveau siège d'une multinationale."
+        : "Supply and installation of 200 workstations, servers, network infrastructure and backup system for a multinational's new headquarters.",
+      results: language === 'fr'
+        ? ["200 postes déployés en 3 semaines", "Infrastructure réseau sécurisée", "Support technique sur site"]
+        : ["200 workstations deployed in 3 weeks", "Secured network infrastructure", "On-site technical support"],
+    },
+    {
       image: projectHvac,
       icon: Settings,
       color: "blue",
       pole: language === 'fr' ? "Industriel" : "Industrial",
-      title: language === 'fr' ? "Climatisation centralisée — Complexe hôtelier" : "Centralized HVAC — Hotel Complex",
+      title: language === 'fr' ? "Climatisation centralisée VRV/VRF" : "Centralized VRV/VRF HVAC",
       location: language === 'fr' ? "Dakar, Sénégal" : "Dakar, Senegal",
       year: "2024",
       context: language === 'fr'
-        ? "Installation complète d'un système VRV/VRF pour un complexe hôtelier de 120 chambres nécessitant une climatisation performante et économe en énergie."
-        : "Complete VRV/VRF system installation for a 120-room hotel complex requiring energy-efficient air conditioning.",
+        ? "Conception et installation de systèmes VRV/VRF (Volume de Réfrigérant Variable) pour des bâtiments tertiaires et industriels. Ces solutions permettent un contrôle précis de la température zone par zone, une réduction significative de la consommation énergétique et une flexibilité d'installation inégalée."
+        : "Design and installation of VRV/VRF (Variable Refrigerant Volume/Flow) systems for commercial and industrial buildings. These solutions enable precise zone-by-zone temperature control, significant energy consumption reduction, and unmatched installation flexibility.",
       results: language === 'fr'
-        ? ["Réduction de 5% de la consommation", "Confort optimal dans 120 chambres", "Maintenance préventive incluse"]
-        : ["5% energy consumption reduction", "Optimal comfort in 120 rooms", "Preventive maintenance included"],
+        ? ["Système VRV/VRF haute performance", "Contrôle précis zone par zone", "Réduction significative de la consommation énergétique", "Maintenance préventive incluse"]
+        : ["High-performance VRV/VRF system", "Precise zone-by-zone control", "Significant energy consumption reduction", "Preventive maintenance included"],
     },
   ];
 
