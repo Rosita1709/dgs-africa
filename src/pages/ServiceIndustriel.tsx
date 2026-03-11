@@ -59,10 +59,10 @@ const ServiceIndustriel = () => {
   ];
 
   const stats = [
-    { icon: Factory, value: "300+", label: language === 'fr' ? "Sites industriels équipés" : "Industrial sites equipped" },
-    { icon: Users, value: "150+", label: language === 'fr' ? "Clients industriels" : "Industrial clients" },
-    { icon: TrendingUp, value: "60%", label: language === 'fr' ? "Réduction conso. énergétique" : "Energy consumption reduction" },
-    { icon: Award, value: "10+", label: language === 'fr' ? "Années d'expérience" : "Years of experience" },
+    { icon: Factory, value: "50+", label: language === 'fr' ? "Sites industriels équipés" : "Industrial sites equipped" },
+    { icon: Users, value: "100+", label: language === 'fr' ? "Clients satisfaits" : "Satisfied clients" },
+    { icon: TrendingUp, value: "30%", label: language === 'fr' ? "Réduction conso. énergétique" : "Energy consumption reduction" },
+    { icon: Award, value: "15+", label: language === 'fr' ? "Années d'expérience" : "Years of experience" },
   ];
 
   return (
