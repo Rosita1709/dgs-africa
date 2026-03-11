@@ -29,6 +29,7 @@ const Products = () => {
       items: [
         {
           icon: Lightbulb,
+          slug: "eclairage-led",
           name: language === 'fr' ? "Éclairage LED Industriel" : "Industrial LED Lighting",
           image: "/products/led-weatherproof.webp",
           partner: "Senben Lighting",
@@ -37,6 +38,7 @@ const Products = () => {
         },
         {
           icon: Thermometer,
+          slug: "climatisation",
           name: language === 'fr' ? "Froid & Climatisation" : "Cooling & HVAC",
           image: airchalCta,
           partner: "Airchal",
@@ -45,6 +47,7 @@ const Products = () => {
         },
         {
           icon: CircleDot,
+          slug: "courroies",
           name: language === 'fr' ? "Courroies Industrielles" : "Industrial Belts",
           image: "/products/belts-poly-v.jpg",
           partner: "Universal RBM",
