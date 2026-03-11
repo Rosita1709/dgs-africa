@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, CheckCircle, ArrowLeft } from "lucide-react";
+import { ArrowRight, MessageCircle, CheckCircle, ArrowLeft, Package, Shield, Wrench, Star } from "lucide-react";
 
 interface ProductData {
   slug: string;
@@ -242,18 +242,18 @@ const productsData: ProductData[] = [
       { name: "HP ProBook 450 G10", description: "Portable 15.6\", Intel Core i5, 16 GB, SSD 512 GB, autonomie 10h. Idéal entreprises, consultants et ONG.", image: "/products/hp-probook-laptop.jpg" },
       { name: "Lenovo ThinkPad E14", description: "Portable 14\", Intel Core i5, 16 GB, SSD 512 GB. Robustesse légendaire, clavier professionnel et sécurité avancée.", image: "/products/lenovo-thinkpad.jpg" },
       { name: "Dell Latitude 5440", description: "Intel Core i5 13e gén., 16 GB, SSD NVMe. Sécurité entreprise renforcée, autonomie élevée et grande durabilité.", image: "/products/dell-latitude.jpg" },
-      { name: "Blackview BL9000 (Smartphone 5G)", description: "Écran 6.78\" 2.4K 120Hz, Dimensity 8020 5G, 24 GB RAM, 512 GB, batterie 8800 mAh, charge 120W. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-bl9000.jpg" },
-      { name: "Blackview BV9300", description: "Écran 6.7\" 2.3K 120Hz, Helio G99, 21 GB RAM, 256 GB, batterie 15 080 mAh. IP68/IP69K, autonomie multi-jours.", image: "/products/blackview-bv9300.jpg" },
-      { name: "Blackview Active 8 Pro (Tablette)", description: "Tablette industrielle 10.36\" 2.4K, Helio G99, 8 GB RAM, 256 GB, batterie 22 000 mAh. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-active8pro.jpg" },
-      { name: "Blackview Mega 2 (Tablette)", description: "Tablette 12\" IPS FHD+, Unisoc T615, 12 GB RAM, 256 GB, batterie 9 000 mAh. Android 15, Mode PC, stylet inclus. Idéale déploiement massif.", image: "/products/blackview-mega2.jpg" },
-      { name: "Dell PowerEdge T150 (Serveur)", description: "Serveur tour Intel Xeon, jusqu'à 64 GB RAM. Fichiers, sauvegardes, gestion utilisateurs. Idéal PME.", image: "/products/dell-poweredge-t150.jpg" },
+      { name: "Blackview BL9000 (Smartphone 5G)", description: "Écran 6.78\" 2.4K 120Hz, Dimensity 8020 5G, 24 GB RAM, 512 GB, batterie 8800 mAh, charge 120W. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-bl9000.webp" },
+      { name: "Blackview BV9300", description: "Écran 6.7\" 2.3K 120Hz, Helio G99, 21 GB RAM, 256 GB, batterie 15 080 mAh. IP68/IP69K, autonomie multi-jours.", image: "/products/blackview-bv9300.webp" },
+      { name: "Blackview Active 8 Pro (Tablette)", description: "Tablette industrielle 10.36\" 2.4K, Helio G99, 8 GB RAM, 256 GB, batterie 22 000 mAh. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-active8pro.webp" },
+      { name: "Blackview Mega 2 (Tablette)", description: "Tablette 12\" IPS FHD+, Unisoc T615, 12 GB RAM, 256 GB, batterie 9 000 mAh. Android 15, Mode PC, stylet inclus. Idéale déploiement massif.", image: "/products/blackview-mega2.webp" },
+      { name: "Dell PowerEdge T150 (Serveur)", description: "Serveur tour Intel Xeon, jusqu'à 64 GB RAM. Fichiers, sauvegardes, gestion utilisateurs. Idéal PME.", image: "/products/dell-poweredge-t150.webp" },
       { name: "HPE ProLiant ML30 Gen11", description: "Serveur Intel Xeon E, jusqu'à 128 GB RAM. Fiabilité HPE Enterprise, évolutif selon la croissance.", image: "/products/hpe-proliant-ml30.jpg" },
       { name: "Synology DS923+ / DS1821+ (NAS)", description: "Stockage réseau 4 à 8 baies (72–144 TB). Sauvegarde automatique, cloud privé, partage de fichiers.", image: "/products/synology-nas.jpg" },
       { name: "HP LaserJet Pro MFP M428fdw", description: "Impression, scan, copie, réseau. 40 pages/min. Référence pour cabinets, PME et institutions.", image: "/products/hp-laserjet-m428.jpg" },
       { name: "Ubiquiti UniFi (Réseau)", description: "UniFi Dream Machine : firewall, WiFi entreprise, gestion centralisée. Switches 8/24/48 ports et points d'accès WiFi pro.", image: "/products/ubiquiti-unifi.jpg" },
-      { name: "Dell UltraSharp U2723QE (Écran)", description: "27\" QHD (2560×1440), hub USB-C intégré, ergonomie avancée (pivot, inclinaison, hauteur). Idéal multitâche.", image: "/products/dell-ultrasharp.jpg" },
+      { name: "Dell UltraSharp U2723QE (Écran)", description: "27\" QHD (2560×1440), hub USB-C intégré, ergonomie avancée (pivot, inclinaison, hauteur). Idéal multitâche.", image: "/products/dell-ultrasharp-u2723qe.webp" },
       { name: "Kit Conférence Logitech", description: "Webcam Brio 500 Full HD + Casque Zone Wireless. Audio HD, micro anti-bruit. Essentiel télétravail et visioconférence.", image: "/products/logitech-conference.jpg" },
-      { name: "SSD Portable & Hub USB-C", description: "Stockage SSD compact et sécurisé pour sauvegardes terrain. Hub USB-C multifonction : HDMI, USB 3.0, Ethernet, lecteur cartes.", image: "/products/ssd-portable.jpg" },
+      { name: "SSD Portable & Hub USB-C", description: "Stockage SSD compact et sécurisé pour sauvegardes terrain. Hub USB-C multifonction : HDMI, USB 3.0, Ethernet, lecteur cartes.", image: "/products/ssd-portable.webp" },
     ],
     productsEn: [
       { name: "HP ProDesk 400 G9/G10", description: "Desktop Intel Core i5 13th gen, 16 GB DDR4, SSD NVMe 512 GB. Low power consumption. Ideal for SMBs, NGOs, accounting.", image: "/products/hp-prodesk400.jpg" },
@@ -265,18 +265,18 @@ const productsData: ProductData[] = [
       { name: "HP ProBook 450 G10", description: "15.6\" laptop, Intel Core i5, 16 GB, SSD 512 GB, 10h battery. Ideal for businesses, consultants, and NGOs.", image: "/products/hp-probook-laptop.jpg" },
       { name: "Lenovo ThinkPad E14", description: "14\" laptop, Intel Core i5, 16 GB, SSD 512 GB. Legendary robustness, professional keyboard, advanced security.", image: "/products/lenovo-thinkpad.jpg" },
       { name: "Dell Latitude 5440", description: "Intel Core i5 13th gen, 16 GB, SSD NVMe. Enhanced enterprise security, high battery life, great durability.", image: "/products/dell-latitude.jpg" },
-      { name: "Blackview BL9000 (5G Smartphone)", description: "6.78\" 2.4K 120Hz screen, Dimensity 8020 5G, 24 GB RAM, 512 GB, 8800 mAh battery, 120W charging. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-bl9000.jpg" },
-      { name: "Blackview BV9300", description: "6.7\" 2.3K 120Hz screen, Helio G99, 21 GB RAM, 256 GB, 15,080 mAh battery. IP68/IP69K, multi-day autonomy.", image: "/products/blackview-bv9300.jpg" },
-      { name: "Blackview Active 8 Pro (Tablet)", description: "10.36\" 2.4K industrial tablet, Helio G99, 8 GB RAM, 256 GB, 22,000 mAh battery. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-active8pro.jpg" },
-      { name: "Blackview Mega 2 (Tablet)", description: "12\" IPS FHD+ tablet, Unisoc T615, 12 GB RAM, 256 GB, 9,000 mAh battery. Android 15, PC Mode, stylus included. Ideal for mass deployment.", image: "/products/blackview-mega2.jpg" },
-      { name: "Dell PowerEdge T150 (Server)", description: "Tower server Intel Xeon, up to 64 GB RAM. Files, backups, user management. Ideal for SMBs.", image: "/products/dell-poweredge-t150.jpg" },
+      { name: "Blackview BL9000 (5G Smartphone)", description: "6.78\" 2.4K 120Hz screen, Dimensity 8020 5G, 24 GB RAM, 512 GB, 8800 mAh battery, 120W charging. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-bl9000.webp" },
+      { name: "Blackview BV9300", description: "6.7\" 2.3K 120Hz screen, Helio G99, 21 GB RAM, 256 GB, 15,080 mAh battery. IP68/IP69K, multi-day autonomy.", image: "/products/blackview-bv9300.webp" },
+      { name: "Blackview Active 8 Pro (Tablet)", description: "10.36\" 2.4K industrial tablet, Helio G99, 8 GB RAM, 256 GB, 22,000 mAh battery. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-active8pro.webp" },
+      { name: "Blackview Mega 2 (Tablet)", description: "12\" IPS FHD+ tablet, Unisoc T615, 12 GB RAM, 256 GB, 9,000 mAh battery. Android 15, PC Mode, stylus included. Ideal for mass deployment.", image: "/products/blackview-mega2.webp" },
+      { name: "Dell PowerEdge T150 (Server)", description: "Tower server Intel Xeon, up to 64 GB RAM. Files, backups, user management. Ideal for SMBs.", image: "/products/dell-poweredge-t150.webp" },
       { name: "HPE ProLiant ML30 Gen11", description: "Intel Xeon E server, up to 128 GB RAM. HPE Enterprise reliability, scalable with growth.", image: "/products/hpe-proliant-ml30.jpg" },
       { name: "Synology DS923+ / DS1821+ (NAS)", description: "4 to 8-bay network storage (72–144 TB). Automatic backup, private cloud, file sharing.", image: "/products/synology-nas.jpg" },
       { name: "HP LaserJet Pro MFP M428fdw", description: "Print, scan, copy, network. 40 pages/min. Reference for firms, SMBs, and institutions.", image: "/products/hp-laserjet-m428.jpg" },
       { name: "Ubiquiti UniFi (Networking)", description: "UniFi Dream Machine: firewall, enterprise WiFi, centralized management. 8/24/48-port switches and pro WiFi access points.", image: "/products/ubiquiti-unifi.jpg" },
-      { name: "Dell UltraSharp U2723QE (Monitor)", description: "27\" QHD (2560×1440), built-in USB-C hub, advanced ergonomics (pivot, tilt, height). Ideal for multitasking.", image: "/products/dell-ultrasharp.jpg" },
+      { name: "Dell UltraSharp U2723QE (Monitor)", description: "27\" QHD (2560×1440), built-in USB-C hub, advanced ergonomics (pivot, tilt, height). Ideal for multitasking.", image: "/products/dell-ultrasharp-u2723qe.webp" },
       { name: "Logitech Conference Kit", description: "Brio 500 Full HD webcam + Zone Wireless headset. HD audio, noise-canceling mic. Essential for remote work and video calls.", image: "/products/logitech-conference.jpg" },
-      { name: "Portable SSD & USB-C Hub", description: "Compact and secure SSD storage for field backups. USB-C multifunction hub: HDMI, USB 3.0, Ethernet, card reader.", image: "/products/ssd-portable.jpg" },
+      { name: "Portable SSD & USB-C Hub", description: "Compact and secure SSD storage for field backups. USB-C multifunction hub: HDMI, USB 3.0, Ethernet, card reader.", image: "/products/ssd-portable.webp" },
     ],
   },
   {
@@ -548,6 +548,137 @@ const ProductDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Packs IT & Expertise — only for equipements-it */}
+      {product.slug === "equipements-it" && (
+        <section className="py-20">
+          <div className="container">
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Packs IT */}
+              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+                <span className="inline-block bg-gradient-to-r from-accent to-accent/80 text-white text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full mb-6 shadow-lg">
+                  {language === "fr" ? "Packs IT Entreprise" : "Enterprise IT Packs"}
+                </span>
+                <h2 className="font-heading text-3xl font-bold mb-8">
+                  {language === "fr" ? "Des packs clés en main" : "Turnkey IT Packs"}
+                </h2>
+                <div className="space-y-5">
+                  {[
+                    {
+                      icon: Package,
+                      titleFr: "Pack PME",
+                      titleEn: "SMB Pack",
+                      descFr: "5 postes PC + 1 imprimante + 1 switch réseau + installation & configuration. Idéal pour les petites structures.",
+                      descEn: "5 PCs + 1 printer + 1 network switch + installation & configuration. Ideal for small businesses.",
+                      color: "text-blue-500",
+                      bg: "bg-blue-50 dark:bg-blue-950/30",
+                    },
+                    {
+                      icon: Star,
+                      titleFr: "Pack Entreprise",
+                      titleEn: "Enterprise Pack",
+                      descFr: "10–50 postes + serveur Dell PowerEdge + NAS Synology + réseau UniFi + déploiement complet par nos techniciens.",
+                      descEn: "10–50 PCs + Dell PowerEdge server + Synology NAS + UniFi network + full deployment by our technicians.",
+                      color: "text-accent",
+                      bg: "bg-accent/5",
+                    },
+                    {
+                      icon: Wrench,
+                      titleFr: "Pack Sur Mesure",
+                      titleEn: "Custom Pack",
+                      descFr: "Audit de vos besoins, dimensionnement personnalisé, choix des marques et configurations. Accompagnement de A à Z.",
+                      descEn: "Needs assessment, custom sizing, brand & configuration choices. End-to-end support.",
+                      color: "text-green-500",
+                      bg: "bg-green-50 dark:bg-green-950/30",
+                    },
+                  ].map((pack, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      whileHover={{ x: 6, transition: { duration: 0.3 } }}
+                      className={`${pack.bg} rounded-2xl p-6 border border-border/50 hover:shadow-soft transition-all duration-300`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className={`${pack.color} mt-1`}>
+                          <pack.icon className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-heading text-lg font-bold mb-1">{language === "fr" ? pack.titleFr : pack.titleEn}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{language === "fr" ? pack.descFr : pack.descEn}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Notre Expertise */}
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
+                <span className="inline-block bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full mb-6 shadow-lg">
+                  {language === "fr" ? "Notre Expertise" : "Our Expertise"}
+                </span>
+                <h2 className="font-heading text-3xl font-bold mb-8">
+                  {language === "fr" ? "Contrats de maintenance" : "Maintenance Contracts"}
+                </h2>
+                <div className="space-y-5">
+                  {[
+                    {
+                      icon: Shield,
+                      titleFr: "Basic",
+                      titleEn: "Basic",
+                      descFr: "Support à distance, assistance téléphonique & email. Temps de réponse : 48h. Idéal pour les structures autonomes.",
+                      descEn: "Remote support, phone & email assistance. Response time: 48h. Ideal for self-sufficient organizations.",
+                      color: "text-blue-500",
+                      bg: "bg-blue-50 dark:bg-blue-950/30",
+                    },
+                    {
+                      icon: Shield,
+                      titleFr: "Business",
+                      titleEn: "Business",
+                      descFr: "Support sur site inclus, maintenance préventive trimestrielle. Temps de réponse : 24h. Pièces de remplacement prioritaires.",
+                      descEn: "On-site support included, quarterly preventive maintenance. Response time: 24h. Priority replacement parts.",
+                      color: "text-accent",
+                      bg: "bg-accent/5",
+                    },
+                    {
+                      icon: Shield,
+                      titleFr: "Premium",
+                      titleEn: "Premium",
+                      descFr: "Technicien dédié, maintenance préventive mensuelle, monitoring 24/7. Temps de réponse : 4h. SLA garanti.",
+                      descEn: "Dedicated technician, monthly preventive maintenance, 24/7 monitoring. Response time: 4h. Guaranteed SLA.",
+                      color: "text-green-500",
+                      bg: "bg-green-50 dark:bg-green-950/30",
+                    },
+                  ].map((contract, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 + 0.15 }}
+                      whileHover={{ x: 6, transition: { duration: 0.3 } }}
+                      className={`${contract.bg} rounded-2xl p-6 border border-border/50 hover:shadow-soft transition-all duration-300`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className={`${contract.color} mt-1`}>
+                          <contract.icon className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-heading text-lg font-bold mb-1">{contract.titleFr === contract.titleEn ? contract.titleFr : (language === "fr" ? contract.titleFr : contract.titleEn)}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{language === "fr" ? contract.descFr : contract.descEn}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-24 bg-hero-premium relative overflow-hidden">
