@@ -253,7 +253,7 @@ const productsData: ProductData[] = [
       { name: "Ubiquiti UniFi (Réseau)", description: "UniFi Dream Machine : firewall, WiFi entreprise, gestion centralisée. Switches 8/24/48 ports et points d'accès WiFi pro.", image: "/products/ubiquiti-unifi.jpg" },
       { name: "Dell UltraSharp U2723QE (Écran)", description: "27\" QHD (2560×1440), hub USB-C intégré, ergonomie avancée (pivot, inclinaison, hauteur). Idéal multitâche.", image: "/products/dell-ultrasharp-u2723qe.webp" },
       { name: "Kit Conférence Logitech", description: "Webcam Brio 500 Full HD + Casque Zone Wireless. Audio HD, micro anti-bruit. Essentiel télétravail et visioconférence.", image: "/products/logitech-conference.jpg" },
-      { name: "SSD Portable & Hub USB-C", description: "Stockage SSD compact et sécurisé pour sauvegardes terrain. Hub USB-C multifonction : HDMI, USB 3.0, Ethernet, lecteur cartes.", image: "/products/ssd-portable.webp" },
+      { name: "SSD Portable & Hub USB-C", description: "Stockage SSD compact et sécurisé pour sauvegardes terrain. Hub USB-C multifonction : HDMI, USB 3.0, Ethernet, lecteur cartes.", image: "/products/ssd-portable-generic.webp" },
     ],
     productsEn: [
       { name: "HP ProDesk 400 G9/G10", description: "Desktop Intel Core i5 13th gen, 16 GB DDR4, SSD NVMe 512 GB. Low power consumption. Ideal for SMBs, NGOs, accounting.", image: "/products/hp-prodesk400.jpg" },
