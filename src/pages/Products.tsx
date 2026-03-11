@@ -278,7 +278,7 @@ const Products = () => {
                           </Link>
                         </Button>
                         <Button variant="outline" size="sm" asChild className="flex-1 text-xs">
-                          <Link to={cat.color === 'blue' ? '/services/industriel' : cat.color === 'accent' ? '/services/it' : '/services/energie'}>
+                          <Link to={`/produits/${item.slug}`}>
                             <Info className="w-3.5 h-3.5" />
                             {language === 'fr' ? 'En savoir plus' : 'Learn more'}
                           </Link>
