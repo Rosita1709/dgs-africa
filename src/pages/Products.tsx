@@ -124,6 +124,7 @@ const Products = () => {
       items: [
         {
           icon: SunDim,
+          slug: "panneaux-solaires",
           name: language === 'fr' ? "Panneaux Solaires" : "Solar Panels",
           image: "/products/solar-panels.jpg",
           partner: "",
@@ -132,6 +133,7 @@ const Products = () => {
         },
         {
           icon: Battery,
+          slug: "onduleurs",
           name: language === 'fr' ? "Onduleurs & Batteries" : "Inverters & Batteries",
           image: "/products/solar-inverter.png",
           partner: "",
@@ -140,6 +142,7 @@ const Products = () => {
         },
         {
           icon: Monitor,
+          slug: "monitoring",
           name: language === 'fr' ? "Monitoring" : "Monitoring",
           image: "/products/iot-monitoring.jpg",
           partner: "",
