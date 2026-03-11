@@ -111,8 +111,13 @@ const About = () => {
                   </div>
                   <div className="w-px h-10 bg-primary-foreground/20" />
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent">50+</div>
+                    <div className="text-3xl font-bold text-accent">500+</div>
                     <div className="text-xs text-primary-foreground/70">{language === 'fr' ? 'Projets' : 'Projects'}</div>
+                  </div>
+                  <div className="w-px h-10 bg-primary-foreground/20" />
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-accent">10+</div>
+                    <div className="text-xs text-primary-foreground/70">{language === 'fr' ? 'Pays' : 'Countries'}</div>
                   </div>
                 </div>
               </motion.div>
