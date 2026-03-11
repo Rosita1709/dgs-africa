@@ -194,10 +194,10 @@ const productsData: ProductData[] = [
     titleEn: "IT Equipment — Technology that powers your business",
     image: "/products/laptop-generic.jpg",
     galleryImages: [
-      "/products/hp-prodesk400.jpg",
+      "/products/blackview-active8pro.webp",
       "/products/dell-latitude.jpg",
-      "/products/blackview-mega2.jpg",
-      "/products/dell-poweredge-t150.jpg",
+      "/products/blackview-mega2.webp",
+      "/products/ssd-portable-generic.webp",
     ],
     color: "accent",
     servicePath: "/services/it",
