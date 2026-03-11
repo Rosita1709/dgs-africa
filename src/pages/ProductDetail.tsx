@@ -34,8 +34,8 @@ const productsData: ProductData[] = [
     galleryImages: [
       "/products/senben-explosion-proof.webp",
       "/products/senben-weatherproof.webp",
-      "/products/senben-hazardous.webp",
-      "/products/senben-non-hazardous.webp",
+      "/products/senben-high-bay.webp",
+      "/products/senben-floodlight.webp",
     ],
     color: "blue",
     servicePath: "/services/industriel",
