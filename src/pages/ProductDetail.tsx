@@ -85,9 +85,9 @@ const productsData: ProductData[] = [
     image: "/products/airchal-cc-ahu.png",
     galleryImages: [
       "/products/airchal-cc-ahu.png",
-      "/products/airchal-cc-standard.png",
+      "/products/airchal-fancoil-detail.jpg",
       "/products/airchal-polcc.png",
-      "/products/airchal-industrial-fan.jpg",
+      "/products/airchal-fans.jpg",
     ],
     color: "blue",
     servicePath: "/services/industriel",
