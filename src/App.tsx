@@ -19,6 +19,7 @@ import ServiceIT from "./pages/ServiceIT";
 import ServiceEnergie from "./pages/ServiceEnergie";
 import Search from "./pages/Search";
 import ProductDetail from "./pages/ProductDetail";
+import CatalogueIT from "./pages/CatalogueIT";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/services/energie" element={<ServiceEnergie />} />
             <Route path="/produits" element={<Products />} />
             <Route path="/produits/:slug" element={<ProductDetail />} />
+            <Route path="/catalogue-it" element={<CatalogueIT />} />
             <Route path="/projets" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/recherche" element={<Search />} />
