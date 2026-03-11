@@ -29,6 +29,7 @@ const Products = () => {
       items: [
         {
           icon: Lightbulb,
+          slug: "eclairage-led",
           name: language === 'fr' ? "Éclairage LED Industriel" : "Industrial LED Lighting",
           image: "/products/led-weatherproof.webp",
           partner: "Senben Lighting",
@@ -37,6 +38,7 @@ const Products = () => {
         },
         {
           icon: Thermometer,
+          slug: "climatisation",
           name: language === 'fr' ? "Froid & Climatisation" : "Cooling & HVAC",
           image: airchalCta,
           partner: "Airchal",
@@ -45,6 +47,7 @@ const Products = () => {
         },
         {
           icon: CircleDot,
+          slug: "courroies",
           name: language === 'fr' ? "Courroies Industrielles" : "Industrial Belts",
           image: "/products/belts-poly-v.jpg",
           partner: "Universal RBM",
@@ -60,6 +63,7 @@ const Products = () => {
       items: [
         {
           icon: Laptop,
+          slug: "ordinateurs",
           name: language === 'fr' ? "Ordinateurs" : "Computers",
           image: "/products/laptop-generic.jpg",
           partner: "Dell / Blackview / Lenovo",
@@ -68,6 +72,7 @@ const Products = () => {
         },
         {
           icon: Tablet,
+          slug: "tablettes",
           name: language === 'fr' ? "Tablettes Blackview" : "Blackview Tablets",
           image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80",
           partner: "Blackview",
@@ -76,6 +81,7 @@ const Products = () => {
         },
         {
           icon: Server,
+          slug: "serveurs",
           name: language === 'fr' ? "Serveurs & Réseau" : "Servers & Network",
           image: "/products/dell-server.jpg",
           partner: "Dell",
@@ -84,6 +90,7 @@ const Products = () => {
         },
         {
           icon: Printer,
+          slug: "imprimantes",
           name: language === 'fr' ? "Imprimantes" : "Printers",
           image: "/products/printer.jpg",
           partner: "HP",
@@ -92,6 +99,7 @@ const Products = () => {
         },
         {
           icon: CircleDot,
+          slug: "cles-usb",
           name: language === 'fr' ? "Clés USB & Stockage" : "USB Drives & Storage",
           image: productsUsbStorage,
           partner: "",
@@ -100,6 +108,7 @@ const Products = () => {
         },
         {
           icon: Monitor,
+          slug: "ecouteurs",
           name: language === 'fr' ? "Écouteurs & Audio" : "Headphones & Audio",
           image: productsEarphones,
           partner: "",
@@ -115,6 +124,7 @@ const Products = () => {
       items: [
         {
           icon: SunDim,
+          slug: "panneaux-solaires",
           name: language === 'fr' ? "Panneaux Solaires" : "Solar Panels",
           image: "/products/solar-panels.jpg",
           partner: "",
@@ -123,6 +133,7 @@ const Products = () => {
         },
         {
           icon: Battery,
+          slug: "onduleurs",
           name: language === 'fr' ? "Onduleurs & Batteries" : "Inverters & Batteries",
           image: "/products/solar-inverter.png",
           partner: "",
@@ -131,6 +142,7 @@ const Products = () => {
         },
         {
           icon: Monitor,
+          slug: "monitoring",
           name: language === 'fr' ? "Monitoring" : "Monitoring",
           image: "/products/iot-monitoring.jpg",
           partner: "",
@@ -266,7 +278,7 @@ const Products = () => {
                           </Link>
                         </Button>
                         <Button variant="outline" size="sm" asChild className="flex-1 text-xs">
-                          <Link to={cat.color === 'blue' ? '/services/industriel' : cat.color === 'accent' ? '/services/it' : '/services/energie'}>
+                          <Link to={`/produits/${item.slug}`}>
                             <Info className="w-3.5 h-3.5" />
                             {language === 'fr' ? 'En savoir plus' : 'Learn more'}
                           </Link>
