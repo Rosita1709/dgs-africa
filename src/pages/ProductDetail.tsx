@@ -276,7 +276,7 @@ const productsData: ProductData[] = [
       { name: "Ubiquiti UniFi (Networking)", description: "UniFi Dream Machine: firewall, enterprise WiFi, centralized management. 8/24/48-port switches and pro WiFi access points.", image: "/products/ubiquiti-unifi.jpg" },
       { name: "Dell UltraSharp U2723QE (Monitor)", description: "27\" QHD (2560×1440), built-in USB-C hub, advanced ergonomics (pivot, tilt, height). Ideal for multitasking.", image: "/products/dell-ultrasharp-u2723qe.webp" },
       { name: "Logitech Conference Kit", description: "Brio 500 Full HD webcam + Zone Wireless headset. HD audio, noise-canceling mic. Essential for remote work and video calls.", image: "/products/logitech-conference.jpg" },
-      { name: "Portable SSD & USB-C Hub", description: "Compact and secure SSD storage for field backups. USB-C multifunction hub: HDMI, USB 3.0, Ethernet, card reader.", image: "/products/ssd-portable.webp" },
+      { name: "Portable SSD & USB-C Hub", description: "Compact and secure SSD storage for field backups. USB-C multifunction hub: HDMI, USB 3.0, Ethernet, card reader.", image: "/products/ssd-portable-generic.webp" },
     ],
   },
   {
