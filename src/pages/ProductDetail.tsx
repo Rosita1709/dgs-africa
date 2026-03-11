@@ -549,6 +549,137 @@ const ProductDetail = () => {
         </div>
       </section>
 
+      {/* Packs IT & Expertise — only for equipements-it */}
+      {product.slug === "equipements-it" && (
+        <section className="py-20">
+          <div className="container">
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Packs IT */}
+              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+                <span className="inline-block bg-gradient-to-r from-accent to-accent/80 text-white text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full mb-6 shadow-lg">
+                  {language === "fr" ? "Packs IT Entreprise" : "Enterprise IT Packs"}
+                </span>
+                <h2 className="font-heading text-3xl font-bold mb-8">
+                  {language === "fr" ? "Des packs clés en main" : "Turnkey IT Packs"}
+                </h2>
+                <div className="space-y-5">
+                  {[
+                    {
+                      icon: Package,
+                      titleFr: "Pack PME",
+                      titleEn: "SMB Pack",
+                      descFr: "5 postes PC + 1 imprimante + 1 switch réseau + installation & configuration. Idéal pour les petites structures.",
+                      descEn: "5 PCs + 1 printer + 1 network switch + installation & configuration. Ideal for small businesses.",
+                      color: "text-blue-500",
+                      bg: "bg-blue-50 dark:bg-blue-950/30",
+                    },
+                    {
+                      icon: Star,
+                      titleFr: "Pack Entreprise",
+                      titleEn: "Enterprise Pack",
+                      descFr: "10–50 postes + serveur Dell PowerEdge + NAS Synology + réseau UniFi + déploiement complet par nos techniciens.",
+                      descEn: "10–50 PCs + Dell PowerEdge server + Synology NAS + UniFi network + full deployment by our technicians.",
+                      color: "text-accent",
+                      bg: "bg-accent/5",
+                    },
+                    {
+                      icon: Wrench,
+                      titleFr: "Pack Sur Mesure",
+                      titleEn: "Custom Pack",
+                      descFr: "Audit de vos besoins, dimensionnement personnalisé, choix des marques et configurations. Accompagnement de A à Z.",
+                      descEn: "Needs assessment, custom sizing, brand & configuration choices. End-to-end support.",
+                      color: "text-green-500",
+                      bg: "bg-green-50 dark:bg-green-950/30",
+                    },
+                  ].map((pack, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      whileHover={{ x: 6, transition: { duration: 0.3 } }}
+                      className={`${pack.bg} rounded-2xl p-6 border border-border/50 hover:shadow-soft transition-all duration-300`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className={`${pack.color} mt-1`}>
+                          <pack.icon className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-heading text-lg font-bold mb-1">{language === "fr" ? pack.titleFr : pack.titleEn}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{language === "fr" ? pack.descFr : pack.descEn}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Notre Expertise */}
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
+                <span className="inline-block bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full mb-6 shadow-lg">
+                  {language === "fr" ? "Notre Expertise" : "Our Expertise"}
+                </span>
+                <h2 className="font-heading text-3xl font-bold mb-8">
+                  {language === "fr" ? "Contrats de maintenance" : "Maintenance Contracts"}
+                </h2>
+                <div className="space-y-5">
+                  {[
+                    {
+                      icon: Shield,
+                      titleFr: "Basic",
+                      titleEn: "Basic",
+                      descFr: "Support à distance, assistance téléphonique & email. Temps de réponse : 48h. Idéal pour les structures autonomes.",
+                      descEn: "Remote support, phone & email assistance. Response time: 48h. Ideal for self-sufficient organizations.",
+                      color: "text-blue-500",
+                      bg: "bg-blue-50 dark:bg-blue-950/30",
+                    },
+                    {
+                      icon: Shield,
+                      titleFr: "Business",
+                      titleEn: "Business",
+                      descFr: "Support sur site inclus, maintenance préventive trimestrielle. Temps de réponse : 24h. Pièces de remplacement prioritaires.",
+                      descEn: "On-site support included, quarterly preventive maintenance. Response time: 24h. Priority replacement parts.",
+                      color: "text-accent",
+                      bg: "bg-accent/5",
+                    },
+                    {
+                      icon: Shield,
+                      titleFr: "Premium",
+                      titleEn: "Premium",
+                      descFr: "Technicien dédié, maintenance préventive mensuelle, monitoring 24/7. Temps de réponse : 4h. SLA garanti.",
+                      descEn: "Dedicated technician, monthly preventive maintenance, 24/7 monitoring. Response time: 4h. Guaranteed SLA.",
+                      color: "text-green-500",
+                      bg: "bg-green-50 dark:bg-green-950/30",
+                    },
+                  ].map((contract, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 + 0.15 }}
+                      whileHover={{ x: 6, transition: { duration: 0.3 } }}
+                      className={`${contract.bg} rounded-2xl p-6 border border-border/50 hover:shadow-soft transition-all duration-300`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className={`${contract.color} mt-1`}>
+                          <contract.icon className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-heading text-lg font-bold mb-1">{contract.titleFr === contract.titleEn ? contract.titleFr : (language === "fr" ? contract.titleFr : contract.titleEn)}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{language === "fr" ? contract.descFr : contract.descEn}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="py-24 bg-hero-premium relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern" />
