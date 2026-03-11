@@ -9,6 +9,7 @@ import projectMinistryIt from "@/assets/project-ministry-it.jpg";
 import projectMinistryFinance from "@/assets/project-ministry-finance.jpg";
 import projectEducationTablets from "@/assets/project-education-tablets.jpg";
 import projectHvac from "@/assets/project-hvac.jpg";
+import projectItDeploy from "@/assets/project-it-deploy.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
