@@ -101,7 +101,7 @@ const Products = () => {
         {
           icon: Monitor,
           name: language === 'fr' ? "Écouteurs & Audio" : "Headphones & Audio",
-          image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+          image: productsEarphones,
           partner: "",
           partnerLogo: null,
           specs: [language === 'fr' ? "Écouteurs filaires" : "Wired earphones", "Bluetooth", language === 'fr' ? "Casques audio" : "Headsets", language === 'fr' ? "Kits mains libres" : "Hands-free kits"],
