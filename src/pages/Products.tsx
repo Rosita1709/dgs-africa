@@ -6,6 +6,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import productsIT from "@/assets/products-it.jpg";
 import airchalCta from "@/assets/airchal-cta.png";
+import productsUsbStorage from "@/assets/products-usb-storage.jpg";
+import productsEarphones from "@/assets/products-earphones.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
