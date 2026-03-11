@@ -116,7 +116,7 @@ const CTASection = () => {
               <span className="w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center">
                 <Phone className="w-4 h-4" />
               </span>
-              +221 77 593 01 96
+              +221 77 686 20 24
             </a>
           </motion.div>
         </motion.div>
