@@ -24,51 +24,6 @@ const Projects = () => {
 
   const projects = [
     {
-      image: projectItSolutions,
-      icon: Monitor,
-      color: "accent",
-      pole: "IT",
-      title: language === 'fr' ? "Ministère des Affaires Étrangères — Équipements IT" : "Ministry of Foreign Affairs — IT Equipment",
-      location: language === 'fr' ? "Dakar, Sénégal" : "Dakar, Senegal",
-      year: "2024",
-      context: language === 'fr'
-        ? "Fourniture d'équipements informatiques comprenant des Microsoft Surface Pro 8 et des HP All-in-One Core i5. Livraison avec installation des logiciels professionnels (Microsoft Office, antivirus) et accompagnement technique par une équipe qualifiée et agréée."
-        : "Supply of IT equipment including Microsoft Surface Pro 8 and HP All-in-One Core i5. Delivered with professional software installation (Microsoft Office, antivirus) and technical support by a qualified and certified team.",
-      results: language === 'fr'
-        ? ["Microsoft Surface Pro 8 & HP All-in-One déployés", "Installation logiciels Office & sécurité", "Accompagnement technique par équipe agréée"]
-        : ["Microsoft Surface Pro 8 & HP All-in-One deployed", "Office & security software installed", "Technical support by certified team"],
-    },
-    {
-      image: projectItDeploy,
-      icon: Monitor,
-      color: "accent",
-      pole: "IT",
-      title: language === 'fr' ? "Ministère des Finances et du Budget — 350+ postes" : "Ministry of Finance & Budget — 350+ Workstations",
-      location: language === 'fr' ? "Dakar, Sénégal" : "Dakar, Senegal",
-      year: "2024",
-      context: language === 'fr'
-        ? "Déploiement de plus de 350 HP All-in-One équipés de processeurs Intel Core Ultra 5 et Ultra 7. Installation des logiciels essentiels (Office, antivirus), préparation et configuration de chaque poste, support technique et maintenance."
-        : "Deployment of over 350 HP All-in-One workstations equipped with Intel Core Ultra 5 and Ultra 7 processors. Essential software installation (Office, antivirus), preparation and configuration of each workstation, technical support and maintenance.",
-      results: language === 'fr'
-        ? ["350+ HP All-in-One Intel Ultra 5/7 déployés", "Configuration et logiciels installés sur chaque poste", "Support technique et maintenance assurés"]
-        : ["350+ HP All-in-One Intel Ultra 5/7 deployed", "Configuration and software installed per workstation", "Technical support and maintenance provided"],
-    },
-    {
-      image: projectItSolutions,
-      icon: Monitor,
-      color: "accent",
-      pole: "IT",
-      title: language === 'fr' ? "Ministère de l'Éducation Nationale — 1000 tablettes" : "Ministry of Education — 1000 Tablets",
-      location: language === 'fr' ? "Dakar, Sénégal" : "Dakar, Senegal",
-      year: "2024",
-      context: language === 'fr'
-        ? "Livraison de 1000 tablettes Blackview Mega 12 en kits complets, destinées à soutenir l'intégration du numérique dans le système éducatif sénégalais. Un projet d'envergure nationale pour la modernisation de l'enseignement."
-        : "Delivery of 1000 Blackview Mega 12 tablets in complete kits, designed to support digital integration in the Senegalese education system. A nationwide project for the modernization of teaching.",
-      results: language === 'fr'
-        ? ["1000 tablettes Blackview Mega 12 livrées", "Kits complets prêts à l'emploi", "Soutien à la transformation numérique éducative"]
-        : ["1000 Blackview Mega 12 tablets delivered", "Complete ready-to-use kits", "Support for digital education transformation"],
-    },
-    {
       image: projectHvac,
       icon: Zap,
       color: "blue",
@@ -82,6 +37,36 @@ const Projects = () => {
       results: language === 'fr'
         ? ["Réduction de 5% de la consommation", "Confort optimal dans 120 chambres", "Maintenance préventive incluse"]
         : ["5% energy consumption reduction", "Optimal comfort in 120 rooms", "Preventive maintenance included"],
+    },
+    {
+      image: projectItDeploy,
+      icon: Monitor,
+      color: "accent",
+      pole: language === 'fr' ? "IT" : "IT",
+      title: language === 'fr' ? "Déploiement informatique — Siège entreprise" : "IT Deployment — Corporate HQ",
+      location: language === 'fr' ? "Abidjan, Côte d'Ivoire" : "Abidjan, Côte d'Ivoire",
+      year: "2023",
+      context: language === 'fr'
+        ? "Fourniture et installation de 200 postes de travail, serveurs, infrastructure réseau et système de sauvegarde pour le nouveau siège d'une multinationale."
+        : "Supply and installation of 200 workstations, servers, network infrastructure and backup system for a multinational's new headquarters.",
+      results: language === 'fr'
+        ? ["200 postes déployés en 3 semaines", "Infrastructure réseau sécurisée", "Support technique sur site"]
+        : ["200 workstations deployed in 3 weeks", "Secured network infrastructure", "On-site technical support"],
+    },
+    {
+      image: projectItSolutions,
+      icon: Monitor,
+      color: "accent",
+      pole: "IT",
+      title: language === 'fr' ? "Solutions IT — Équipements & Maintenance" : "IT Solutions — Equipment & Maintenance",
+      location: language === 'fr' ? "Dakar, Sénégal" : "Dakar, Senegal",
+      year: "2024",
+      context: language === 'fr'
+        ? "Fourniture, configuration et maintenance d'équipements informatiques de haute qualité : postes de travail, All-in-One et stations performantes des marques Dell, HP, Lenovo et Blackview. Un accompagnement complet de la livraison au support technique sur site."
+        : "Supply, configuration and maintenance of high-quality IT equipment: workstations, All-in-One and high-performance stations from Dell, HP, Lenovo and Blackview. Complete support from delivery to on-site technical assistance.",
+      results: language === 'fr'
+        ? ["Équipements Dell, HP, Lenovo & Blackview déployés", "Configuration sur mesure pour chaque poste", "Maintenance préventive et support technique continu"]
+        : ["Dell, HP, Lenovo & Blackview equipment deployed", "Custom configuration per workstation", "Preventive maintenance and ongoing technical support"],
     },
   ];
 
