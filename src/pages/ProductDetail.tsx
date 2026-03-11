@@ -194,10 +194,10 @@ const productsData: ProductData[] = [
     titleEn: "IT Equipment — Technology that powers your business",
     image: "/products/laptop-generic.jpg",
     galleryImages: [
-      "/products/hp-prodesk400.jpg",
+      "/products/blackview-active8pro.webp",
       "/products/dell-latitude.jpg",
-      "/products/blackview-mega2.jpg",
-      "/products/dell-poweredge-t150.jpg",
+      "/products/blackview-mega2.webp",
+      "/products/ssd-portable-generic.webp",
     ],
     color: "accent",
     servicePath: "/services/it",
@@ -253,7 +253,7 @@ const productsData: ProductData[] = [
       { name: "Ubiquiti UniFi (Réseau)", description: "UniFi Dream Machine : firewall, WiFi entreprise, gestion centralisée. Switches 8/24/48 ports et points d'accès WiFi pro.", image: "/products/ubiquiti-unifi.jpg" },
       { name: "Dell UltraSharp U2723QE (Écran)", description: "27\" QHD (2560×1440), hub USB-C intégré, ergonomie avancée (pivot, inclinaison, hauteur). Idéal multitâche.", image: "/products/dell-ultrasharp-u2723qe.webp" },
       { name: "Kit Conférence Logitech", description: "Webcam Brio 500 Full HD + Casque Zone Wireless. Audio HD, micro anti-bruit. Essentiel télétravail et visioconférence.", image: "/products/logitech-conference.jpg" },
-      { name: "SSD Portable & Hub USB-C", description: "Stockage SSD compact et sécurisé pour sauvegardes terrain. Hub USB-C multifonction : HDMI, USB 3.0, Ethernet, lecteur cartes.", image: "/products/ssd-portable.webp" },
+      { name: "SSD Portable & Hub USB-C", description: "Stockage SSD compact et sécurisé pour sauvegardes terrain. Hub USB-C multifonction : HDMI, USB 3.0, Ethernet, lecteur cartes.", image: "/products/ssd-portable-generic.webp" },
     ],
     productsEn: [
       { name: "HP ProDesk 400 G9/G10", description: "Desktop Intel Core i5 13th gen, 16 GB DDR4, SSD NVMe 512 GB. Low power consumption. Ideal for SMBs, NGOs, accounting.", image: "/products/hp-prodesk400.jpg" },
@@ -276,7 +276,7 @@ const productsData: ProductData[] = [
       { name: "Ubiquiti UniFi (Networking)", description: "UniFi Dream Machine: firewall, enterprise WiFi, centralized management. 8/24/48-port switches and pro WiFi access points.", image: "/products/ubiquiti-unifi.jpg" },
       { name: "Dell UltraSharp U2723QE (Monitor)", description: "27\" QHD (2560×1440), built-in USB-C hub, advanced ergonomics (pivot, tilt, height). Ideal for multitasking.", image: "/products/dell-ultrasharp-u2723qe.webp" },
       { name: "Logitech Conference Kit", description: "Brio 500 Full HD webcam + Zone Wireless headset. HD audio, noise-canceling mic. Essential for remote work and video calls.", image: "/products/logitech-conference.jpg" },
-      { name: "Portable SSD & USB-C Hub", description: "Compact and secure SSD storage for field backups. USB-C multifunction hub: HDMI, USB 3.0, Ethernet, card reader.", image: "/products/ssd-portable.webp" },
+      { name: "Portable SSD & USB-C Hub", description: "Compact and secure SSD storage for field backups. USB-C multifunction hub: HDMI, USB 3.0, Ethernet, card reader.", image: "/products/ssd-portable-generic.webp" },
     ],
   },
   {
