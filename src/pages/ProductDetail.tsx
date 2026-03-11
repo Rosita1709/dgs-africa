@@ -194,7 +194,7 @@ const productsData: ProductData[] = [
     titleEn: "IT Equipment — Technology that powers your business",
     image: "/products/laptop-generic.jpg",
     galleryImages: [
-      "/products/dell-optiplex.jpg",
+      "/products/hp-prodesk400.jpg",
       "/products/dell-latitude.jpg",
       "/products/blackview-mega2.jpg",
       "/products/dell-poweredge-t150.jpg",
@@ -233,10 +233,10 @@ const productsData: ProductData[] = [
       "Maintenance contracts: Basic, Business, Premium",
     ],
     productsFr: [
-      { name: "HP ProDesk 400 G9/G10", description: "Ordinateur de bureau Intel Core i5 13e gén., 16 GB DDR4, SSD NVMe 512 GB. Faible consommation énergétique. Idéal PME, ONG, comptabilité.", image: "/products/hp-probook.jpg" },
-      { name: "Lenovo ThinkCentre Neo 50", description: "Intel Core i5 13e gén., 16 GB RAM, SSD 512 GB. Robustesse Lenovo éprouvée, excellent rapport qualité/prix.", image: "/products/lenovo-thinkcentre.jpg" },
-      { name: "Dell OptiPlex 7010/7020", description: "Intel Core i5 13e gén., 16 GB RAM, SSD 512 GB. Sécurité et gestion IT centralisée, standard entreprises internationales.", image: "/products/dell-optiplex.jpg" },
-      { name: "HP EliteOne 870 G9 (All-in-One)", description: "Écran 27\" Full HD, Intel Core i7 13e gén., 16 GB RAM, SSD 512 GB. Design premium, très silencieux.", image: "/products/hp-eliteone.jpg" },
+      { name: "HP ProDesk 400 G9/G10", description: "Ordinateur de bureau Intel Core i5 13e gén., 16 GB DDR4, SSD NVMe 512 GB. Faible consommation énergétique. Idéal PME, ONG, comptabilité.", image: "/products/hp-prodesk400.jpg" },
+      { name: "Lenovo ThinkCentre Neo 50", description: "Intel Core i5 13e gén., 16 GB RAM, SSD 512 GB. Robustesse Lenovo éprouvée, excellent rapport qualité/prix.", image: "/products/lenovo-thinkcentre-neo50.jpg" },
+      { name: "Dell OptiPlex 7010/7020", description: "Intel Core i5 13e gén., 16 GB RAM, SSD 512 GB. Sécurité et gestion IT centralisée, standard entreprises internationales.", image: "/products/dell-optiplex-7020.jpg" },
+      { name: "HP EliteOne 870 G9 (All-in-One)", description: "Écran 27\" Full HD, Intel Core i7 13e gén., 16 GB RAM, SSD 512 GB. Design premium, très silencieux.", image: "/products/hp-eliteone870.jpg" },
       { name: "Lenovo ThinkCentre Neo 50a (AIO)", description: "Écran 23.8\", Intel Core i5 13e gén., 16 GB RAM, SSD 512 GB. Installation rapide, faible consommation.", image: "/products/lenovo-neo50a.jpg" },
       { name: "Dell OptiPlex 7410 AIO", description: "Écran 24\", Intel Core i5/i7 13e gén., SSD NVMe haute performance. Sécurité et gestion IT Dell.", image: "/products/dell-optiplex-aio.jpg" },
       { name: "HP ProBook 450 G10", description: "Portable 15.6\", Intel Core i5, 16 GB, SSD 512 GB, autonomie 10h. Idéal entreprises, consultants et ONG.", image: "/products/hp-probook-laptop.jpg" },
@@ -247,19 +247,19 @@ const productsData: ProductData[] = [
       { name: "Blackview Active 8 Pro (Tablette)", description: "Tablette industrielle 10.36\" 2.4K, Helio G99, 8 GB RAM, 256 GB, batterie 22 000 mAh. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-active8pro.jpg" },
       { name: "Blackview Mega 2 (Tablette)", description: "Tablette 12\" IPS FHD+, Unisoc T615, 12 GB RAM, 256 GB, batterie 9 000 mAh. Android 15, Mode PC, stylet inclus. Idéale déploiement massif.", image: "/products/blackview-mega2.jpg" },
       { name: "Dell PowerEdge T150 (Serveur)", description: "Serveur tour Intel Xeon, jusqu'à 64 GB RAM. Fichiers, sauvegardes, gestion utilisateurs. Idéal PME.", image: "/products/dell-poweredge-t150.jpg" },
-      { name: "HPE ProLiant ML30 Gen11", description: "Serveur Intel Xeon E, jusqu'à 128 GB RAM. Fiabilité HPE Enterprise, évolutif selon la croissance." },
+      { name: "HPE ProLiant ML30 Gen11", description: "Serveur Intel Xeon E, jusqu'à 128 GB RAM. Fiabilité HPE Enterprise, évolutif selon la croissance.", image: "/products/hpe-proliant-ml30.jpg" },
       { name: "Synology DS923+ / DS1821+ (NAS)", description: "Stockage réseau 4 à 8 baies (72–144 TB). Sauvegarde automatique, cloud privé, partage de fichiers.", image: "/products/synology-nas.jpg" },
-      { name: "HP LaserJet Pro MFP M428fdw", description: "Impression, scan, copie, réseau. 40 pages/min. Référence pour cabinets, PME et institutions.", image: "/products/hp-laserjet.jpg" },
+      { name: "HP LaserJet Pro MFP M428fdw", description: "Impression, scan, copie, réseau. 40 pages/min. Référence pour cabinets, PME et institutions.", image: "/products/hp-laserjet-m428.jpg" },
       { name: "Ubiquiti UniFi (Réseau)", description: "UniFi Dream Machine : firewall, WiFi entreprise, gestion centralisée. Switches 8/24/48 ports et points d'accès WiFi pro.", image: "/products/ubiquiti-unifi.jpg" },
       { name: "Dell UltraSharp U2723QE (Écran)", description: "27\" QHD (2560×1440), hub USB-C intégré, ergonomie avancée (pivot, inclinaison, hauteur). Idéal multitâche.", image: "/products/dell-ultrasharp.jpg" },
       { name: "Kit Conférence Logitech", description: "Webcam Brio 500 Full HD + Casque Zone Wireless. Audio HD, micro anti-bruit. Essentiel télétravail et visioconférence.", image: "/products/logitech-conference.jpg" },
       { name: "SSD Portable & Hub USB-C", description: "Stockage SSD compact et sécurisé pour sauvegardes terrain. Hub USB-C multifonction : HDMI, USB 3.0, Ethernet, lecteur cartes.", image: "/products/ssd-portable.jpg" },
     ],
     productsEn: [
-      { name: "HP ProDesk 400 G9/G10", description: "Desktop Intel Core i5 13th gen, 16 GB DDR4, SSD NVMe 512 GB. Low power consumption. Ideal for SMBs, NGOs, accounting.", image: "/products/hp-probook.jpg" },
-      { name: "Lenovo ThinkCentre Neo 50", description: "Intel Core i5 13th gen, 16 GB RAM, SSD 512 GB. Proven Lenovo robustness, excellent value.", image: "/products/lenovo-thinkcentre.jpg" },
-      { name: "Dell OptiPlex 7010/7020", description: "Intel Core i5 13th gen, 16 GB RAM, SSD 512 GB. Centralized IT security and management, international enterprise standard.", image: "/products/dell-optiplex.jpg" },
-      { name: "HP EliteOne 870 G9 (All-in-One)", description: "27\" Full HD screen, Intel Core i7 13th gen, 16 GB RAM, SSD 512 GB. Premium design, ultra-quiet.", image: "/products/hp-eliteone.jpg" },
+      { name: "HP ProDesk 400 G9/G10", description: "Desktop Intel Core i5 13th gen, 16 GB DDR4, SSD NVMe 512 GB. Low power consumption. Ideal for SMBs, NGOs, accounting.", image: "/products/hp-prodesk400.jpg" },
+      { name: "Lenovo ThinkCentre Neo 50", description: "Intel Core i5 13th gen, 16 GB RAM, SSD 512 GB. Proven Lenovo robustness, excellent value.", image: "/products/lenovo-thinkcentre-neo50.jpg" },
+      { name: "Dell OptiPlex 7010/7020", description: "Intel Core i5 13th gen, 16 GB RAM, SSD 512 GB. Centralized IT security and management, international enterprise standard.", image: "/products/dell-optiplex-7020.jpg" },
+      { name: "HP EliteOne 870 G9 (All-in-One)", description: "27\" Full HD screen, Intel Core i7 13th gen, 16 GB RAM, SSD 512 GB. Premium design, ultra-quiet.", image: "/products/hp-eliteone870.jpg" },
       { name: "Lenovo ThinkCentre Neo 50a (AIO)", description: "23.8\" screen, Intel Core i5 13th gen, 16 GB RAM, SSD 512 GB. Quick setup, low power consumption.", image: "/products/lenovo-neo50a.jpg" },
       { name: "Dell OptiPlex 7410 AIO", description: "24\" screen, Intel Core i5/i7 13th gen, high-performance SSD NVMe. Dell IT security and management.", image: "/products/dell-optiplex-aio.jpg" },
       { name: "HP ProBook 450 G10", description: "15.6\" laptop, Intel Core i5, 16 GB, SSD 512 GB, 10h battery. Ideal for businesses, consultants, and NGOs.", image: "/products/hp-probook-laptop.jpg" },
@@ -270,9 +270,9 @@ const productsData: ProductData[] = [
       { name: "Blackview Active 8 Pro (Tablet)", description: "10.36\" 2.4K industrial tablet, Helio G99, 8 GB RAM, 256 GB, 22,000 mAh battery. IP68/IP69K, MIL-STD-810H.", image: "/products/blackview-active8pro.jpg" },
       { name: "Blackview Mega 2 (Tablet)", description: "12\" IPS FHD+ tablet, Unisoc T615, 12 GB RAM, 256 GB, 9,000 mAh battery. Android 15, PC Mode, stylus included. Ideal for mass deployment.", image: "/products/blackview-mega2.jpg" },
       { name: "Dell PowerEdge T150 (Server)", description: "Tower server Intel Xeon, up to 64 GB RAM. Files, backups, user management. Ideal for SMBs.", image: "/products/dell-poweredge-t150.jpg" },
-      { name: "HPE ProLiant ML30 Gen11", description: "Intel Xeon E server, up to 128 GB RAM. HPE Enterprise reliability, scalable with growth." },
+      { name: "HPE ProLiant ML30 Gen11", description: "Intel Xeon E server, up to 128 GB RAM. HPE Enterprise reliability, scalable with growth.", image: "/products/hpe-proliant-ml30.jpg" },
       { name: "Synology DS923+ / DS1821+ (NAS)", description: "4 to 8-bay network storage (72–144 TB). Automatic backup, private cloud, file sharing.", image: "/products/synology-nas.jpg" },
-      { name: "HP LaserJet Pro MFP M428fdw", description: "Print, scan, copy, network. 40 pages/min. Reference for firms, SMBs, and institutions.", image: "/products/hp-laserjet.jpg" },
+      { name: "HP LaserJet Pro MFP M428fdw", description: "Print, scan, copy, network. 40 pages/min. Reference for firms, SMBs, and institutions.", image: "/products/hp-laserjet-m428.jpg" },
       { name: "Ubiquiti UniFi (Networking)", description: "UniFi Dream Machine: firewall, enterprise WiFi, centralized management. 8/24/48-port switches and pro WiFi access points.", image: "/products/ubiquiti-unifi.jpg" },
       { name: "Dell UltraSharp U2723QE (Monitor)", description: "27\" QHD (2560×1440), built-in USB-C hub, advanced ergonomics (pivot, tilt, height). Ideal for multitasking.", image: "/products/dell-ultrasharp.jpg" },
       { name: "Logitech Conference Kit", description: "Brio 500 Full HD webcam + Zone Wireless headset. HD audio, noise-canceling mic. Essential for remote work and video calls.", image: "/products/logitech-conference.jpg" },
@@ -527,19 +527,20 @@ const ProductDetail = () => {
             {products.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card rounded-2xl overflow-hidden shadow-soft border border-border/50 hover:shadow-premium transition-all duration-500"
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+                whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                className="group bg-card rounded-2xl overflow-hidden shadow-soft border border-border/50 hover:shadow-premium hover:border-accent/30 transition-all duration-500"
               >
                 {item.image && (
-                  <div className="h-40 overflow-hidden">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  <div className="h-44 overflow-hidden bg-muted/20">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700" />
                   </div>
                 )}
-                <div className="p-6">
-                  <h3 className={`font-heading text-lg font-bold mb-2 ${colors.text}`}>{item.name}</h3>
+                <div className="p-5">
+                  <h3 className={`font-heading text-base font-bold mb-1.5 ${colors.text}`}>{item.name}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{item.description}</p>
                 </div>
               </motion.div>
