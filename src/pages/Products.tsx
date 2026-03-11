@@ -6,6 +6,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import productsIT from "@/assets/products-it.jpg";
 import airchalCta from "@/assets/airchal-cta.png";
+import productsUsbStorage from "@/assets/products-usb-storage.jpg";
+import productsEarphones from "@/assets/products-earphones.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -91,7 +93,7 @@ const Products = () => {
         {
           icon: CircleDot,
           name: language === 'fr' ? "Clés USB & Stockage" : "USB Drives & Storage",
-          image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800&q=80",
+          image: productsUsbStorage,
           partner: "",
           partnerLogo: null,
           specs: ["USB 3.0", "USB-C", "16 GB – 256 GB", language === 'fr' ? "Cartes mémoire" : "Memory cards"],
@@ -99,7 +101,7 @@ const Products = () => {
         {
           icon: Monitor,
           name: language === 'fr' ? "Écouteurs & Audio" : "Headphones & Audio",
-          image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+          image: productsEarphones,
           partner: "",
           partnerLogo: null,
           specs: [language === 'fr' ? "Écouteurs filaires" : "Wired earphones", "Bluetooth", language === 'fr' ? "Casques audio" : "Headsets", language === 'fr' ? "Kits mains libres" : "Hands-free kits"],
