@@ -47,10 +47,10 @@ const ServiceEnergie = () => {
   ];
 
   const stats = [
-    { icon: Sun, value: "500+", label: language === 'fr' ? "Installations solaires" : "Solar installations" },
-    { icon: Users, value: "200+", label: language === 'fr' ? "Clients satisfaits" : "Satisfied clients" },
+    { icon: Sun, value: "50+", label: language === 'fr' ? "Installations solaires" : "Solar installations" },
+    { icon: Users, value: "100+", label: language === 'fr' ? "Clients satisfaits" : "Satisfied clients" },
     { icon: TrendingUp, value: "40%", label: language === 'fr' ? "Économie moyenne" : "Average savings" },
-    { icon: Award, value: "10+", label: language === 'fr' ? "Années d'expérience" : "Years of experience" },
+    { icon: Award, value: "15+", label: language === 'fr' ? "Années d'expérience" : "Years of experience" },
   ];
 
   return (

@@ -60,10 +60,10 @@ const ServiceIT = () => {
   ];
 
   const stats = [
-    { icon: Database, value: "1000+", label: language === 'fr' ? "Postes déployés" : "Workstations deployed" },
-    { icon: Users, value: "200+", label: language === 'fr' ? "Clients entreprises" : "Business clients" },
+    { icon: Database, value: "550+", label: language === 'fr' ? "Postes déployés" : "Workstations deployed" },
+    { icon: Users, value: "100+", label: language === 'fr' ? "Clients satisfaits" : "Satisfied clients" },
     { icon: TrendingUp, value: "99.9%", label: language === 'fr' ? "Disponibilité serveurs" : "Server uptime" },
-    { icon: Award, value: "10+", label: language === 'fr' ? "Années d'expérience" : "Years of experience" },
+    { icon: Award, value: "15+", label: language === 'fr' ? "Années d'expérience" : "Years of experience" },
   ];
 
   return (
