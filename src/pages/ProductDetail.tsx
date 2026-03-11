@@ -701,13 +701,13 @@ const ProductDetail = () => {
                 className="bg-card rounded-2xl overflow-hidden shadow-soft border border-border/50 hover:shadow-premium transition-all duration-500"
               >
                 {item.image && (
-                  <div className="h-48 overflow-hidden">
+                  <div className="h-40 overflow-hidden">
                     <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                   </div>
                 )}
-                <div className="p-8">
-                  <h3 className={`font-heading text-xl font-bold mb-3 ${colors.text}`}>{item.name}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                <div className="p-6">
+                  <h3 className={`font-heading text-lg font-bold mb-2 ${colors.text}`}>{item.name}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{item.description}</p>
                 </div>
               </motion.div>
             ))}
