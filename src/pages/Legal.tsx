@@ -13,7 +13,7 @@ const Legal = () => {
               <p>
                 DGS Africa – Dynamique Global Services<br />
                 Email : contact@dgsafrica.com<br />
-                Téléphone : +221 77 593 01 96<br />
+                Téléphone : +221 77 686 20 24<br />
                 Zone d'intervention : Sénégal & Afrique
               </p>
 
