@@ -85,9 +85,9 @@ const productsData: ProductData[] = [
     image: "/products/airchal-cc-ahu.png",
     galleryImages: [
       "/products/airchal-cc-ahu.png",
-      "/products/airchal-cc-standard.png",
+      "/products/airchal-fancoil-detail.jpg",
       "/products/airchal-polcc.png",
-      "/products/airchal-industrial-fan.jpg",
+      "/products/airchal-fans.jpg",
     ],
     color: "blue",
     servicePath: "/services/industriel",
@@ -122,16 +122,16 @@ const productsData: ProductData[] = [
     productsFr: [
       { name: "Centrales de Traitement d'Air CC Clean Concept", description: "La gamme phare d'Airchal : des CTA modulaires jusqu'à 450 000 m³/h, conçues pour la simplicité d'installation et de maintenance. Filtration, chauffage, refroidissement et récupération d'énergie intégrés.", image: "/products/airchal-cc-ahu.png" },
       { name: "CTA POLCC — Série Polyester", description: "Centrales en polyester spécialement conçues pour les environnements extrêmes et les températures négatives jusqu'à -35°C. Idéales pour l'agroalimentaire et les chambres froides.", image: "/products/airchal-polcc.png" },
-      { name: "Fan Coils (Ventilo-convecteurs)", description: "Unités terminales standard et sur mesure pour le chauffage et le refroidissement localisé. Solutions silencieuses et performantes pour bureaux, hôtels et bâtiments commerciaux.", image: "/products/airchal-building-fan.jpg" },
-      { name: "Ventilateurs Industriels", description: "Ventilateurs haute performance pour applications industrielles exigeantes : extraction, ventilation, surpression et environnements ATEX. Jusqu'à 200 000 m³/h et 400°C.", image: "/products/airchal-industrial-fan.jpg" },
+      { name: "Fan Coils (Ventilo-convecteurs)", description: "Unités terminales standard et sur mesure pour le chauffage et le refroidissement localisé. Solutions silencieuses et performantes pour bureaux, hôtels et bâtiments commerciaux.", image: "/products/airchal-fancoil-detail.jpg" },
+      { name: "Ventilateurs Industriels", description: "Ventilateurs haute performance pour applications industrielles exigeantes : extraction, ventilation, surpression et environnements ATEX. Jusqu'à 200 000 m³/h et 400°C.", image: "/products/airchal-fans.jpg" },
       { name: "Solutions Oil & Gas", description: "Systèmes de traitement d'air spécialisés pour plateformes pétrolières, raffineries et installations offshore, conformes aux normes les plus strictes.", image: "/products/airchal-cc-standard.png" },
       { name: "Contrôle & Automatisation", description: "Armoires de contrôle et systèmes d'automatisation intégrés pour piloter et optimiser vos installations de traitement d'air.", image: "/products/airchal-controls.png" },
     ],
     productsEn: [
       { name: "CC Clean Concept Air Handling Units", description: "Airchal's flagship range: modular AHUs up to 450,000 m³/h, designed for easy installation and maintenance. Integrated filtration, heating, cooling, and energy recovery.", image: "/products/airchal-cc-ahu.png" },
       { name: "POLCC Polyester Series", description: "Polyester air handling units specially designed for extreme environments and temperatures down to -35°C. Ideal for food processing and cold rooms.", image: "/products/airchal-polcc.png" },
-      { name: "Fan Coils", description: "Standard and purpose-built terminal units for localized heating and cooling. Quiet and efficient solutions for offices, hotels, and commercial buildings.", image: "/products/airchal-building-fan.jpg" },
-      { name: "Industrial Fans", description: "High-performance fans for demanding industrial applications: extraction, ventilation, pressurization, and ATEX environments. Up to 200,000 m³/h and 400°C.", image: "/products/airchal-industrial-fan.jpg" },
+      { name: "Fan Coils", description: "Standard and purpose-built terminal units for localized heating and cooling. Quiet and efficient solutions for offices, hotels, and commercial buildings.", image: "/products/airchal-fancoil-detail.jpg" },
+      { name: "Industrial Fans", description: "High-performance fans for demanding industrial applications: extraction, ventilation, pressurization, and ATEX environments. Up to 200,000 m³/h and 400°C.", image: "/products/airchal-fans.jpg" },
       { name: "Oil & Gas Solutions", description: "Specialized air handling systems for oil platforms, refineries, and offshore installations, compliant with the strictest standards.", image: "/products/airchal-cc-standard.png" },
       { name: "Control & Automation", description: "Control cabinets and integrated automation systems to manage and optimize your air handling installations.", image: "/products/airchal-controls.png" },
     ],
@@ -447,11 +447,6 @@ const ProductDetail = () => {
             </Link>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">{title}</h1>
             <p className="text-primary-foreground/80 text-xl leading-relaxed">{description}</p>
-            {product.partnerUrl && (
-              <a href={product.partnerUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-accent hover:underline font-semibold text-sm">
-                {language === "fr" ? `Visitez le site ${product.partnerName}` : `Visit ${product.partnerName} website`} →
-              </a>
-            )}
           </motion.div>
         </div>
 
