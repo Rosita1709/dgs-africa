@@ -194,7 +194,7 @@ const productsData: ProductData[] = [
     titleEn: "IT Equipment — Technology that powers your business",
     image: "/products/laptop-generic.jpg",
     galleryImages: [
-      "/products/dell-optiplex.jpg",
+      "/products/hp-prodesk400.jpg",
       "/products/dell-latitude.jpg",
       "/products/blackview-mega2.jpg",
       "/products/dell-poweredge-t150.jpg",
