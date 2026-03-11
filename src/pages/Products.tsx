@@ -93,7 +93,7 @@ const Products = () => {
         {
           icon: CircleDot,
           name: language === 'fr' ? "Clés USB & Stockage" : "USB Drives & Storage",
-          image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800&q=80",
+          image: productsUsbStorage,
           partner: "",
           partnerLogo: null,
           specs: ["USB 3.0", "USB-C", "16 GB – 256 GB", language === 'fr' ? "Cartes mémoire" : "Memory cards"],
