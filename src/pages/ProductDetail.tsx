@@ -10,14 +10,17 @@ interface ProductData {
   titleFr: string;
   titleEn: string;
   image: string;
+  galleryImages?: string[];
   color: string;
   servicePath: string;
+  partnerName?: string;
+  partnerUrl?: string;
   descriptionFr: string;
   descriptionEn: string;
   detailsFr: string[];
   detailsEn: string[];
-  productsFr: { name: string; description: string }[];
-  productsEn: { name: string; description: string }[];
+  productsFr: { name: string; description: string; image?: string }[];
+  productsEn: { name: string; description: string; image?: string }[];
 }
 
 const productsData: ProductData[] = [
@@ -61,40 +64,58 @@ const productsData: ProductData[] = [
   },
   {
     slug: "climatisation",
-    titleFr: "Froid & Climatisation",
-    titleEn: "Cooling & HVAC",
-    image: "/products/airchal-ahu.jpg",
+    titleFr: "Froid & Climatisation — Airchal",
+    titleEn: "Cooling & HVAC — Airchal",
+    image: "/products/airchal-ahu-detail.jpg",
+    galleryImages: [
+      "/products/airchal-ahu-detail.jpg",
+      "/products/airchal-fancoil-detail.jpg",
+      "/products/airchal-fans.jpg",
+      "/products/airchal-energy.jpg",
+    ],
     color: "blue",
     servicePath: "/services/industriel",
-    descriptionFr: "DGS propose des solutions complètes de climatisation et de froid industriel en partenariat avec Airchal. Nous concevons, installons et maintenons des systèmes de traitement d'air et de réfrigération adaptés aux besoins spécifiques de chaque client.",
-    descriptionEn: "DGS offers complete HVAC and industrial cooling solutions in partnership with Airchal. We design, install, and maintain air handling and refrigeration systems tailored to each client's specific needs.",
+    partnerName: "Airchal",
+    partnerUrl: "https://airchal.com",
+    descriptionFr: "DGS est le partenaire officiel d'Airchal en Afrique de l'Ouest. Airchal est l'un des leaders mondiaux du traitement d'air, présent en France, Allemagne, Benelux, Hong-Kong, Maroc, Qatar et Émirats Arabes Unis. Leur gamme CC Clean Concept, conçue avec la simplicité à l'esprit, offre des solutions sur mesure pour les environnements les plus exigeants : industrie pétrolière, agroalimentaire, pharmaceutique, data centers et bâtiments tertiaires.",
+    descriptionEn: "DGS is the official Airchal partner in West Africa. Airchal is one of the world's leading air handling companies, present in France, Germany, Benelux, Hong Kong, Morocco, Qatar, and the UAE. Their CC Clean Concept range, designed with simplicity in mind, offers custom solutions for the most demanding environments: oil & gas, food processing, pharmaceutical, data centers, and commercial buildings.",
     detailsFr: [
-      "Conception sur mesure de systèmes HVAC",
-      "Installation et mise en service complète",
-      "Contrats de maintenance préventive",
-      "Solutions pour tous types de bâtiments",
-      "Partenaire officiel Airchal",
-      "Conformité aux normes internationales",
+      "Partenaire officiel Airchal pour l'Afrique de l'Ouest",
+      "Centrales de traitement d'air jusqu'à 450 000 m³/h",
+      "Gamme CC Clean Concept — conception simplifiée et haute performance",
+      "Série POLCC en polyester pour environnements jusqu'à -35°C",
+      "Fan Coils standard et sur mesure",
+      "Ventilateurs industriels haute performance",
+      "Solutions spéciales pour plateformes pétrolières et environnements offshore",
+      "Systèmes de contrôle et d'automatisation intégrés",
+      "Installation, mise en service et maintenance complète",
     ],
     detailsEn: [
-      "Custom HVAC system design",
-      "Complete installation and commissioning",
-      "Preventive maintenance contracts",
-      "Solutions for all building types",
-      "Official Airchal partner",
-      "Compliance with international standards",
+      "Official Airchal partner for West Africa",
+      "Air handling units up to 450,000 m³/h capacity",
+      "CC Clean Concept range — simplified design, high performance",
+      "POLCC polyester series for environments down to -35°C",
+      "Standard and purpose-built fan coils",
+      "High-performance industrial fans",
+      "Special solutions for oil platforms and offshore environments",
+      "Integrated control and automation systems",
+      "Complete installation, commissioning, and maintenance",
     ],
     productsFr: [
-      { name: "Centrales de Traitement d'Air (CTA)", description: "Systèmes complets de traitement, filtration et distribution d'air pour bâtiments industriels et tertiaires." },
-      { name: "Fan Coils (Ventilo-convecteurs)", description: "Unités terminales pour le chauffage et le refroidissement localisé, silencieuses et performantes." },
-      { name: "Chambres Froides", description: "Solutions de stockage réfrigéré pour l'agroalimentaire, la pharmacie et l'industrie." },
-      { name: "Chillers (Groupes Froids)", description: "Groupes de production d'eau glacée pour systèmes de climatisation centralisés." },
+      { name: "Centrales de Traitement d'Air CC Clean Concept", description: "La gamme phare d'Airchal : des CTA modulaires jusqu'à 450 000 m³/h, conçues pour la simplicité d'installation et de maintenance. Filtration, chauffage, refroidissement et récupération d'énergie intégrés.", image: "/products/airchal-ahu-detail.jpg" },
+      { name: "CTA POLCC — Série Polyester", description: "Centrales en polyester spécialement conçues pour les environnements extrêmes et les températures négatives jusqu'à -35°C. Idéales pour l'agroalimentaire et les chambres froides.", image: "/products/airchal-fancoil-detail.jpg" },
+      { name: "Fan Coils (Ventilo-convecteurs)", description: "Unités terminales standard et sur mesure pour le chauffage et le refroidissement localisé. Solutions silencieuses et performantes pour bureaux, hôtels et bâtiments commerciaux.", image: "/products/airchal-fans.jpg" },
+      { name: "Ventilateurs Industriels", description: "Ventilateurs haute performance pour applications industrielles exigeantes : extraction, ventilation, surpression et environnements ATEX.", image: "/products/airchal-fans.jpg" },
+      { name: "Solutions Oil & Gas", description: "Systèmes de traitement d'air spécialisés pour plateformes pétrolières, raffineries et installations offshore, conformes aux normes les plus strictes.", image: "/products/airchal-energy.jpg" },
+      { name: "Contrôle & Automatisation", description: "Armoires de contrôle et systèmes d'automatisation intégrés pour piloter et optimiser vos installations de traitement d'air.", image: "/products/airchal-ahu-detail.jpg" },
     ],
     productsEn: [
-      { name: "Air Handling Units (AHU)", description: "Complete air treatment, filtration, and distribution systems for industrial and commercial buildings." },
-      { name: "Fan Coils", description: "Terminal units for localized heating and cooling, quiet and efficient." },
-      { name: "Cold Rooms", description: "Refrigerated storage solutions for food, pharmaceutical, and industrial sectors." },
-      { name: "Chillers", description: "Chilled water production units for centralized air conditioning systems." },
+      { name: "CC Clean Concept Air Handling Units", description: "Airchal's flagship range: modular AHUs up to 450,000 m³/h, designed for easy installation and maintenance. Integrated filtration, heating, cooling, and energy recovery.", image: "/products/airchal-ahu-detail.jpg" },
+      { name: "POLCC Polyester Series", description: "Polyester air handling units specially designed for extreme environments and temperatures down to -35°C. Ideal for food processing and cold rooms.", image: "/products/airchal-fancoil-detail.jpg" },
+      { name: "Fan Coils", description: "Standard and purpose-built terminal units for localized heating and cooling. Quiet and efficient solutions for offices, hotels, and commercial buildings.", image: "/products/airchal-fans.jpg" },
+      { name: "Industrial Fans", description: "High-performance fans for demanding industrial applications: extraction, ventilation, pressurization, and ATEX environments.", image: "/products/airchal-fans.jpg" },
+      { name: "Oil & Gas Solutions", description: "Specialized air handling systems for oil platforms, refineries, and offshore installations, compliant with the strictest standards.", image: "/products/airchal-energy.jpg" },
+      { name: "Control & Automation", description: "Control cabinets and integrated automation systems to manage and optimize your air handling installations.", image: "/products/airchal-ahu-detail.jpg" },
     ],
   },
   {
@@ -524,6 +545,11 @@ const ProductDetail = () => {
             </Link>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">{title}</h1>
             <p className="text-primary-foreground/80 text-xl leading-relaxed">{description}</p>
+            {product.partnerUrl && (
+              <a href={product.partnerUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-accent hover:underline font-semibold text-sm">
+                {language === "fr" ? `Visitez le site ${product.partnerName}` : `Visit ${product.partnerName} website`} →
+              </a>
+            )}
           </motion.div>
         </div>
 
@@ -560,10 +586,21 @@ const ProductDetail = () => {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-premium">
-                <img src={product.image} alt={title} className="w-full h-[450px] object-cover" />
-                <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-20`} />
-              </div>
+              {product.galleryImages && product.galleryImages.length > 1 ? (
+                <div className="grid grid-cols-2 gap-4">
+                  {product.galleryImages.map((img, i) => (
+                    <div key={i} className="relative rounded-2xl overflow-hidden shadow-premium">
+                      <img src={img} alt={`${title} ${i + 1}`} className="w-full h-52 object-cover hover:scale-105 transition-transform duration-500" />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-10`} />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="relative rounded-2xl overflow-hidden shadow-premium">
+                  <img src={product.image} alt={title} className="w-full h-[450px] object-cover" />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-20`} />
+                </div>
+              )}
             </motion.div>
           </div>
         </div>
@@ -590,10 +627,17 @@ const ProductDetail = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-soft border border-border/50 hover:shadow-premium transition-all duration-500"
+                className="bg-card rounded-2xl overflow-hidden shadow-soft border border-border/50 hover:shadow-premium transition-all duration-500"
               >
-                <h3 className={`font-heading text-xl font-bold mb-3 ${colors.text}`}>{item.name}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                {item.image && (
+                  <div className="h-48 overflow-hidden">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  </div>
+                )}
+                <div className="p-8">
+                  <h3 className={`font-heading text-xl font-bold mb-3 ${colors.text}`}>{item.name}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
