@@ -527,19 +527,20 @@ const ProductDetail = () => {
             {products.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card rounded-2xl overflow-hidden shadow-soft border border-border/50 hover:shadow-premium transition-all duration-500"
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+                whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                className="group bg-card rounded-2xl overflow-hidden shadow-soft border border-border/50 hover:shadow-premium hover:border-accent/30 transition-all duration-500"
               >
                 {item.image && (
-                  <div className="h-40 overflow-hidden">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  <div className="h-44 overflow-hidden bg-muted/20">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700" />
                   </div>
                 )}
-                <div className="p-6">
-                  <h3 className={`font-heading text-lg font-bold mb-2 ${colors.text}`}>{item.name}</h3>
+                <div className="p-5">
+                  <h3 className={`font-heading text-base font-bold mb-1.5 ${colors.text}`}>{item.name}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{item.description}</p>
                 </div>
               </motion.div>
