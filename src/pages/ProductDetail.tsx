@@ -523,7 +523,7 @@ const ProductDetail = () => {
             <div className="w-16 h-1 bg-accent mx-auto rounded-full mt-4" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className={`grid ${products.length > 6 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'} gap-6`}>
             {products.map((item, i) => (
               <motion.div
                 key={i}
