@@ -22,19 +22,53 @@ const Contact = () => {
   const { t, language } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    setTimeout(() => {
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  const form = e.target as HTMLFormElement;
+
+  const formData = {
+    name: (form.elements.namedItem('name') as HTMLInputElement).value,
+    company: (form.elements.namedItem('company') as HTMLInputElement).value,
+    email: (form.elements.namedItem('email') as HTMLInputElement).value,
+    phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+    budget: (form.elements.namedItem('budget') as HTMLInputElement).value,
+    deadline: (form.elements.namedItem('deadline') as HTMLInputElement).value,
+    project: (form.elements.namedItem('project') as HTMLTextAreaElement).value,
+  };
+
+  try {
+    const response = await fetch('http://localhost:5000/api/contacts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
       toast({
         title: language === 'fr' ? "Message envoyé !" : "Message sent!",
-        description: language === 'fr' ? "Nous vous répondrons sous 24-48h." : "We'll respond within 24-48h.",
+        description: language === 'fr'
+          ? "Vous recevrez une confirmation par email sous peu."
+          : "You will receive a confirmation email shortly.",
       });
-      setIsSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
-  };
+      form.reset();
+    } else {
+      throw new Error('Erreur serveur');
+    }
+
+  } catch (error) {
+    toast({
+      title: language === 'fr' ? "Erreur !" : "Error!",
+      description: language === 'fr'
+        ? "Une erreur est survenue. Réessayez."
+        : "An error occurred. Please try again.",
+      variant: "destructive"
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const contactCards = [
     {
