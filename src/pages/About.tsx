@@ -36,7 +36,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero avec image */}
-      <section className="relative pt-40 pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Sweeping background image */}
         <div className="absolute inset-0 bg-primary" />
         <div className="absolute inset-0 bg-pattern" />
@@ -77,11 +77,10 @@ const About = () => {
           </div>
         </div>
         
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Intro + Image */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -160,7 +159,7 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
+      <section className="py-16 bg-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid" />
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-8">
@@ -210,13 +209,13 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-12"
           >
             <span className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">
               {t('about.values.label')}
@@ -251,7 +250,7 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-hero-premium relative overflow-hidden">
+      <section className="py-16 bg-hero-premium relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern" />
         <div className="container relative z-10">
           <motion.div

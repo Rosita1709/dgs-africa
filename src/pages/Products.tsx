@@ -162,7 +162,7 @@ const Products = () => {
   return (
     <Layout>
       {/* Hero with sweeping image */}
-      <section className="relative pt-40 pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background image with sweep/pan animation */}
         <motion.div
           className="absolute inset-0"
@@ -194,7 +194,6 @@ const Products = () => {
           </motion.div>
         </div>
         
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Product Categories */}
@@ -240,7 +239,7 @@ const Products = () => {
                         alt={item.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 h-16 bg-primary/50" />
                       
                       {/* Partner Logo Badge removed */}
                       
@@ -294,7 +293,7 @@ const Products = () => {
       })}
 
       {/* Partners & Clients — Marquee */}
-      <section className="py-20 bg-muted/20 overflow-hidden">
+      <section className="py-14 bg-muted/20 overflow-hidden">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -345,7 +344,7 @@ const Products = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-hero-premium relative overflow-hidden">
+      <section className="py-16 bg-hero-premium relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern" />
         <div className="container relative z-10">
           <motion.div

@@ -24,7 +24,7 @@ const Solutions = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-40 pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.2, x: '-5%' }}
@@ -55,11 +55,10 @@ const Solutions = () => {
           </motion.div>
         </div>
         
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Industriel */}
-      <section id="industriel" className="py-24 scroll-mt-24">
+      <section id="industriel" className="py-16 scroll-mt-24">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -141,7 +140,7 @@ const Solutions = () => {
       </section>
 
       {/* IT */}
-      <section id="it" className="py-24 bg-muted/30 scroll-mt-24 relative overflow-hidden">
+      <section id="it" className="py-16 bg-muted/30 scroll-mt-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid" />
         
         <div className="container relative z-10">
@@ -215,7 +214,7 @@ const Solutions = () => {
       </section>
 
       {/* Énergie */}
-      <section id="energie" className="py-24 scroll-mt-24">
+      <section id="energie" className="py-16 scroll-mt-24">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -304,7 +303,7 @@ const Solutions = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-hero-premium relative overflow-hidden">
+      <section className="py-16 bg-hero-premium relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern" />
         <div className="container relative z-10">
           <motion.div
