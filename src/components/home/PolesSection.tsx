@@ -85,19 +85,16 @@ const PolesSection = () => {
               whileHover={{ y: -8 }}
               className="group relative bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-500 border border-border/50 hover:border-accent/30"
             >
-              {/* Glassmorphism overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-card/90 z-[1] pointer-events-none" />
-              
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
                 <motion.img
                   src={pole.image}
                   alt={pole.title}
                   className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.08 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-card to-transparent" />
                 
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
