@@ -15,7 +15,7 @@ const AboutPreview = () => {
   ];
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-muted/30 -skew-x-12 origin-top-right hidden lg:block" />
       

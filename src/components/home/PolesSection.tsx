@@ -52,7 +52,7 @@ const PolesSection = () => {
   ];
 
   return (
-    <section className="py-28 bg-muted/30 relative overflow-hidden">
+    <section className="py-16 bg-muted/30 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid" />
       
       <div className="container relative z-10">
@@ -61,7 +61,7 @@ const PolesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
           <span className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">
             {t('poles.label')}
@@ -94,7 +94,7 @@ const PolesSection = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                 />
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-card to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-12 bg-card/80" />
                 
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
