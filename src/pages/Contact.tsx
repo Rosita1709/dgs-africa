@@ -118,10 +118,6 @@ const Contact = () => {
           <div className="w-full h-full bg-hero-premium" />
         </motion.div>
         <div className="absolute inset-0 bg-primary/90" />
-        <div className="absolute inset-0 bg-pattern" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] animate-pulse" />
-        </div>
         
         <div className="container relative z-10">
           <motion.div

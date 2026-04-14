@@ -76,16 +76,7 @@ const ServiceIT = () => {
             alt="IT Infrastructure"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
-        </div>
-
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-accent/10 to-transparent"
-            initial={{ x: '-100%' }}
-            animate={{ x: '100%' }}
-            transition={{ duration: 3, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' }}
-          />
+          <div className="absolute inset-0 bg-primary/85" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10 py-20">
