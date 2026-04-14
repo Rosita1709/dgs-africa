@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /
+
+# Si le fichier ou dossier existe réellement, le servir directement
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Sinon, rediriger vers index.html (routage SPA)
+RewriteRule ^ index.html [QSA,L]
