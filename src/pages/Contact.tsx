@@ -108,7 +108,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-40 pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.15, x: '3%' }}
@@ -148,7 +148,7 @@ const Contact = () => {
           </motion.div>
         </div>
         
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        
       </section>
 
       {/* Contact Cards */}
@@ -191,7 +191,7 @@ const Contact = () => {
       </section>
 
       {/* Form Section */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="container">
           <div className="grid lg:grid-cols-5 gap-12 items-start">
             {/* Left side — CTA & WhatsApp */}

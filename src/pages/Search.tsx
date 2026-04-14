@@ -50,7 +50,7 @@ const Search = () => {
 
   return (
     <Layout>
-      <section className="relative pt-40 pb-20 bg-hero-premium overflow-hidden">
+      <section className="relative pt-32 pb-14 bg-hero-premium overflow-hidden">
         <div className="absolute inset-0 bg-pattern" />
         <div className="container relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl mx-auto text-center">
@@ -64,7 +64,7 @@ const Search = () => {
             )}
           </motion.div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        
       </section>
 
       <section className="py-16">
