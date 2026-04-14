@@ -81,8 +81,7 @@ const ServiceIndustriel = () => {
             className="w-full h-full object-cover"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/50" />
-        <div className="absolute inset-0 bg-pattern" />
+        <div className="absolute inset-0 bg-primary/85" />
         <div className="container relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
             <div className="inline-flex items-center gap-3 mb-6">
@@ -137,7 +136,7 @@ const ServiceIndustriel = () => {
 
       {/* Services — alternating 2-column with images */}
       {services.map((service, index) => (
-        <section key={index} className={`py-24 ${index % 2 === 1 ? 'bg-muted/20' : ''}`}>
+        <section key={index} className={`py-16 ${index % 2 === 1 ? 'bg-muted/20' : ''}`}>
           <div className="container">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -206,7 +205,7 @@ const ServiceIndustriel = () => {
       ))}
 
       {/* CTA */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600&q=80" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-primary/90" />

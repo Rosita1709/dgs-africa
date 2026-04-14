@@ -108,7 +108,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-40 pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.15, x: '3%' }}
@@ -118,10 +118,6 @@ const Contact = () => {
           <div className="w-full h-full bg-hero-premium" />
         </motion.div>
         <div className="absolute inset-0 bg-primary/90" />
-        <div className="absolute inset-0 bg-pattern" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] animate-pulse" />
-        </div>
         
         <div className="container relative z-10">
           <motion.div
@@ -148,7 +144,7 @@ const Contact = () => {
           </motion.div>
         </div>
         
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        
       </section>
 
       {/* Contact Cards */}
@@ -191,7 +187,7 @@ const Contact = () => {
       </section>
 
       {/* Form Section */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="container">
           <div className="grid lg:grid-cols-5 gap-12 items-start">
             {/* Left side — CTA & WhatsApp */}

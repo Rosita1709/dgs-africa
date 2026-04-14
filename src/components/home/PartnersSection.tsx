@@ -54,8 +54,8 @@ const PartnersSection = () => {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-28 bg-background overflow-hidden">
-      <div className="container space-y-20">
+    <section className="py-16 bg-background overflow-hidden">
+      <div className="container space-y-14">
         {/* Partners */}
         <div>
           <motion.div

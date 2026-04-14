@@ -439,7 +439,7 @@ const ProductDetail = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-40 pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.15 }}
@@ -462,11 +462,11 @@ const ProductDetail = () => {
           </motion.div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        
       </section>
 
       {/* Pourquoi DGS — without repeating the hero description */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>

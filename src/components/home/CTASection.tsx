@@ -8,26 +8,10 @@ const CTASection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-hero-premium" />
       <div className="absolute inset-0 bg-pattern opacity-50" />
-      
-      {/* Gradient orbs */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5 }}
-        className="absolute top-0 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[150px]"
-      />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, delay: 0.2 }}
-        className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-[120px]"
-      />
 
       <div className="container relative z-10">
         <motion.div
