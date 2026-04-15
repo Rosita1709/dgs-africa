@@ -96,26 +96,26 @@ const HeroSlider = () => {
   return (
     <section className="relative h-screen min-h-[700px] max-h-[1000px] overflow-hidden">
       {/* Background images with crossfade */}
-      <AnimatePresence mode="wait">
+      {slides.map((s, index) => (
         <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
+          key={s.id}
+          initial={false}
+          animate={{ 
+            opacity: index === currentSlide ? 1 : 0,
+            scale: index === currentSlide ? 1 : 1.08 
+          }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute inset-0"
+          style={{ zIndex: index === currentSlide ? 1 : 0 }}
         >
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={{ backgroundImage: `url(${s.image})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/65 to-primary/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
         </motion.div>
-      </AnimatePresence>
-
-      {/* Subtle geometric accent */}
-      <div className="absolute top-0 left-0 w-24 h-24 md:w-40 md:h-40 bg-accent/20 clip-corner z-10" />
+      ))}
 
       {/* Navigation arrows */}
       <button
@@ -143,13 +143,13 @@ const HeroSlider = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.4 }}
             >
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.15, duration: 0.4 }}
+                transition={{ delay: 0.1, duration: 0.4 }}
                 className="inline-block bg-accent/20 backdrop-blur-sm border-l-4 border-accent px-4 py-2 mb-6"
               >
                 <span className="text-accent font-semibold text-sm tracking-wider">
@@ -161,7 +161,7 @@ const HeroSlider = () => {
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25, duration: 0.5 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
                 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-[1.1] mb-6"
               >
                 {language === 'fr' ? slide.title : slide.titleEn}
@@ -171,7 +171,7 @@ const HeroSlider = () => {
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.5 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
                 className="text-lg md:text-xl text-primary-foreground/75 mb-8 max-w-2xl leading-relaxed"
               >
                 {language === 'fr' ? slide.subtitle : slide.subtitleEn}
@@ -181,7 +181,7 @@ const HeroSlider = () => {
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.5 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <Button variant="accent" size="lg" asChild className="group shadow-accent">
@@ -209,13 +209,14 @@ const HeroSlider = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`relative h-1 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'w-12 bg-accent' : 'w-6 bg-primary-foreground/30 hover:bg-primary-foreground/50'
+              className={`relative h-1 rounded-full overflow-hidden transition-all duration-300 ${
+                index === currentSlide ? 'w-12 bg-primary-foreground/20' : 'w-6 bg-primary-foreground/30 hover:bg-primary-foreground/50'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             >
               {index === currentSlide && (
                 <motion.div
+                  key={`progress-${currentSlide}`}
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 6, ease: "linear" }}
@@ -249,18 +250,15 @@ const HeroSlider = () => {
       </div>
 
       {/* WhatsApp floating button */}
-      <motion.a
+      <a
         href="https://api.whatsapp.com/send?phone=221776862024"
         target="_blank"
         rel="noopener noreferrer"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 1, type: "spring", stiffness: 200 }}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
         aria-label="Contact on WhatsApp"
       >
         <WhatsAppIcon className="w-7 h-7 text-white" />
-      </motion.a>
+      </a>
     </section>
   );
 };
