@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Facebook, Instagram } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight, Linkedin, Facebook, Instagram } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo-dgs.png";
 
@@ -86,7 +87,7 @@ const Footer = () => {
               <li>
                 <a href="https://api.whatsapp.com/send?phone=221776862024" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2 text-primary-foreground/70 hover:text-accent transition-colors text-xs">
-                  <Phone className="w-3.5 h-3.5 flex-shrink-0" />
+                  <WhatsAppIcon className="w-3.5 h-3.5 flex-shrink-0" />
                   +221 77 686 20 24
                 </a>
               </li>
