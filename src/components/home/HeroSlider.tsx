@@ -185,7 +185,7 @@ const HeroSlider = () => {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <Button variant="accent" size="lg" asChild className="group shadow-accent">
-                  <Link to="/solutions">
+                  <Link to="/a-propos">
                     {t('hero.learnMore')}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
