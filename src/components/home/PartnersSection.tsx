@@ -126,7 +126,7 @@ const PartnersSection = () => {
             <div className="w-16 h-1 bg-border mx-auto rounded-full" />
           </motion.div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="flex md:grid md:grid-cols-4 gap-6 max-w-4xl mx-auto overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
             {clients.map((client, index) => (
               <motion.a
                 key={index}
@@ -138,16 +138,14 @@ const PartnersSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8, scale: 1.05 }}
-                className="group flex flex-col items-center gap-4"
+                className="group flex flex-col items-center gap-4 min-w-[40vw] md:min-w-0 snap-center"
                 title={client.name}
               >
-                {/* Professional emblem card */}
                 <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-2xl ${client.logo ? 'bg-white' : `bg-gradient-to-br ${client.colors.bg}`} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
                   {client.logo ? (
                     <img src={client.logo} alt={client.name} className="w-20 md:w-24 h-auto object-contain" />
                   ) : (
                     <>
-                      {/* Decorative ring */}
                       <div className="absolute inset-2 rounded-xl border-2 border-white/20" />
                       <client.icon className="w-6 h-6 text-white/80 mb-1" />
                       <span className={`text-base md:text-lg font-black ${client.colors.text} relative z-10 leading-tight`}>

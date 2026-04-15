@@ -3,7 +3,8 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, CheckCircle, ArrowLeft, Package, Shield, Wrench, Star } from "lucide-react";
+import { ArrowRight, CheckCircle, ArrowLeft, Package, Shield, Wrench, Star } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 interface ProductData {
   slug: string;
@@ -709,7 +710,7 @@ const ProductDetail = () => {
               </Button>
               <Button variant="outline" size="lg" asChild className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
                 <a href="https://api.whatsapp.com/send?phone=221776862024" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5" />
                   WhatsApp
                 </a>
               </Button>

@@ -101,12 +101,12 @@ const AboutPreview = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="grid gap-6">
+            <div className="flex md:grid md:grid-cols-1 gap-4 md:gap-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
               {/* Mission card */}
               <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
                 transition={{ duration: 0.3 }}
-                className="bg-card p-8 rounded-2xl shadow-card border border-border/50 hover:border-accent/30 transition-all"
+                className="bg-card p-6 md:p-8 rounded-2xl shadow-card border border-border/50 hover:border-accent/30 transition-all min-w-[80vw] md:min-w-0 snap-center"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
@@ -114,7 +114,7 @@ const AboutPreview = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-xl mb-2">{t('about.mission.title')}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed text-sm">
                       {t('about.mission.text')}
                     </p>
                   </div>
@@ -125,7 +125,7 @@ const AboutPreview = () => {
               <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
                 transition={{ duration: 0.3 }}
-                className="bg-card p-8 rounded-2xl shadow-card border border-border/50 hover:border-accent/30 transition-all"
+                className="bg-card p-6 md:p-8 rounded-2xl shadow-card border border-border/50 hover:border-accent/30 transition-all min-w-[80vw] md:min-w-0 snap-center"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
@@ -133,7 +133,7 @@ const AboutPreview = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-xl mb-2">{t('about.vision.title')}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed text-sm">
                       {t('about.vision.text')}
                     </p>
                   </div>
@@ -146,7 +146,7 @@ const AboutPreview = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-primary text-primary-foreground p-6 rounded-2xl shadow-premium"
+                className="bg-primary text-primary-foreground p-6 rounded-2xl shadow-premium min-w-[80vw] md:min-w-0 snap-center"
               >
                 <div className="flex items-center justify-between">
                   <div className="text-center">

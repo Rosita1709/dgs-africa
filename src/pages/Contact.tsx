@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, MessageCircle, Send, Clock, ArrowRight, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Clock, ArrowRight, Sparkles } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
@@ -80,7 +81,7 @@ const Contact = () => {
       hoverColor: "hover:border-blue-300",
     },
     {
-      icon: Phone,
+      icon: () => <WhatsAppIcon className="w-5 h-5" />,
       title: "WhatsApp",
       value: "+221 77 686 20 24",
       href: "https://api.whatsapp.com/send?phone=221776862024",
@@ -212,7 +213,7 @@ const Contact = () => {
               <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 p-6 rounded-2xl border border-green-500/20">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-white" />
+                    <WhatsAppIcon className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="font-heading font-bold">
@@ -230,7 +231,7 @@ const Contact = () => {
                 </p>
                 <Button variant="whatsapp" size="lg" className="w-full" asChild>
                   <a href="https://api.whatsapp.com/send?phone=221776862024" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-5 h-5" />
+                    <WhatsAppIcon className="w-5 h-5" />
                     {t('cta.whatsapp')}
                   </a>
                 </Button>
