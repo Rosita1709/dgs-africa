@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 

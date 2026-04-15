@@ -1,7 +1,8 @@
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer, Monitor, SunDim, Battery, CheckCircle, MessageCircle, Tablet, Info } from "lucide-react";
+import { ArrowRight, Lightbulb, Thermometer, CircleDot, Server, Laptop, Printer, Monitor, SunDim, Battery, CheckCircle, Tablet, Info } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import productsIT from "@/assets/products-it.jpg";

@@ -3,7 +3,8 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, CheckCircle, ArrowLeft, Package, Shield, Wrench, Star } from "lucide-react";
+import { ArrowRight, CheckCircle, ArrowLeft, Package, Shield, Wrench, Star } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 interface ProductData {
   slug: string;
