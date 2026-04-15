@@ -85,7 +85,7 @@ const AboutPreview = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <Button variant="default" size="lg" asChild className="group">
-                <Link to="/about">
+                <Link to="/a-propos">
                   {t('about.cta')}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
