@@ -71,7 +71,7 @@ const CTASection = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="w-5 h-5" />
+                <WhatsAppIcon className="w-5 h-5" />
                 WhatsApp
               </a>
             </Button>
@@ -90,7 +90,7 @@ const CTASection = () => {
               className="flex items-center gap-2 hover:text-accent transition-colors"
             >
               <span className="w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center">
-                <MessageCircle className="w-4 h-4" />
+                <Mail className="w-4 h-4" />
               </span>
               contact@dgsafrica.com
             </a>

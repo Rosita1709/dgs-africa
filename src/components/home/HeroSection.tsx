@@ -126,7 +126,7 @@ const HeroSection = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5" />
                   WhatsApp
                 </a>
               </Button>
