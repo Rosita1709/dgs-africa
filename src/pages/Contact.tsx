@@ -81,7 +81,7 @@ const Contact = () => {
       hoverColor: "hover:border-blue-300",
     },
     {
-      icon: Phone,
+      icon: () => <WhatsAppIcon className="w-5 h-5" />,
       title: "WhatsApp",
       value: "+221 77 686 20 24",
       href: "https://api.whatsapp.com/send?phone=221776862024",
