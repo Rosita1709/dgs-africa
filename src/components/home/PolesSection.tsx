@@ -94,17 +94,6 @@ const PolesSection = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                 />
-                <div className="absolute bottom-0 left-0 right-0 h-12 bg-card/80" />
-                
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className={`absolute top-4 left-4 w-14 h-14 rounded-xl ${pole.color} flex items-center justify-center shadow-lg`}
-                >
-                  <pole.icon className="w-7 h-7 text-white" />
-                </motion.div>
               </div>
 
               {/* Content */}
