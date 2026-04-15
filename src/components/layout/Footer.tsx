@@ -22,9 +22,9 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/50 to-transparent" />
       
       <div className="container py-8 md:py-14 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
           {/* Brand */}
-          <div className="col-span-2 lg:col-span-1 space-y-4">
+          <div className="col-span-2 lg:col-span-1 space-y-3">
             <img src={logo} alt="DGS Africa" className="h-12" />
             <p className="text-primary-foreground/70 text-xs leading-relaxed max-w-xs">
               {t('footer.description')}
@@ -100,7 +100,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-primary-foreground/10 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="border-t border-primary-foreground/10 mt-6 pt-4 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-primary-foreground/50 text-xs">
             © {new Date().getFullYear()} DGS Africa. {t('footer.rights')}
           </p>
