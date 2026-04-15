@@ -167,12 +167,6 @@ const AboutPreview = () => {
               </motion.div>
             </div>
 
-            {/* Decorative element */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-6 -right-6 w-24 h-24 border-2 border-dashed border-accent/20 rounded-full hidden lg:block"
-            />
           </motion.div>
         </div>
       </div>
