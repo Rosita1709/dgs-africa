@@ -15,6 +15,24 @@ const fadeUp = {
   }),
 };
 
+const serviceIndustriel = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Solutions Industrielles Afrique',
+  serviceType: 'Équipements industriels, éclairage LED, climatisation, courroies',
+  provider: {
+    '@type': 'Organization',
+    name: 'DGS Africa',
+    url: 'https://dgsafrica.com'
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Africa'
+  },
+  description: 'Éclairage LED ATEX, climatisation VRV, chambres froides et courroies industrielles. DGS Africa équipe vos sites industriels en Afrique.',
+  url: 'https://dgsafrica.com/services/industriel'
+};
+
 const ServiceIndustriel = () => {
   const { language } = useLanguage();
 
@@ -66,15 +84,19 @@ const ServiceIndustriel = () => {
     { icon: Award, value: "15+", label: language === 'fr' ? "Années d'expérience" : "Years of experience" },
   ];
 
-  
-
   return (
     <Layout>
       <SEO
-  title="Solutions Industrielles"
-  description="DGS Africa accompagne les industries africaines avec des équipements et solutions industrielles performantes."
-  keywords="solutions industrielles Afrique, équipements industriels, maintenance industrielle"
-/>
+        title="Solutions Industrielles"
+        description="DGS Africa accompagne les industries africaines avec des équipements et solutions industrielles performantes."
+        keywords="solutions industrielles Afrique, équipements industriels, maintenance industrielle"
+        url="https://dgsafrica.com/services/industriel"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceIndustriel) }}
+      />
+
       {/* Hero with real image */}
       <section className="relative pt-32 pb-28 overflow-hidden min-h-[70vh] flex items-center">
         <motion.div

@@ -14,6 +14,24 @@ const fadeUp = {
   }),
 };
 
+const serviceEnergie = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Énergie Solaire Afrique',
+  serviceType: 'Installation systèmes solaires et audit énergétique',
+  provider: {
+    '@type': 'Organization',
+    name: 'DGS Africa',
+    url: 'https://dgsafrica.com'
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Africa'
+  },
+  description: 'Installation de panneaux solaires, onduleurs, batteries et audit énergétique avec calcul ROI pour entreprises en Afrique.',
+  url: 'https://dgsafrica.com/services/energie'
+};
+
 const ServiceEnergie = () => {
   const { language } = useLanguage();
 
@@ -57,10 +75,16 @@ const ServiceEnergie = () => {
   return (
     <Layout>
       <SEO
-  title="Énergie Solaire"
-  description="DGS Africa installe et maintient des systèmes d'énergie solaire pour entreprises et industries en Afrique."
-  keywords="énergie solaire Afrique, panneaux solaires entreprise, énergie renouvelable Afrique"
-/>
+        title="Énergie Solaire"
+        description="DGS Africa installe et maintient des systèmes d'énergie solaire pour entreprises et industries en Afrique."
+        keywords="énergie solaire Afrique, panneaux solaires entreprise, énergie renouvelable Afrique"
+        url="https://dgsafrica.com/services/energie"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceEnergie) }}
+      />
+
       {/* Hero with real image */}
       <section className="relative pt-32 pb-28 overflow-hidden min-h-[70vh] flex items-center">
         <motion.div

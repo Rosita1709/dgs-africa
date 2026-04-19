@@ -14,6 +14,24 @@ const fadeUp = {
   }),
 };
 
+const serviceIT = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Solutions IT Afrique',
+  serviceType: 'Fourniture équipements IT professionnels',
+  provider: {
+    '@type': 'Organization',
+    name: 'DGS Africa',
+    url: 'https://dgsafrica.com'
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Africa'
+  },
+  description: 'Serveurs Dell PowerEdge, ordinateurs professionnels, tablettes Blackview durcies. Infrastructure IT de confiance pour les entreprises africaines.',
+  url: 'https://dgsafrica.com/services/it'
+};
+
 const ServiceIT = () => {
   const { language } = useLanguage();
 
@@ -70,10 +88,16 @@ const ServiceIT = () => {
   return (
     <Layout>
       <SEO
-  title="Solutions IT"
-  description="DGS Africa propose des solutions IT complètes pour les entreprises africaines : infrastructure, cybersécurité, cloud."
-  keywords="solutions IT Afrique, infrastructure informatique, cybersécurité Afrique"
-/>
+        title="Solutions IT"
+        description="DGS Africa propose des solutions IT complètes pour les entreprises africaines : infrastructure, cybersécurité, cloud."
+        keywords="solutions IT Afrique, infrastructure informatique, cybersécurité Afrique"
+        url="https://dgsafrica.com/services/it"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceIT) }}
+      />
+
       {/* Hero with real image */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
