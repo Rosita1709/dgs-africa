@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import aboutTeam from "@/assets/about-team.jpg";
 import aboutMission from "@/assets/about-mission.jpg";
 import teamHero from "@/assets/team-hero.jpg";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -35,6 +36,11 @@ const About = () => {
 
   return (
     <Layout>
+      <SEO
+  title="À propos"
+  description="Découvrez DGS Africa, expert en solutions IT, énergie solaire et industrie sur tout le continent africain."
+  keywords="à propos DGS Africa, entreprise IT Afrique, qui sommes nous"
+/>
       {/* Hero avec image */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Sweeping background image */}

@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -68,6 +69,11 @@ const ServiceIT = () => {
 
   return (
     <Layout>
+      <SEO
+  title="Solutions IT"
+  description="DGS Africa propose des solutions IT complètes pour les entreprises africaines : infrastructure, cybersécurité, cloud."
+  keywords="solutions IT Afrique, infrastructure informatique, cybersécurité Afrique"
+/>
       {/* Hero with real image */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import airchalImg from "@/assets/airchal-cta.png";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -65,8 +66,15 @@ const ServiceIndustriel = () => {
     { icon: Award, value: "15+", label: language === 'fr' ? "Années d'expérience" : "Years of experience" },
   ];
 
+  
+
   return (
     <Layout>
+      <SEO
+  title="Solutions Industrielles"
+  description="DGS Africa accompagne les industries africaines avec des équipements et solutions industrielles performantes."
+  keywords="solutions industrielles Afrique, équipements industriels, maintenance industrielle"
+/>
       {/* Hero with real image */}
       <section className="relative pt-32 pb-28 overflow-hidden min-h-[70vh] flex items-center">
         <motion.div

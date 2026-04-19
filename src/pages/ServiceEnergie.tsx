@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -55,6 +56,11 @@ const ServiceEnergie = () => {
 
   return (
     <Layout>
+      <SEO
+  title="Énergie Solaire"
+  description="DGS Africa installe et maintient des systèmes d'énergie solaire pour entreprises et industries en Afrique."
+  keywords="énergie solaire Afrique, panneaux solaires entreprise, énergie renouvelable Afrique"
+/>
       {/* Hero with real image */}
       <section className="relative pt-32 pb-28 overflow-hidden min-h-[70vh] flex items-center">
         <motion.div

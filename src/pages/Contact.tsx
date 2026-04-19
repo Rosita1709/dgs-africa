@@ -9,6 +9,8 @@ import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -16,6 +18,24 @@ const fadeUp = {
     opacity: 1, y: 0,
     transition: { duration: 0.5, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const },
   }),
+};
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'DGS Africa',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Point E',
+    addressLocality: 'Dakar',
+    addressCountry: 'SN'
+  },
+  telephone: '+221776862024',
+  email: 'contact@dgsafrica.com',
+  openingHours: 'Mo-Fr 08:00-18:00',
+  url: 'https://dgsafrica.com',
+  areaServed: ['SN','CI','ML','BF','GN','CM','TG','BJ','NE','MR'],
+  sameAs: ['https://www.linkedin.com/company/dgs-africa']
 };
 
 const Contact = () => {
@@ -27,36 +47,22 @@ const Contact = () => {
   e.preventDefault();
   setIsSubmitting(true);
 
-  const form = e.target as HTMLFormElement;
-
-  const formData = {
-    name: (form.elements.namedItem('name') as HTMLInputElement).value,
-    company: (form.elements.namedItem('company') as HTMLInputElement).value,
-    email: (form.elements.namedItem('email') as HTMLInputElement).value,
-    phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
-    budget: (form.elements.namedItem('budget') as HTMLInputElement).value,
-    deadline: (form.elements.namedItem('deadline') as HTMLInputElement).value,
-    project: (form.elements.namedItem('project') as HTMLTextAreaElement).value,
-  };
-
   try {
-    const response = await fetch('http://localhost:5000/api/contacts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
+    await emailjs.sendForm(
+  'service_152zw1q',
+  'template_5i06v9r',
+  e.target as HTMLFormElement,
+  'z_CXVDOVp2k_K14KG'
+);
+
+    toast({
+      title: language === 'fr' ? "Message envoyé !" : "Message sent!",
+      description: language === 'fr'
+        ? "Vous recevrez une confirmation par email sous peu."
+        : "You will receive a confirmation email shortly.",
     });
 
-    if (response.ok) {
-      toast({
-        title: language === 'fr' ? "Message envoyé !" : "Message sent!",
-        description: language === 'fr'
-          ? "Vous recevrez une confirmation par email sous peu."
-          : "You will receive a confirmation email shortly.",
-      });
-      form.reset();
-    } else {
-      throw new Error('Erreur serveur');
-    }
+    (e.target as HTMLFormElement).reset();
 
   } catch (error) {
     toast({
@@ -108,6 +114,17 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Contact"
+        description="Contactez DGS Africa pour vos projets IT, énergie solaire et industriels en Afrique."
+        keywords="contact DGS Africa, devis IT Afrique, projet énergie solaire"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      />
+
+
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <motion.div
