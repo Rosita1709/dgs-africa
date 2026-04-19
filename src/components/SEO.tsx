@@ -20,6 +20,7 @@ export default function SEO({
   return (
     <Helmet>
       <html lang={lang} />
+      <meta name="google-site-verification" content="i-vu76A6uQagCF9qVdZII82aBCBWTFE0mWfSN9gVod8" />
       <title>{title} | DGS Africa</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
