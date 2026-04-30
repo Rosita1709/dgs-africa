@@ -127,7 +127,7 @@ const PartnersSection = () => {
             <div className="w-16 h-1 bg-border mx-auto rounded-full" />
           </motion.div>
           
-          <div className="flex md:grid md:grid-cols-4 gap-6 max-w-4xl mx-auto overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+          <MobileCarousel desktopClassName="md:grid md:grid-cols-4 md:gap-6 max-w-4xl mx-auto">
             {clients.map((client, index) => (
               <motion.a
                 key={index}
@@ -139,7 +139,7 @@ const PartnersSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8, scale: 1.05 }}
-                className="group flex flex-col items-center gap-4 min-w-[40vw] md:min-w-0 snap-center"
+                className="group flex flex-col items-center gap-4 min-w-[60vw] md:min-w-0 snap-center"
                 title={client.name}
               >
                 <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-2xl ${client.logo ? 'bg-white' : `bg-gradient-to-br ${client.colors.bg}`} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
@@ -156,13 +156,13 @@ const PartnersSection = () => {
                   )}
                 </div>
                 <div className="text-center">
-                  <span className="text-xs md:text-sm text-muted-foreground font-semibold leading-tight block max-w-[120px]">
+                  <span className="text-xs md:text-sm text-muted-foreground font-semibold leading-tight block max-w-[160px]">
                     {client.subtitle || client.name}
                   </span>
                 </div>
               </motion.a>
             ))}
-          </div>
+          </MobileCarousel>
         </div>
       </div>
     </section>
