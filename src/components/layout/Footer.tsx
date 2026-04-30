@@ -21,13 +21,13 @@ const Footer = () => {
       {/* Decorative gradient */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent/50 to-transparent" />
 
-      <div className="container py-6 md:py-14 relative z-10">
-        {/* Mobile compact layout */}
-        <div className="md:hidden space-y-5">
+      <div className="container py-6 lg:py-10 relative z-10">
+        {/* Mobile + Tablet compact layout */}
+        <div className="lg:hidden space-y-5">
           {/* Logo + tagline + socials */}
           <div className="flex flex-col items-center text-center space-y-3">
             <img src={logo} alt="DGS Africa" className="h-10" />
-            <p className="text-primary-foreground/70 text-xs leading-relaxed max-w-[280px]">
+            <p className="text-primary-foreground/70 text-xs leading-relaxed max-w-[320px]">
               {t('footer.description')}
             </p>
             <div className="flex gap-2">
@@ -87,11 +87,11 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Desktop layout */}
-        <div className="hidden md:block">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop layout (lg+) */}
+        <div className="hidden lg:block">
+          <div className="grid grid-cols-4 gap-8">
             {/* Brand */}
-            <div className="col-span-2 lg:col-span-1 space-y-3">
+            <div className="space-y-3">
               <img src={logo} alt="DGS Africa" className="h-12" />
               <p className="text-primary-foreground/70 text-xs leading-relaxed max-w-xs">
                 {t('footer.description')}
