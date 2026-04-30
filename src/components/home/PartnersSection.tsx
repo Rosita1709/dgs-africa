@@ -139,7 +139,7 @@ const PartnersSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8, scale: 1.05 }}
-                className="group flex flex-col items-center gap-4 min-w-[60vw] md:min-w-0 snap-center"
+                className="group flex flex-col items-center gap-4 min-w-[60%] md:min-w-0 snap-center"
                 title={client.name}
               >
                 <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-2xl ${client.logo ? 'bg-white' : `bg-gradient-to-br ${client.colors.bg}`} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>

@@ -85,7 +85,7 @@ const PolesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: index * 0.15 }}
               whileHover={{ y: -8 }}
-              className="group relative bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-500 border border-border/50 hover:border-accent/30 min-w-[85vw] md:min-w-0 snap-center"
+              className="group relative bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-500 border border-border/50 hover:border-accent/30 min-w-[88%] md:min-w-0 snap-center"
             >
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
