@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { Building2, Landmark, Globe2, Shield } from "lucide-react";
+import MobileCarousel from "@/components/MobileCarousel";
 
 const partners = [
   { name: 'Universal RBM', logo: '/logos/universal-rbm.png', url: 'https://universal-rbm.com' },
