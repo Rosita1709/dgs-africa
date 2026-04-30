@@ -15,7 +15,7 @@ const StatsSection = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="py-20 bg-primary relative overflow-hidden">
+    <section ref={sectionRef} className="py-10 md:py-20 bg-primary relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <motion.div
@@ -33,7 +33,7 @@ const StatsSection = () => {
       </div>
       
       <div className="container relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -43,7 +43,7 @@ const StatsSection = () => {
               className="text-center"
             >
               <motion.div
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-2 font-heading"
+                className="text-3xl md:text-5xl lg:text-6xl font-bold text-accent mb-1 md:mb-2 font-heading"
                 initial={{ scale: 0.5 }}
                 animate={isInView ? { scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
