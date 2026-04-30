@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Zap, Monitor, Sun, ArrowUpRight, Lightbulb, AirVent, Settings } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
+import MobileCarousel from "@/components/MobileCarousel";
 import industrialPole from "@/assets/industrial-pole.jpg";
 import itPole from "@/assets/it-pole.jpg";
 import energyPole from "@/assets/energy-pole.jpg";
