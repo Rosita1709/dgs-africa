@@ -129,7 +129,7 @@ const PolesSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </MobileCarousel>
       </div>
     </section>
   );
