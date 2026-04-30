@@ -53,7 +53,7 @@ const PolesSection = () => {
   ];
 
   return (
-    <section className="py-10 md:py-16 bg-muted/30 relative overflow-hidden">
+    <section className="py-8 md:py-12 lg:py-16 bg-muted/30 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid" />
       
       <div className="container relative z-10">
@@ -62,7 +62,7 @@ const PolesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-8 md:mb-12"
+          className="text-center max-w-3xl mx-auto mb-6 md:mb-10"
         >
           <span className="inline-block text-accent font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3">
             {t('poles.label')}
@@ -75,8 +75,8 @@ const PolesSection = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: horizontal scroll / Desktop: grid */}
-        <MobileCarousel desktopClassName="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8">
+        {/* Mobile + Tablet: horizontal scroll / Desktop (lg+): grid */}
+        <MobileCarousel desktopClassName="lg:grid lg:grid-cols-3 lg:gap-8">
           {poles.map((pole, index) => (
             <motion.div
               key={index}
@@ -85,10 +85,10 @@ const PolesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: index * 0.15 }}
               whileHover={{ y: -8 }}
-              className="group relative bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-500 border border-border/50 hover:border-accent/30 min-w-[88%] md:min-w-0 snap-center"
+              className="group relative bg-card/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-card hover:shadow-premium transition-all duration-500 border border-border/50 hover:border-accent/30 min-w-[88%] sm:min-w-[60%] md:min-w-[44%] lg:min-w-0 snap-center"
             >
               {/* Image */}
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-44 md:h-52 overflow-hidden">
                 <motion.img
                   src={pole.image}
                   alt={pole.title}
