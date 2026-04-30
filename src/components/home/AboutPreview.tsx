@@ -16,160 +16,109 @@ const AboutPreview = () => {
   ];
 
   return (
-    <section className="py-16 relative overflow-hidden">
-      {/* Background decoration */}
+    <section className="py-10 md:py-16 relative overflow-hidden">
+      {/* Background decoration - desktop only */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-muted/30 -skew-x-12 origin-top-right hidden lg:block" />
-      
-      <div className="container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <div className="container relative z-10 px-4">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="min-w-0 w-full"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
+            className="min-w-0 w-full max-w-full"
           >
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4"
-            >
+            <span className="inline-block text-accent font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3">
               {t('about.label')}
-            </motion.span>
-            
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight break-words hyphens-auto"
-            >
+            </span>
+
+            <h2 className="font-heading text-[1.5rem] leading-[1.15] sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 break-words hyphens-auto">
               {t('about.title')}
-            </motion.h2>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-muted-foreground text-lg leading-relaxed mb-8"
-            >
+            </h2>
+
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-6 break-words">
               {t('about.description')}
-            </motion.p>
+            </p>
 
             {/* Values */}
-            <div className="grid grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-2 gap-3 mb-6">
               {values.map((value, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 group"
+                  className="flex items-center gap-2 min-w-0"
                 >
-                  <span className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                    <value.icon className="w-5 h-5 text-accent" />
+                  <span className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                    <value.icon className="w-4 h-4 text-accent" />
                   </span>
-                  <span className="font-medium text-foreground">{value.label}</span>
-                </motion.div>
+                  <span className="font-medium text-foreground text-sm truncate">{value.label}</span>
+                </div>
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <Button variant="default" size="lg" asChild className="group">
-                <Link to="/a-propos">
-                  {t('about.cta')}
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </motion.div>
+            <Button variant="default" size="lg" asChild className="group w-full sm:w-auto">
+              <Link to="/a-propos">
+                {t('about.cta')}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </motion.div>
 
           {/* Right - Feature cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
+          <div className="relative w-full min-w-0">
             <MobileCarousel desktopClassName="md:grid md:grid-cols-1 md:gap-6">
               {/* Mission card */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -4 }}
-                transition={{ duration: 0.3 }}
-                className="bg-card p-6 md:p-8 rounded-2xl shadow-card border border-border/50 hover:border-accent/30 transition-all min-w-[85%] md:min-w-0 snap-center"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
-                    <Target className="w-6 h-6 text-primary-foreground" />
+              <div className="bg-card p-5 md:p-8 rounded-2xl shadow-card border border-border/50 min-w-[85%] md:min-w-0 snap-center">
+                <div className="flex items-start gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+                    <Target className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xl mb-2">{t('about.mission.title')}</h3>
+                  <div className="min-w-0">
+                    <h3 className="font-heading font-bold text-lg mb-1.5">{t('about.mission.title')}</h3>
                     <p className="text-muted-foreground leading-relaxed text-sm">
                       {t('about.mission.text')}
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Vision card */}
-              <motion.div
-                whileHover={{ scale: 1.02, y: -4 }}
-                transition={{ duration: 0.3 }}
-                className="bg-card p-6 md:p-8 rounded-2xl shadow-card border border-border/50 hover:border-accent/30 transition-all min-w-[85%] md:min-w-0 snap-center"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
-                    <Shield className="w-6 h-6 text-accent-foreground" />
+              <div className="bg-card p-5 md:p-8 rounded-2xl shadow-card border border-border/50 min-w-[85%] md:min-w-0 snap-center">
+                <div className="flex items-start gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-5 h-5 text-accent-foreground" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xl mb-2">{t('about.vision.title')}</h3>
+                  <div className="min-w-0">
+                    <h3 className="font-heading font-bold text-lg mb-1.5">{t('about.vision.title')}</h3>
                     <p className="text-muted-foreground leading-relaxed text-sm">
                       {t('about.vision.text')}
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Stats mini card */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="bg-primary text-primary-foreground p-6 rounded-2xl shadow-premium min-w-[85%] md:min-w-0 snap-center"
-              >
+              <div className="bg-primary text-primary-foreground p-5 rounded-2xl shadow-premium min-w-[85%] md:min-w-0 snap-center">
                 <div className="flex items-center justify-between">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent">15+</div>
-                    <div className="text-sm text-primary-foreground/70">Années</div>
+                    <div className="text-2xl md:text-3xl font-bold text-accent">15+</div>
+                    <div className="text-xs text-primary-foreground/70">Années</div>
                   </div>
-                  <div className="w-px h-12 bg-primary-foreground/20" />
+                  <div className="w-px h-10 bg-primary-foreground/20" />
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent">50+</div>
-                    <div className="text-sm text-primary-foreground/70">Projets</div>
+                    <div className="text-2xl md:text-3xl font-bold text-accent">50+</div>
+                    <div className="text-xs text-primary-foreground/70">Projets</div>
                   </div>
-                  <div className="w-px h-12 bg-primary-foreground/20" />
+                  <div className="w-px h-10 bg-primary-foreground/20" />
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent">5+</div>
-                    <div className="text-sm text-primary-foreground/70">Pays</div>
+                    <div className="text-2xl md:text-3xl font-bold text-accent">5+</div>
+                    <div className="text-xs text-primary-foreground/70">Pays</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </MobileCarousel>
-
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
