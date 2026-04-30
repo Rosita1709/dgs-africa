@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Shield, Target, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
+import MobileCarousel from "@/components/MobileCarousel";
 
 const AboutPreview = () => {
   const { t } = useLanguage();
@@ -101,7 +102,7 @@ const AboutPreview = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="flex md:grid md:grid-cols-1 gap-4 md:gap-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+            <MobileCarousel desktopClassName="md:grid md:grid-cols-1 md:gap-6">
               {/* Mission card */}
               <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
@@ -165,7 +166,7 @@ const AboutPreview = () => {
                   </div>
                 </div>
               </motion.div>
-            </div>
+            </MobileCarousel>
 
           </motion.div>
         </div>
