@@ -94,7 +94,7 @@ const HeroSlider = () => {
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative h-screen min-h-[700px] max-h-[1000px] overflow-hidden">
+    <section className="relative h-[88vh] min-h-[560px] md:min-h-[700px] max-h-[1000px] overflow-hidden">
       {/* Background images with crossfade */}
       {slides.map((s, index) => (
         <motion.div
@@ -162,7 +162,7 @@ const HeroSlider = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-[1.1] mb-6"
+                className="font-heading text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-[1.1] mb-4 md:mb-6 break-words"
               >
                 {language === 'fr' ? slide.title : slide.titleEn}
               </motion.h1>
@@ -172,7 +172,7 @@ const HeroSlider = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-lg md:text-xl text-primary-foreground/75 mb-8 max-w-2xl leading-relaxed"
+                className="text-base md:text-xl text-primary-foreground/80 mb-6 md:mb-8 max-w-2xl leading-relaxed"
               >
                 {language === 'fr' ? slide.subtitle : slide.subtitleEn}
               </motion.p>
@@ -182,15 +182,15 @@ const HeroSlider = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-3"
               >
-                <Button variant="accent" size="lg" asChild className="group shadow-accent">
+                <Button variant="accent" size="lg" asChild className="group shadow-accent w-full sm:w-auto">
                   <Link to="/a-propos">
                     {t('hero.learnMore')}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button variant="hero-outline" size="lg" asChild className="group">
+                <Button variant="hero-outline" size="lg" asChild className="group w-full sm:w-auto">
                   <Link to="/contact">
                     {language === 'fr' ? 'Demander un devis' : 'Request a quote'}
                   </Link>

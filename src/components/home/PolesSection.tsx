@@ -53,7 +53,7 @@ const PolesSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-muted/30 relative overflow-hidden">
+    <section className="py-10 md:py-16 bg-muted/30 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid" />
       
       <div className="container relative z-10">
@@ -62,15 +62,15 @@ const PolesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center max-w-3xl mx-auto mb-8 md:mb-12"
         >
-          <span className="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block text-accent font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3">
             {t('poles.label')}
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-6 break-words">
             {t('poles.title')}
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
             {t('poles.subtitle')}
           </p>
         </motion.div>

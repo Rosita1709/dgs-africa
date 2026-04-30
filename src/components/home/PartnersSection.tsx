@@ -55,8 +55,8 @@ const PartnersSection = () => {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-16 bg-background overflow-hidden">
-      <div className="container space-y-14">
+    <section className="py-10 md:py-16 bg-background overflow-hidden">
+      <div className="container space-y-8 md:space-y-14">
         {/* Partners */}
         <div>
           <motion.div
@@ -64,9 +64,9 @@ const PartnersSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-14"
+            className="text-center mb-6 md:mb-14"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-3">
+            <h2 className="font-heading text-2xl md:text-4xl font-bold mb-3">
               <span className="text-gradient">{language === 'fr' ? 'Nos Partenaires' : 'Our Partners'}</span>
             </h2>
             <div className="w-16 h-1 bg-accent mx-auto rounded-full" />
@@ -119,9 +119,9 @@ const PartnersSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-14"
+            className="text-center mb-6 md:mb-14"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-3">
+            <h2 className="font-heading text-2xl md:text-4xl font-bold mb-3 break-words">
               {language === 'fr' ? 'Ils nous font confiance' : 'They trust us'}
             </h2>
             <div className="w-16 h-1 bg-border mx-auto rounded-full" />
