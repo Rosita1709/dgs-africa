@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Shield, Target, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
+import MobileCarousel from "@/components/MobileCarousel";
 
 const AboutPreview = () => {
   const { t } = useLanguage();
