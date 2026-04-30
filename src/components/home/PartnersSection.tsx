@@ -55,8 +55,8 @@ const PartnersSection = () => {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-10 md:py-16 bg-background overflow-hidden">
-      <div className="container space-y-8 md:space-y-14">
+    <section className="py-8 md:py-12 lg:py-16 bg-background overflow-hidden">
+      <div className="container space-y-6 md:space-y-10 lg:space-y-14">
         {/* Partners */}
         <div>
           <motion.div
@@ -64,7 +64,7 @@ const PartnersSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-6 md:mb-14"
+            className="text-center mb-4 md:mb-8"
           >
             <h2 className="font-heading text-2xl md:text-4xl font-bold mb-3">
               <span className="text-gradient">{language === 'fr' ? 'Nos Partenaires' : 'Our Partners'}</span>
@@ -119,7 +119,7 @@ const PartnersSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-6 md:mb-14"
+            className="text-center mb-4 md:mb-8"
           >
             <h2 className="font-heading text-2xl md:text-4xl font-bold mb-3 break-words">
               {language === 'fr' ? 'Ils nous font confiance' : 'They trust us'}
@@ -139,7 +139,7 @@ const PartnersSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8, scale: 1.05 }}
-                className="group flex flex-col items-center gap-4 min-w-[60%] md:min-w-0 snap-center"
+                className="group flex flex-col items-center gap-3 min-w-[55%] sm:min-w-[40%] md:min-w-0 snap-center"
                 title={client.name}
               >
                 <div className={`relative w-24 h-24 md:w-28 md:h-28 rounded-2xl ${client.logo ? 'bg-white' : `bg-gradient-to-br ${client.colors.bg}`} flex flex-col items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden`}>

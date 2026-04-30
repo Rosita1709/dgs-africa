@@ -15,7 +15,7 @@ const StatsSection = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="py-10 md:py-20 bg-primary relative overflow-hidden">
+    <section ref={sectionRef} className="py-8 md:py-12 lg:py-16 bg-primary relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <motion.div
@@ -33,7 +33,7 @@ const StatsSection = () => {
       </div>
       
       <div className="container relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}

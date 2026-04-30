@@ -9,7 +9,7 @@ const CTASection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-10 md:py-16 relative overflow-hidden">
+    <section className="py-8 md:py-12 lg:py-16 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-hero-premium" />
       <div className="absolute inset-0 bg-pattern opacity-50" />

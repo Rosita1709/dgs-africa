@@ -16,7 +16,7 @@ interface MobileCarouselProps {
 const MobileCarousel = ({
   children,
   className,
-  desktopClassName = "md:grid md:grid-cols-3 md:gap-8",
+  desktopClassName = "lg:grid lg:grid-cols-3 lg:gap-8",
 }: MobileCarouselProps) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
@@ -54,7 +54,7 @@ const MobileCarousel = ({
         ref={scrollerRef}
         className={cn(
           "flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4",
-          "md:overflow-x-visible md:snap-none md:pb-0 md:mx-0 md:px-0",
+          "lg:overflow-x-visible lg:snap-none lg:pb-0 lg:mx-0 lg:px-0",
           desktopClassName,
         )}
       >
@@ -68,7 +68,7 @@ const MobileCarousel = ({
         onClick={() => scrollBy(-1)}
         disabled={!canPrev}
         className={cn(
-          "md:hidden absolute left-1 top-1/2 -translate-y-1/2 z-20",
+          "lg:hidden absolute left-1 top-1/2 -translate-y-1/2 z-20",
           "w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg",
           "flex items-center justify-center transition-all duration-300",
           canPrev ? "opacity-100" : "opacity-0 pointer-events-none",
@@ -82,7 +82,7 @@ const MobileCarousel = ({
         onClick={() => scrollBy(1)}
         disabled={!canNext}
         className={cn(
-          "md:hidden absolute right-1 top-1/2 -translate-y-1/2 z-20",
+          "lg:hidden absolute right-1 top-1/2 -translate-y-1/2 z-20",
           "w-10 h-10 rounded-full bg-accent text-accent-foreground shadow-lg",
           "flex items-center justify-center transition-all duration-300",
           canNext ? "opacity-100" : "opacity-0 pointer-events-none",

@@ -16,12 +16,12 @@ const AboutPreview = () => {
   ];
 
   return (
-    <section className="py-10 md:py-16 relative overflow-hidden">
+    <section className="py-8 md:py-12 lg:py-16 relative overflow-hidden">
       {/* Background decoration - desktop only */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-muted/30 -skew-x-12 origin-top-right hidden lg:block" />
 
       <div className="container relative z-10 px-4">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-center">
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -67,9 +67,9 @@ const AboutPreview = () => {
 
           {/* Right - Feature cards */}
           <div className="relative w-full min-w-0">
-            <MobileCarousel desktopClassName="md:grid md:grid-cols-1 md:gap-6">
+            <MobileCarousel desktopClassName="md:flex md:flex-col md:gap-4 lg:gap-6">
               {/* Mission card */}
-              <div className="bg-card p-5 md:p-8 rounded-2xl shadow-card border border-border/50 min-w-[85%] md:min-w-0 snap-center">
+              <div className="bg-card p-5 md:p-6 rounded-2xl shadow-card border border-border/50 min-w-[85%] lg:min-w-0 snap-center">
                 <div className="flex items-start gap-3">
                   <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
                     <Target className="w-5 h-5 text-primary-foreground" />
@@ -84,7 +84,7 @@ const AboutPreview = () => {
               </div>
 
               {/* Vision card */}
-              <div className="bg-card p-5 md:p-8 rounded-2xl shadow-card border border-border/50 min-w-[85%] md:min-w-0 snap-center">
+              <div className="bg-card p-5 md:p-6 rounded-2xl shadow-card border border-border/50 min-w-[85%] lg:min-w-0 snap-center">
                 <div className="flex items-start gap-3">
                   <div className="w-11 h-11 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
                     <Shield className="w-5 h-5 text-accent-foreground" />
@@ -99,7 +99,7 @@ const AboutPreview = () => {
               </div>
 
               {/* Stats mini card */}
-              <div className="bg-primary text-primary-foreground p-5 rounded-2xl shadow-premium min-w-[85%] md:min-w-0 snap-center">
+              <div className="bg-primary text-primary-foreground p-5 rounded-2xl shadow-premium min-w-[85%] lg:min-w-0 snap-center">
                 <div className="flex items-center justify-between">
                   <div className="text-center">
                     <div className="text-2xl md:text-3xl font-bold text-accent">15+</div>
