@@ -76,7 +76,7 @@ const PolesSection = () => {
         </motion.div>
 
         {/* Mobile: horizontal scroll / Desktop: grid */}
-        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+        <MobileCarousel desktopClassName="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8">
           {poles.map((pole, index) => (
             <motion.div
               key={index}
